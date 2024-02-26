@@ -26,7 +26,6 @@
         "*.{js,ts,jsx,tsx}": [
             "eslint --fix",
             "eslint",
-            "vitest related --run",
             "prettier --write"
         ],
         "*.json": [
