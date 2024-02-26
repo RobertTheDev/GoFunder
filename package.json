@@ -29,6 +29,9 @@
             "vitest related --run",
             "prettier --write"
         ],
+        "*.css": [
+            "npx stylelint"
+        ],
         "*.json": [
             "prettier --write"
         ]
