@@ -17,8 +17,9 @@ export default interface IFundraiser {
     name: string;
     slug: string;
     target: number;
+    title: string;
     totalDonations: number;
     totalRaised: number;
-    user: IUser | null;
-    userId: string | null;
+    owner: IUser;
+    ownerId: string;
 }
