@@ -1,7 +1,9 @@
 .headerContainer {
     align-items: center;
     background-color: white;
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+    box-shadow:
+        0 4px 6px -1px rgb(0 0 0 / 10%),
+        0 2px 4px -2px rgb(0 0 0 / 10%);
     display: flex;
     height: 6.4rem;
     padding: 0 var(--spacer-lg1);
