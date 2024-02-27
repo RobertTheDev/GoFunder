@@ -1,10 +1,15 @@
-import Link from 'next/link';
+import fundraisers from '../../data/fundraisers';
+import FundraiserCard from './components/fundraiser/FundraiserCard';
+import styles from './page.module.css';
 
 export default function Page() {
     return (
-        <div>
-            <h1>Home</h1>
-            <Link href="/about">About</Link>
+        <div className={styles.pageContainer}>
+            <div className={styles.cardsContainer}>
+                {fundraisers.map(fundraiser => (
+                    <FundraiserCard key={fundraiser.id} {...fundraiser} />
+                ))}
+            </div>
         </div>
     );
 }
