@@ -6,11 +6,11 @@ export default interface IUser {
     createdAt: Date;
     updatedAt: Date;
     annonymous: boolean;
-    avatarUrl: string | null;
     defaultCurrency: string;
     donations: IDonation[];
     email: string | null;
     emailVerified: Date | null;
+    imageUrl: string | null;
     mfaSecret: string | null;
     mfaType: string | null;
     name: string;
