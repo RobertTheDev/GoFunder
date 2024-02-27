@@ -34,6 +34,18 @@
  :root {
      --blue: #1e90ff;
      --white: #fff;
+
+     /* Padding and margin variables */
+     --spacer-xs: 0.4rem;
+     --spacer-sm: 0.8rem;
+     --spacer-md1: 1.6rem;
+     --spacer-md2: 2.4rem;
+     --spacer-md3: 3.2rem;
+     --spacer-lg1: 4rem;
+     --spacer-lg2: 4.8rem;
+     --spacer-lg3: 5.6rem;
+     --spacer-xl1: 6.4rem;
+     --spacer-xl2: 8rem;
  }
 
  /* Box sizing rules */
@@ -98,8 +110,11 @@
  img,
  picture {
      display: block;
+     height: 20rem;
      max-width: 100%;
      object-fit: cover;
+     position: relative;
+     width: 20rem;
  }
 
  /* Inherit fonts for inputs and buttons */
@@ -131,4 +146,72 @@
  /* Anything that has been anchored to should have extra scroll margin */
  :target {
      scroll-margin-block: 5ex;
+ }
+
+
+ .primary-button {
+     background-color: royalblue;
+     border-radius: 0.4rem;
+     box-sizing: border-box;
+     color: white;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     font-size: 1.4rem;
+     font-weight: 500;
+     min-width: 24rem;
+     padding: 1.6rem;
+ }
+
+
+ h1 {
+     font-size: 6.8rem;
+     line-height: 1.2;
+ }
+
+ .small-button {
+     font-size: 1.2rem;
+     font-weight: 500;
+     height: 3.2rem;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     box-sizing: border-box;
+     border-radius: 0.8rem;
+     background-color: #8460ff;
+     color: white;
+     gap: 0.8rem;
+     padding: 0 1.6rem;
+ }
+
+ /* DEFAULT PRESSED HOVER DISABLED LOADING */
+
+ .medium-button {
+     font-size: 1.4rem;
+     font-weight: 500;
+     height: 4rem;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     box-sizing: border-box;
+     border-radius: 0.8rem;
+     background-color: #8460ff;
+     color: white;
+     gap: 0.8rem;
+     padding: 0 1.6rem;
+ }
+
+ .large-button {
+     font-size: 1.6rem;
+     font-weight: 500;
+     height: 4.8rem;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     box-sizing: border-box;
+     border-radius: 0.8rem;
+     background-color: #8460ff;
+     color: white;
+     gap: 0.8rem;
+     padding: 0 2.4rem;
  }

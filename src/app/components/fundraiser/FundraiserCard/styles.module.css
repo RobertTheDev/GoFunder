@@ -1,0 +1,72 @@
+ .cardContainer {
+     background-color: white;
+     border-radius: 0.8rem;
+     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -2px rgb(0 0 0 / 10%);
+     overflow: hidden;
+     width: 100%;
+ }
+
+ .imageContainer {
+     aspect-ratio: 16/9;
+     position: relative;
+     width: 100%;
+ }
+
+ .contentContainer {
+     display: flex;
+     flex-direction: column;
+     gap: 1.6rem;
+     padding: 1.6rem;
+ }
+
+ .ownerContainer {
+     display: flex;
+     gap: 0.8rem;
+     align-items: center;
+ }
+
+ .ownerImageContainer {
+     height: 4rem;
+     width: 4rem;
+     border-radius: 100%;
+     overflow: hidden;
+     position: relative;
+ }
+
+ .ownerNameText {
+     font-size: 1.4rem;
+     font-weight: 500;
+     position: relative;
+ }
+
+ .progressBarContainer {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+     gap: 0.4rem
+ }
+
+ .progressText {
+     font-size: 1.4rem;
+     font-weight: 500;
+ }
+
+ .progressBarTargetLine {
+     width: 100%;
+     position: relative;
+     height: 6px;
+     background-color: lightgray;
+     border-radius: 3px;
+     overflow: hidden;
+ }
+
+ .progressBarProgressLine {
+     background-color: #2ecc71;
+     position: absolute;
+ }
+
+ .titleText {
+     font-size: 1.8rem;
+     font-weight: 600;
+     position: relative;
+ }

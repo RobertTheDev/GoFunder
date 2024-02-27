@@ -1,0 +1,15 @@
+ .cardsContainer {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: var(--spacer-lg1);
+     padding: var(--spacer-lg1);
+     width: 100%;
+ }
+
+ .pageContainer {
+     background: whitesmoke;
+     display: flex;
+     flex-direction: column;
+     min-height: 100vh;
+     width: 100%;
+ }
