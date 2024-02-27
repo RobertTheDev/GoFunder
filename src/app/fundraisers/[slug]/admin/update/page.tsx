@@ -1,7 +1,7 @@
 export default function UpdateFundraiserPage() {
     return (
         <div>
-            <p>Update Fundraiser Page</p>
+            <h1>Update Fundraiser Page</h1>
         </div>
     );
 }
