@@ -1,7 +1,7 @@
 import { z, object, string } from 'zod';
 
-// Schema defines the fields required to sign in a user.
-export const signInSchema = object({
+// Schema defines the fields required to change an email.
+export const changeEmailSchema = object({
     email: string({
         invalid_type_error: 'Email must be of type string',
         required_error: 'Email is required'
@@ -10,13 +10,9 @@ export const signInSchema = object({
         .min(1, { message: 'Email is required' }),
     password: string({
         invalid_type_error: 'Password must be of type string',
-        required_error: 'Password must be at least 8 characters long'
-    })
-        .min(8, { message: 'Password must be at least 8 characters long' })
-        .max(20, {
-            message: 'Password must be no longer than 20 characters long'
-        })
+        required_error: 'Password is required'
+    }).min(1, { message: 'Password is required' })
 });
 
 // Infers the schema as a TypeScipt type.
-export type SignInSchemaType = z.infer<typeof signInSchema>;
+export type ChangeEmailSchemaType = z.infer<typeof changeEmailSchema>;
