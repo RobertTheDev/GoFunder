@@ -1,7 +1,7 @@
 export default function FundraiserPage() {
     return (
         <div>
-            <p>Fundraiser Page</p>
+            <h1>Fundraiser Page</h1>
         </div>
     );
 }

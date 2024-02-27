@@ -1,7 +1,7 @@
 export default function DeleteFundraiserPage() {
     return (
         <div>
-            <p>Delete Fundraiser Page</p>
+            <h1>Delete Fundraiser Page</h1>
         </div>
     );
 }
