@@ -3,7 +3,8 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "build": "next build",
+        "n": "ts-node --transpile-only --compiler-options '{\"module\":\"CommonJS\"}' ./src/app/api/graphql/schema",
+        "build": "npm run build:nexus-typegen && next build",
         "commit": "git-cz",
         "dev": "next dev",
         "format:check": "prettier . --check",
@@ -41,8 +42,6 @@
         "@playwright/test": "^1.41.2",
         "@vitejs/plugin-react": "^4.2.1",
         "autoprefixer": "^10.4.17",
-        "graphql": "^16.8.1",
-        "graphql-yoga": "^5.1.1",
         "next": "14.1.0",
         "react": "^18",
         "react-dom": "^18",
@@ -79,6 +78,7 @@
         "prettier": "^3.2.5",
         "stylelint": "^16.2.1",
         "stylelint-config-standard": "^36.0.0",
+        "ts-node": "^10.9.2",
         "typescript": "^5"
     }
 }
