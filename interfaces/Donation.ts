@@ -7,9 +7,9 @@ export default interface IDonation {
     updatedAt: Date;
     amount: number;
     currency: string;
-    fundraiser: IFundraiser | null;
+    fundraiser: IFundraiser;
     fundraiserId: string;
     message: string | null;
-    user: IUser | null;
+    user: IUser;
     userId: string;
 }

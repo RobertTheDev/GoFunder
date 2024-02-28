@@ -1,5 +1,4 @@
 import IDonation from './Donation';
-import IFundraiserOwner from './FundraiserOwner';
 import IUser from './User';
 
 export default interface IFundraiser {
@@ -11,15 +10,12 @@ export default interface IFundraiser {
     defaultCurrency: string;
     description: string | null;
     donations: IDonation[];
-    fundraiserOwners: IFundraiserOwner[];
-    headline: string;
-    imageUrl: string;
+    image: string;
     name: string;
-    slug: string;
-    target: number;
-    title: string;
-    totalDonations: number;
-    totalRaised: number;
     owner: IUser;
     ownerId: string;
+    slug: string;
+    target: number;
+    totalDonations: number;
+    totalRaised: number;
 }
