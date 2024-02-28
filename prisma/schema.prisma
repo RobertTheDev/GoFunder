@@ -1,0 +1,91 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Donation {
+  id           String     @id @default(cuid()) // Unique identifier for the donation.
+  createdAt    DateTime   @default(now()) @map("created_at") // Date and time when the donation was created.
+  updatedAt    DateTime   @updatedAt @map("updated_at") // Date and time when the donation was last updated.
+  amount       Int // Amount of the donation.
+  currency     String     @default("GBP") // Currency of the donation.
+  fundraiser   Fundraiser @relation(fields: [fundraiserId], references: [id]) // Reference to the associated fundraiser.
+  fundraiserId String     @map("fundraiser_id") // Foreign key to the fundraiser.
+  message      String? // Additional message associated with the donation.
+  user         User       @relation(fields: [userId], references: [id]) // Reference to the associated user.
+  userId       String     @map("user_id") // Foreign key to the user.
+
+  @@map("donations")
+}
+
+model Fundraiser {
+  id               String            @id @default(cuid()) // Unique identifier for the fundraiser.
+  createdAt        DateTime          @default(now()) @map("created_at") // Date and time when the fundraiser was created.
+  updatedAt        DateTime          @updatedAt @map("updated_at") // Date and time when the fundraiser was last updated.
+  category         String // Category of the fundraiser.
+  deadlineDate     DateTime?         @map("deadline_date") // Deadline date and time of the fundraiser.
+  defaultCurrency  String            @default("GBP") @map("default_currency") // Default currency for the fundraiser.
+  description      String? // Story or description of the fundraiser.
+  donations        Donation[] // List of donations for the fundraiser.
+  image            String // URL to the image associated with the fundraiser.
+  name             String
+  owner            User              @relation(fields: [userId], references: [id])
+  ownerId          String            @map("owner_id")
+  savedFundraisers SavedFundraiser[] // List of saved fundraisers.
+  slug             String            @unique @default(cuid()) // Unique slug url for the fundraiser.
+  target           Int // Fundraising target amount.
+  totalDonations   Int               @default(0) @map("total_donations") // Total number of donations received.
+  totalRaised      Int               @default(0) @map("total_raised") // Total amount raised.
+  userId           String
+
+  @@map("fundraisers")
+}
+
+model SavedFundraiser {
+  id           String     @id @default(cuid()) // Unique identifier for the saved fundraiser.
+  createdAt    DateTime   @default(now()) @map("created_at") // Date and time when the saved fundraiser was created.
+  updatedAt    DateTime   @updatedAt @map("updated_at") // Date and time when the saved fundraiser was last updated.
+  fundraiser   Fundraiser @relation(fields: [fundraiserId], references: [id], onDelete: Cascade) // Reference to the associated fundraiser.
+  fundraiserId String     @map("fundraiser_id") // Foreign key to the fundraiser.
+  user         User       @relation(fields: [userId], references: [id], onDelete: Cascade) // Reference to the associated user.
+  userId       String     @map("user_id") // Foreign key to the user.
+
+  @@unique([fundraiserId, userId]) // Ensure a user can save a fundraiser only once.
+  @@map("saved_fundraisers")
+}
+
+model User {
+  id                           String            @id @default(cuid()) // Unique identifier for the user.
+  createdAt                    DateTime          @default(now()) @map("created_at") // Date and time when the user was created.
+  updatedAt                    DateTime          @updatedAt @map("updated_at") // Date and time when the user was last updated.
+  annonymous                   Boolean           @default(false) // Indicates whether the user is anonymous.
+  defaultCurrency              String            @default("GBP") @map("default_currency") // Default currency for the user.
+  donations                    Donation[] // List of donations made by the user.
+  email                        String?           @unique // User's email address (unique).
+  emailVerificationToken       String?           @map("email_verification_token")
+  emailVerificationTokenExpiry DateTime?         @map("email_verification_token_expiry")
+  emailVerified                DateTime?         @map("email_verified") // Date and time when the user's email was verified (optional).
+  fundraisers                  Fundraiser[]
+  image                        String? // URL to the user's avatar image (optional).
+  mfaSecret                    String?           @map("mfa_secret") // Secret key for TOTP or mobile verification.
+  mfaType                      String?           @map("mfa_type") // MFA type chosen by the user ("TOTP" or "Mobile").
+  name                         String // User's name.
+  password                     String? // Hashed password for authentication. (optional)
+  passwordResetToken           String?           @map("passwordResetToken")
+  passwordResetTokenExpiry     DateTime?         @map("passwordResetTokenExpiry")
+  savedFundraisers             SavedFundraiser[] // List of fundraisers saved by the user.
+  totalCharitesOwned           Int               @default(0) @map("total_charities_owned") // Total number of charities owned by the user.
+  totalDonationsAmount         Int               @default(0) @map("total_donations_amount") // Total amount donated by the user.
+  totalDonationsMade           Int               @default(0) @map("total_donations_made") // Total number of donations made by the user.
+  totalFundraisersOwned        Int               @default(0) @map("total_fundraisers_owned") // Total number of fundraisers owned by the user.
+  username                     String            @unique @default(cuid())
+
+  @@map("users")
+}
