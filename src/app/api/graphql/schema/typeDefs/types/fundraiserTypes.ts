@@ -2,8 +2,9 @@ import gql from 'graphql-tag';
 
 export const fundraiserTypes = gql`
     type Fundraiser {
-        id: String
-        title: String
+        id: String!
+        image: String!
+        name: String!
     }
 
     type Query {
