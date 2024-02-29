@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql';
 import { User } from '@prisma/client';
 import { prismaClient } from '../../db/prisma/prismaClient';
-import { resetPasswordSchema } from '../../../../../validations/auth/resetPassword.schema';
+import { resetPasswordSchema } from '../../../validations/auth/resetPassword.schema';
 
 export default async function resetPasswordController(
     input: unknown

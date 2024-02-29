@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql';
 import { User } from '@prisma/client';
 import { prismaClient } from '../../db/prisma/prismaClient';
-import { verifyTotpCodeSchema } from '../../../../../validations/account-settings/verifyTotpCode.schema';
+import { verifyTotpCodeSchema } from '../../../validations/account-settings/verifyTotpCode.schema';
 
 export default async function verifyTotpController(
     input: unknown

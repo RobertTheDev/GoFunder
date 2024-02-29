@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import {
     SignInSchemaType,
     signInSchema
-} from '../../../../../validations/auth/signIn.schema';
+} from '../../../validations/auth/signIn.schema';
 
 export default function SignInForm() {
     const {

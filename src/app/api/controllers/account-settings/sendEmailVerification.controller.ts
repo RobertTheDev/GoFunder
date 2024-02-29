@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql';
 import { User } from '@prisma/client';
 import { prismaClient } from '../../db/prisma/prismaClient';
-import { sendEmailVerficationSchema } from '../../../../../validations/account-settings/sendEmailVerification.schema';
+import { sendEmailVerficationSchema } from '../../../validations/account-settings/sendEmailVerification.schema';
 
 export default async function sendEmailVerificationController(
     input: unknown
