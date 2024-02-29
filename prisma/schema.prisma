@@ -11,16 +11,16 @@ datasource db {
 }
 
 model Donation {
-  id           String     @id @default(cuid()) // Unique identifier for the donation.
-  createdAt    DateTime   @default(now()) @map("created_at") // Date and time when the donation was created.
-  updatedAt    DateTime   @updatedAt @map("updated_at") // Date and time when the donation was last updated.
+  id           String      @id @default(cuid()) // Unique identifier for the donation.
+  createdAt    DateTime    @default(now()) @map("created_at") // Date and time when the donation was created.
+  updatedAt    DateTime    @updatedAt @map("updated_at") // Date and time when the donation was last updated.
   amount       Int // Amount of the donation.
-  currency     String     @default("GBP") // Currency of the donation.
-  fundraiser   Fundraiser @relation(fields: [fundraiserId], references: [id]) // Reference to the associated fundraiser.
-  fundraiserId String     @map("fundraiser_id") // Foreign key to the fundraiser.
+  currency     String      @default("GBP") // Currency of the donation.
+  fundraiser   Fundraiser? @relation(fields: [fundraiserId], references: [id]) // Reference to the associated fundraiser.
+  fundraiserId String      @map("fundraiser_id") // Foreign key to the fundraiser.
   message      String? // Additional message associated with the donation.
-  user         User       @relation(fields: [userId], references: [id]) // Reference to the associated user.
-  userId       String     @map("user_id") // Foreign key to the user.
+  user         User?       @relation(fields: [userId], references: [id]) // Reference to the associated user.
+  userId       String      @map("user_id") // Foreign key to the user.
 
   @@map("donations")
 }
@@ -36,7 +36,7 @@ model Fundraiser {
   donations        Donation[] // List of donations for the fundraiser.
   image            String // URL to the image associated with the fundraiser.
   name             String
-  owner            User              @relation(fields: [userId], references: [id])
+  owner            User?             @relation(fields: [userId], references: [id])
   ownerId          String            @map("owner_id")
   savedFundraisers SavedFundraiser[] // List of saved fundraisers.
   slug             String            @unique @default(cuid()) // Unique slug url for the fundraiser.
