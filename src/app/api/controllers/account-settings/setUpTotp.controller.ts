@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql';
 import { User } from '@prisma/client';
 import { prismaClient } from '../../db/prisma/prismaClient';
-import { setUpTotpCodeSchema } from '../../../validations/account-settings/setUpTotp.schema';
+import { setUpTotpCodeSchema } from '../../../lib/validations/account-settings/setUpTotp.schema';
 
 export default async function setUpTotpController(
     input: unknown

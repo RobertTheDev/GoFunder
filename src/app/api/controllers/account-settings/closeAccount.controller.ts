@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql';
 import { User } from '@prisma/client';
 import { prismaClient } from '../../db/prisma/prismaClient';
-import { closeAccountSchema } from '../../../validations/account-settings/closeAccount.schema';
+import { closeAccountSchema } from '../../../lib/validations/account-settings/closeAccount.schema';
 
 export default async function closeAccountController(
     input: unknown

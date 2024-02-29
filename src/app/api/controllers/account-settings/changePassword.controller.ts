@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql';
 import { User } from '@prisma/client';
 import { prismaClient } from '../../db/prisma/prismaClient';
-import { changePasswordSchema } from '../../../validations/account-settings/changePassword.schema';
+import { changePasswordSchema } from '../../../lib/validations/account-settings/changePassword.schema';
 
 export default async function changePasswordController(
     input: unknown

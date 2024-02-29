@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql';
 import { User } from '@prisma/client';
 import { prismaClient } from '../../db/prisma/prismaClient';
-import { updateProfileSchema } from '../../../validations/account-settings/updateProfile.schema';
+import { updateProfileSchema } from '../../../lib/validations/account-settings/updateProfile.schema';
 
 export default async function updateProfileController(
     input: unknown

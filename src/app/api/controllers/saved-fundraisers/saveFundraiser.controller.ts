@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql';
 import { SavedFundraiser } from '@prisma/client';
 import { prismaClient } from '../../db/prisma/prismaClient';
-import { saveFundraiserSchema } from '../../../validations/saved-fundraiser/saveFundraiser.schema';
+import { saveFundraiserSchema } from '../../../lib/validations/saved-fundraiser/saveFundraiser.schema';
 
 export default async function saveFundraiserController(
     input: unknown

@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql';
 import { User } from '@prisma/client';
 import { prismaClient } from '../../db/prisma/prismaClient';
-import { signInSchema } from '../../../validations/auth/signIn.schema';
+import { signInSchema } from '../../../lib/validations/auth/signIn.schema';
 
 export default async function signInController(
     input: unknown

@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql';
 import { Donation } from '@prisma/client';
 import { prismaClient } from '../../db/prisma/prismaClient';
-import { createDonationSchema } from '../../../validations/donation/createDonation.schema';
+import { createDonationSchema } from '../../../lib/validations/donation/createDonation.schema';
 
 export default async function createDonationController(
     input: unknown

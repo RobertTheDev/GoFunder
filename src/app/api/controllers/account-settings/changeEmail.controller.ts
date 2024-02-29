@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql';
 import { User } from '@prisma/client';
 import { prismaClient } from '../../db/prisma/prismaClient';
-import { changeEmailSchema } from '../../../validations/account-settings/changeEmail.schema';
+import { changeEmailSchema } from '../../../lib/validations/account-settings/changeEmail.schema';
 
 export default async function changeEmailController(
     input: unknown

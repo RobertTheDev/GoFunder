@@ -1,7 +1,7 @@
 import { GraphQLError } from 'graphql';
 import { Fundraiser } from '@prisma/client';
 import { prismaClient } from '../../db/prisma/prismaClient';
-import { updateFundraiserSchema } from '../../../validations/fundraiser/updateFundraiser.schema';
+import { updateFundraiserSchema } from '../../../lib/validations/fundraiser/updateFundraiser.schema';
 
 export default async function updateFundraiserController(
     input: unknown,
