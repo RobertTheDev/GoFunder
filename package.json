@@ -48,6 +48,7 @@
         "@playwright/test": "^1.41.2",
         "@prisma/client": "5.10.2",
         "@vitejs/plugin-react": "^4.2.1",
+        "argon2": "^0.40.1",
         "autoprefixer": "^10.4.17",
         "graphql": "^16.8.1",
         "graphql-tag": "^2.12.6",
