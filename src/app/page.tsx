@@ -1,16 +1,37 @@
-import fundraisers from '../../data/fundraisers';
+import { getClient } from '@/apolloClient';
+import { gql } from '@apollo/client';
+import { Fundraiser } from '@prisma/client';
 import FundraiserCard from './components/fundraiser/FundraiserCard';
-import styles from './page.module.css';
 
-export default function HomePage() {
+const GET_FUNDRAISERS = gql`
+    query getFundraisers {
+        fundraisers {
+            id
+            image
+            name
+        }
+    }
+`;
+
+export default async function HomePage() {
+    const client = getClient();
+
+    const {
+        loading,
+        error,
+        data: { fundraisers }
+    } = await client.query({
+        query: GET_FUNDRAISERS
+    });
+
+    if (error) return <p>There was an error</p>;
+    if (loading) return <p>Loading...</p>;
+
     return (
-        <div className={styles.pageContainer}>
-            <h1>Home</h1>
-            <div className={styles.cardsContainer}>
-                {fundraisers.map(fundraiser => (
-                    <FundraiserCard key={fundraiser.id} {...fundraiser} />
-                ))}
-            </div>
+        <div>
+            {fundraisers.map((fundraiser: Fundraiser) => (
+                <FundraiserCard {...fundraiser} key={fundraiser.id} />
+            ))}
         </div>
     );
 }
