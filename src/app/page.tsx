@@ -1,4 +1,4 @@
-import { getClient } from '@/apolloClient';
+import { getClient } from '@/app/lib/apollo/apolloClient';
 import { gql } from '@apollo/client';
 import { Fundraiser } from '@prisma/client';
 import FundraiserCard from './components/fundraiser/FundraiserCard';

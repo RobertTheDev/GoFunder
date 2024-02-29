@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { ReactNode } from 'react';
-import { ApolloWrapper } from './ApolloWrapper';
+import { ApolloWrapper } from './lib/apollo/ApolloWrapper';
 import PageLayout from './components/layout/PageLayout';
 
 const inter = Inter({ subsets: ['latin'] });
