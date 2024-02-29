@@ -1,44 +1,18 @@
 'use client';
 
+import { Fundraiser } from '@prisma/client';
 import Image from 'next/image';
-import IFundraiser from '../../../../../interfaces/Fundraiser';
+import Link from 'next/link';
 
-export default function FundraiserCard(fundraiser: IFundraiser) {
-    const { imageUrl, owner, target, title, totalRaised } = fundraiser;
+export default function FundraiserCard(fundraiser: Fundraiser) {
+    const { id, image, name } = fundraiser;
 
     return (
-        <div>
+        <Link href={`fundraisers/${id}`}>
             <div>
-                <Image alt={title} fill src={imageUrl} />
+                <Image src={image} alt={name} height={200} width={200} />
+                <p>{name}</p>
             </div>
-            <div>
-                <div>
-                    <p>{title}</p>
-                </div>
-                <div>
-                    <div>
-                        {owner.imageUrl ? (
-                            <Image src={owner.imageUrl} alt={owner.name} fill />
-                        ) : (
-                            <Image src="dd" alt={owner.name} fill />
-                        )}
-                    </div>
-
-                    <p>{owner.name}</p>
-                </div>
-                <div>
-                    <div>
-                        <svg
-                            height="100%"
-                            width={`${(totalRaised / target) * 100}%`}
-                        />
-                    </div>
-                    <p>
-                        £{totalRaised.toLocaleString()} raised of target £
-                        {target}
-                    </p>
-                </div>
-            </div>
-        </div>
+        </Link>
     );
 }
