@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { ReactNode } from 'react';
 import { ApolloWrapper } from './ApolloWrapper';
+import PageLayout from './components/layout/PageLayout';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -19,7 +20,9 @@ export default function RootLayout({
     return (
         <html lang="en">
             <ApolloWrapper>
-                <body className={inter.className}>{children}</body>
+                <body className={inter.className}>
+                    <PageLayout>{children}</PageLayout>
+                </body>
             </ApolloWrapper>
         </html>
     );
