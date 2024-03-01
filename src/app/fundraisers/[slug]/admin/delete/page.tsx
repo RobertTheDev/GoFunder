@@ -1,3 +1,9 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Delete Fundraiser'
+};
+
 export default function DeleteFundraiserPage() {
     return (
         <div>

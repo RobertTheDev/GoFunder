@@ -1,3 +1,9 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Update Fundraiser'
+};
+
 export default function UpdateFundraiserPage() {
     return (
         <div>

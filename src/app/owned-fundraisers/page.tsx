@@ -1,3 +1,9 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Owned Fundraisers'
+};
+
 export default function OwnedFundraisersPage() {
     return (
         <div>

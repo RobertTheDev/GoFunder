@@ -1,3 +1,9 @@
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'Verify TOTP'
+};
+
 export default function VerifyTotpPage() {
     return (
         <div>
