@@ -3,20 +3,9 @@
 import Link from 'next/link';
 import ProfileMenu from '../../profile/ProfileMenu';
 import { StyledHeaderContainer, StyledHeaderLogo } from './styles';
+import headerLinks from './headerLinks';
 
 export default function Header() {
-    const headerLinks: {
-        href: string;
-        name: string;
-    }[] = [
-        {
-            href: '/about',
-            name: 'About'
-        },
-        { href: '/', name: 'Find Fundraisers' },
-        { href: '/create-fundraiser', name: 'Create A Fundraiser' }
-    ];
-
     return (
         <StyledHeaderContainer>
             <StyledHeaderLogo href="/">GoFunder</StyledHeaderLogo>
