@@ -217,6 +217,10 @@ select {
     font: inherit;
 }
 
+main {
+    flex: 1
+}
+
 ol,
 ul {
     list-style: none;
