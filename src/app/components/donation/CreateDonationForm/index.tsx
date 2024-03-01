@@ -30,7 +30,10 @@ export default function CreateDonationForm() {
         >
             <label htmlFor="amount">
                 Amount:
-                <input type="number" {...register('amount')} />
+                <input
+                    type="number"
+                    {...register('amount', { valueAsNumber: true })}
+                />
                 {errors?.amount && <p>{errors.amount.message}</p>}
             </label>
             <br />
