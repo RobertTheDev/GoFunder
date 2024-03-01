@@ -4,6 +4,7 @@ import './globals.css';
 import { ReactNode } from 'react';
 import { ApolloWrapper } from './lib/apollo/ApolloWrapper';
 import PageLayout from './components/layout/PageLayout';
+import StyledComponentsRegistry from './lib/styled-components/registry';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,7 +22,9 @@ export default function RootLayout({
         <html lang="en">
             <ApolloWrapper>
                 <body className={inter.className}>
-                    <PageLayout>{children}</PageLayout>
+                    <StyledComponentsRegistry>
+                        <PageLayout>{children}</PageLayout>
+                    </StyledComponentsRegistry>
                 </body>
             </ApolloWrapper>
         </html>

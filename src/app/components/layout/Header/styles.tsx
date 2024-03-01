@@ -1,4 +1,7 @@
-.headerContainer {
+import Link from 'next/link';
+import styled from 'styled-components';
+
+export const StyledHeaderContainer = styled.header`
     align-items: center;
     background-color: white;
     box-shadow:
@@ -11,11 +14,11 @@
     top: 0;
     width: 100%;
     z-index: 22;
-}
+`;
 
-.headerLogo {
+export const StyledHeaderLogo = styled(Link)`
     color: black;
     font-size: 1.8rem;
     font-weight: 600;
     text-decoration: none;
-}
+`;

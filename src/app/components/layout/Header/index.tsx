@@ -1,6 +1,8 @@
+'use client';
+
 import Link from 'next/link';
-import styles from './styles.module.css';
 import ProfileMenu from '../../profile/ProfileMenu';
+import { StyledHeaderContainer, StyledHeaderLogo } from './styles';
 
 export default function Header() {
     const headerLinks: {
@@ -16,10 +18,8 @@ export default function Header() {
     ];
 
     return (
-        <header className={styles.headerContainer}>
-            <Link className={styles.headerLogo} href="/">
-                GoFunder
-            </Link>
+        <StyledHeaderContainer>
+            <StyledHeaderLogo href="/">GoFunder</StyledHeaderLogo>
             <nav>
                 {headerLinks.map(({ href, name }) => (
                     <Link key={name} href={href}>
@@ -32,6 +32,6 @@ export default function Header() {
                 <button type="button">Profile</button>
                 <ProfileMenu />
             </div>
-        </header>
+        </StyledHeaderContainer>
     );
 }
