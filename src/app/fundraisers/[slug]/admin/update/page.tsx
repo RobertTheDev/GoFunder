@@ -1,3 +1,4 @@
+import UpdateFundraiserForm from '@/app/components/fundraiser/UpdateFundraiserForm';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -8,6 +9,7 @@ export default function UpdateFundraiserPage() {
     return (
         <div>
             <h1>Update Fundraiser Page</h1>
+            <UpdateFundraiserForm />
         </div>
     );
 }
