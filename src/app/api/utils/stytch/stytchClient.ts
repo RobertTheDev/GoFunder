@@ -1,4 +1,4 @@
-import stytch from 'stytch';
+import * as stytch from 'stytch';
 
 // Define the stytch client using your stytch project id & secret.
 // Use stytch.envs.live if you want to hit the live api.
