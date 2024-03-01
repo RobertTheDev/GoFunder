@@ -34,13 +34,14 @@ export default function SignInForm() {
                 {errors?.email && <p>{errors.email.message}</p>}
             </label>
             <br />
-            <label htmlFor="password">
-                Password:
-                <input type="password" {...register('password')} />
-                {errors.password?.message && <p>{errors.password?.message}</p>}
-            </label>
-            <br />
             <button type="submit">Sign In</button>
+            <br />
+            <button type="submit">Sign In With Facebook</button>
+            <br />
+            <button type="submit">Sign In With Github</button>
+            <br />
+            <button type="submit">Sign In With Google</button>
+            <br />
         </form>
     );
 }
