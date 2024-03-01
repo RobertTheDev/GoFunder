@@ -12,9 +12,8 @@ export const createDonationSchema = object({
         invalid_type_error: 'Annonymous must be of type boolean'
     }).optional(),
     message: string({
-        invalid_type_error: 'Message must be of type boolean',
-        required_error: 'Message is required'
-    }).min(1, 'Message is required')
+        invalid_type_error: 'Message must be of type boolean'
+    }).optional()
 });
 
 // Infers the schema as a TypeScipt type.
