@@ -6,10 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function ChangePasswordPage() {
-    return (
-        <div>
-            <h1>Change Password</h1>
-            <ChangePasswordForm />
-        </div>
-    );
+    return <ChangePasswordForm />;
 }
