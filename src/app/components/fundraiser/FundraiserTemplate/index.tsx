@@ -1,15 +1,20 @@
 'use client';
 
-import { Fundraiser } from '@prisma/client';
-import Image from 'next/image';
+import { useParams, useRouter } from 'next/navigation';
 
-export default function FundraiserTemplate(fundraiser: Fundraiser) {
-    const { image, name } = fundraiser;
+export default function FundraiserTemplate() {
+    const router = useRouter();
+
+    const route = useParams();
 
     return (
         <div>
-            <Image src={image} alt={name} height={200} width={200} />
-            <p>{name}</p>
+            <button
+                type="button"
+                onClick={() => router.push(`/fundraisers/${route.slug}/donate`)}
+            >
+                Donate
+            </button>
         </div>
     );
 }
