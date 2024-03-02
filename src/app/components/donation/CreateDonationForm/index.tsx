@@ -5,7 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import {
     CreateDonationSchemaType,
     createDonationSchema
-} from '@/app/lib/validations/donation/createDonation.schema';
+} from './createDonation.schema';
 
 export default function CreateDonationForm() {
     const {
