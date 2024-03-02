@@ -1,4 +1,5 @@
 import ChangeEmailForm from '@/app/components/account-settings/ChangeEmailForm';
+import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function ChangeEmailPage() {
-    return <ChangeEmailForm />;
+    return (
+        <AccountSettingsPageTemplate>
+            <ChangeEmailForm />
+        </AccountSettingsPageTemplate>
+    );
 }

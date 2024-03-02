@@ -1,4 +1,5 @@
 import CloseAccountForm from '@/app/components/account-settings/CloseAccountForm';
+import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function CloseAccountPage() {
-    return <CloseAccountForm />;
+    return (
+        <AccountSettingsPageTemplate>
+            <CloseAccountForm />
+        </AccountSettingsPageTemplate>
+    );
 }

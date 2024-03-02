@@ -1,4 +1,5 @@
 import SetUpTotpForm from '@/app/components/account-settings/SetUpTotpForm';
+import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function SetUpTotpPage() {
-    return <SetUpTotpForm />;
+    return (
+        <AccountSettingsPageTemplate>
+            <SetUpTotpForm />
+        </AccountSettingsPageTemplate>
+    );
 }

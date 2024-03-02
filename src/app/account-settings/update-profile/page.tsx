@@ -1,4 +1,5 @@
 import UpdateProfileForm from '@/app/components/account-settings/UpdateProfileForm';
+import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function UpdateProfilePage() {
-    return <UpdateProfileForm />;
+    return (
+        <AccountSettingsPageTemplate>
+            <UpdateProfileForm />
+        </AccountSettingsPageTemplate>
+    );
 }

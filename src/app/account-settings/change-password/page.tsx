@@ -1,4 +1,5 @@
 import ChangePasswordForm from '@/app/components/account-settings/ChangePasswordForm/ChangePasswordForm';
+import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,5 +7,9 @@ export const metadata: Metadata = {
 };
 
 export default function ChangePasswordPage() {
-    return <ChangePasswordForm />;
+    return (
+        <AccountSettingsPageTemplate>
+            <ChangePasswordForm />
+        </AccountSettingsPageTemplate>
+    );
 }
