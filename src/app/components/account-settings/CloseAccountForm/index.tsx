@@ -23,24 +23,52 @@ export default function CloseAccountForm() {
 
     return (
         <form
+            className="account-settings-form-container"
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleCloseAcount(values);
             })}
         >
-            <label htmlFor="confirm">
-                Confirm:
-                <input type="text" {...register('confirm')} />
-                {errors?.confirm && <p>{errors.confirm.message}</p>}
+            <span className="account-settings-form-title">Close Account</span>
+            <label
+                className="account-settings-form-label-container"
+                htmlFor="confirm"
+            >
+                <span className="account-settings-form-label-text">
+                    Confirm
+                </span>
+                <input
+                    className="account-settings-form-input"
+                    type="text"
+                    {...register('confirm')}
+                />
+                {errors?.confirm && (
+                    <span className="account-settings-form-error-text">
+                        {errors.confirm.message}
+                    </span>
+                )}
             </label>
-            <br />
-            <label htmlFor="password">
-                Email:
-                <input type="password" {...register('password')} />
-                {errors?.password && <p>{errors.password.message}</p>}
+
+            <label
+                className="account-settings-form-label-container"
+                htmlFor="password"
+            >
+                <span className="account-settings-form-label-text">Email</span>
+                <input
+                    className="account-settings-form-input"
+                    type="password"
+                    {...register('password')}
+                />
+                {errors?.password && (
+                    <span className="account-settings-form-error-text">
+                        {errors.password.message}
+                    </span>
+                )}
             </label>
-            <br />
-            <button type="submit">Close Account</button>
+
+            <button className="account-settings-form-button" type="submit">
+                Close Account
+            </button>
         </form>
     );
 }

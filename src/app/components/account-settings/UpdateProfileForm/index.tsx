@@ -23,24 +23,52 @@ export default function UpdateProfileForm() {
 
     return (
         <form
+            className="account-settings-form-container"
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleCloseAcount(values);
             })}
         >
-            <label htmlFor="name">
-                Name:
-                <input type="text" {...register('name')} />
-                {errors?.name && <p>{errors.name.message}</p>}
+            <span className="account-settings-form-title">Update Profile</span>
+            <label
+                className="account-settings-form-label-container"
+                htmlFor="name"
+            >
+                <span className="account-settings-form-label-text">Name</span>
+                <input
+                    className="account-settings-form-input"
+                    type="text"
+                    {...register('name')}
+                />
+                {errors?.name && (
+                    <span className="account-settings-form-error-text">
+                        {errors.name.message}
+                    </span>
+                )}
             </label>
-            <br />
-            <label htmlFor="annonymous">
-                Annonymous:
-                <input type="checkbox" {...register('annonymous')} />
-                {errors?.annonymous && <p>{errors.annonymous.message}</p>}
+
+            <label
+                className="account-settings-form-label-container"
+                htmlFor="annonymous"
+            >
+                <span className="account-settings-form-label-text">
+                    Annonymous
+                </span>
+                <input
+                    className="account-settings-form-checkbox"
+                    type="checkbox"
+                    {...register('annonymous')}
+                />
+                {errors?.annonymous && (
+                    <span className="account-settings-form-error-text">
+                        {errors.annonymous.message}
+                    </span>
+                )}
             </label>
-            <br />
-            <button type="submit">Update Profile</button>
+
+            <button className="account-settings-form-button" type="submit">
+                Update Profile
+            </button>
         </form>
     );
 }

@@ -23,18 +23,32 @@ export default function VerifyTotpForm() {
 
     return (
         <form
+            className="account-settings-form-container"
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleVerifyTotp(values);
             })}
         >
-            <label htmlFor="code">
-                Code:
-                <input type="text" {...register('code')} />
-                {errors?.code && <p>{errors.code.message}</p>}
+            <span className="account-settings-form-title">Verify TOTP</span>
+            <label
+                className="account-settings-form-label-container"
+                htmlFor="code"
+            >
+                <span className="account-settings-form-label-text">Code</span>
+                <input
+                    className="account-settings-form-input"
+                    type="text"
+                    {...register('code')}
+                />
+                {errors?.code && (
+                    <span className="account-settings-form-error-text">
+                        {errors.code.message}
+                    </span>
+                )}
             </label>
-            <br />
-            <button type="submit">Verify TOTP</button>
+            <button className="account-settings-form-button" type="submit">
+                Verify TOTP
+            </button>
         </form>
     );
 }

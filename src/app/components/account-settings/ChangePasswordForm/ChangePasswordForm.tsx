@@ -23,27 +23,50 @@ export default function ChangePasswordForm() {
 
     return (
         <form
+            className="account-settings-form-container"
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleChangePassword(values);
             })}
         >
-            {' '}
-            <label htmlFor="newPassword">
-                Email:
-                <input type="password" {...register('newPassword')} />
-                {errors?.newPassword && <p>{errors.newPassword.message}</p>}
-            </label>
-            <br />
-            <label htmlFor="currentPassword">
-                Email:
-                <input type="password" {...register('currentPassword')} />
-                {errors?.currentPassword && (
-                    <p>{errors.currentPassword.message}</p>
+            <span className="account-settings-form-title">Change Password</span>
+            <label
+                className="account-settings-form-label-container"
+                htmlFor="newPassword"
+            >
+                <span className="account-settings-form-label-text">Email</span>
+                <input
+                    className="account-settings-form-input"
+                    type="password"
+                    {...register('newPassword')}
+                />
+                {errors?.newPassword && (
+                    <span className="account-settings-form-error-text">
+                        {errors.newPassword.message}
+                    </span>
                 )}
             </label>
-            <br />
-            <button type="submit">Change Password</button>
+
+            <label
+                className="account-settings-form-label-container"
+                htmlFor="currentPassword"
+            >
+                <span className="account-settings-form-label-text">Email</span>
+                <input
+                    className="account-settings-form-input"
+                    type="password"
+                    {...register('currentPassword')}
+                />
+                {errors?.currentPassword && (
+                    <span className="account-settings-form-error-text">
+                        {errors.currentPassword.message}
+                    </span>
+                )}
+            </label>
+
+            <button className="account-settings-form-button" type="submit">
+                Change Password
+            </button>
         </form>
     );
 }

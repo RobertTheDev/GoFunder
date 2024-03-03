@@ -23,19 +23,35 @@ export default function SetUpTotpForm() {
 
     return (
         <form
+            className="account-settings-form-container"
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleCloseAcount(values);
             })}
         >
-            <label htmlFor="mfaSecret">
-                MFA Secret:
-                <input type="text" {...register('mfaSecret')} />
-                {errors?.mfaSecret && <p>{errors.mfaSecret.message}</p>}
+            <span className="account-settings-form-title">Set Up TOTP</span>
+            <label
+                className="account-settings-form-label-container"
+                htmlFor="mfaSecret"
+            >
+                <span className="account-settings-form-label-text">
+                    MFA Secret
+                </span>
+                <input
+                    className="account-settings-form-input"
+                    type="text"
+                    {...register('mfaSecret')}
+                />
+                {errors?.mfaSecret && (
+                    <span className="account-settings-form-error-text">
+                        {errors.mfaSecret.message}
+                    </span>
+                )}
             </label>
-            <br />
 
-            <button type="submit">Set Up TOTP</button>
+            <button className="account-settings-form-button" type="submit">
+                Set Up TOTP
+            </button>
         </form>
     );
 }
