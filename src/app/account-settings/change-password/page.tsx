@@ -1,3 +1,5 @@
+// PURPOSE: This page displays a form for a user to change their password.
+
 // The relevant imports required for the page.
 import ChangePasswordForm from '@/app/components/account-settings/ChangePasswordForm/ChangePasswordForm';
 import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
@@ -9,6 +11,8 @@ export const metadata: Metadata = {
     title: 'Change Password'
 };
 
+// This handler returns and displays a form to change a user's password.
+// This handler wraps the form component with the account settings page layout template.
 export default function ChangePasswordPage(): JSX.Element {
     return (
         <AccountSettingsPageTemplate>

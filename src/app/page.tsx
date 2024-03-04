@@ -9,7 +9,7 @@ const GET_FUNDRAISERS = gql`
             id
             image
             name
-        }
+        }``
     }
 `;
 

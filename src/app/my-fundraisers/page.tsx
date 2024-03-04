@@ -1,3 +1,5 @@
+// PURPOSE: This page fetches and displays the fundraisers owned by the user.
+
 // The relevant imports required for the page.
 import { JSX } from 'react';
 import { getClient } from '@/app/lib/apollo/apolloClient';
@@ -21,6 +23,7 @@ const GET_FUNDRAISERS = gql`
     }
 `;
 
+// The handler injects and maps fundraiser cards with fetched owned fundraisers data.
 export default async function MyFundraisersPage(): Promise<JSX.Element> {
     const client = getClient();
 

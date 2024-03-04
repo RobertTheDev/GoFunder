@@ -1,4 +1,4 @@
-// PURPOSE: This page allows the user to change their email address.
+// PURPOSE: This page displays a form for a user to change their email address.
 
 // The relevant imports required for the page.
 import ChangeEmailForm from '@/app/components/account-settings/ChangeEmailForm';
@@ -11,8 +11,8 @@ export const metadata: Metadata = {
     title: 'Change Email'
 };
 
-// The handler renders the not change email page template to show on the page.
-// The handler renders the change email form component to handle email change.
+// This handler returns and displays a form to change a user's email address.
+// This handler wraps the form component with the account settings page layout template.
 export default function ChangeEmailPage(): JSX.Element {
     return (
         <AccountSettingsPageTemplate>

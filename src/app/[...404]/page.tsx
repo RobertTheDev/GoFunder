@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Not Found'
 };
 
-// The handler renders the not found page template to show on the page.
+// The handler returns and displays the not found page template.
 export default function NotFoundPage(): JSX.Element {
     return <NotFoundTemplate />;
 }

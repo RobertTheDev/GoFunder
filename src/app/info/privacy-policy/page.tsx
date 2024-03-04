@@ -1,3 +1,5 @@
+// PURPOSE: This page displays the app's privacy policy.
+
 // The relevant imports required for the page.
 import { JSX } from 'react';
 import { Metadata } from 'next';
@@ -7,6 +9,7 @@ export const metadata: Metadata = {
     title: 'Privacy Policy'
 };
 
+// This handler returns the HTML content for the app's privacy policy.
 export default function PrivacyPolicyPage(): JSX.Element {
     return (
         <div>
