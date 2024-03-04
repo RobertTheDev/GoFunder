@@ -1,3 +1,10 @@
+import { Metadata } from 'next';
+
+// Metadata defines the seo options for this page.
+export const metadata: Metadata = {
+    title: 'Privacy Policy'
+};
+
 export default function PrivacyPolicyPage() {
     return (
         <div>

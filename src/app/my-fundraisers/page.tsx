@@ -1,7 +1,13 @@
 import { getClient } from '@/app/lib/apollo/apolloClient';
 import { gql } from '@apollo/client';
 import { Fundraiser } from '@prisma/client';
+import { Metadata } from 'next';
 import FundraiserCard from '../components/fundraiser/FundraiserCard';
+
+// Metadata defines the seo options for this page.
+export const metadata: Metadata = {
+    title: 'My Fundraisers'
+};
 
 const GET_FUNDRAISERS = gql`
     query getFundraisers {

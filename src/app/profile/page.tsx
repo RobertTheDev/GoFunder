@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 // import ProfileTemplate from '../components/profile/ProfileTemplate';
 
+// Metadata defines the seo options for this page.
 export const metadata: Metadata = {
     title: 'Profile'
 };

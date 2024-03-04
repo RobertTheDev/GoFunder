@@ -1,3 +1,10 @@
+import { Metadata } from 'next';
+
+// Metadata defines the seo options for this page.
+export const metadata: Metadata = {
+    title: 'Terms and Conditions'
+};
+
 export default function TermsAndConditionsPage() {
     return (
         <div>
