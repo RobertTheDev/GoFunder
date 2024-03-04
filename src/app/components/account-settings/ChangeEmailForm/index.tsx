@@ -20,24 +20,52 @@ export default function ChangeEmailForm() {
 
     return (
         <form
+            className="account-settings-form-container"
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleChangeEmail(values);
             })}
         >
-            <label htmlFor="email">
-                Email:
-                <input type="email" {...register('email')} />
-                {errors?.email && <p>{errors.email.message}</p>}
+            <span className="account-settings-form-title">Change Email</span>
+            <label
+                htmlFor="email"
+                className="account-settings-form-label-container"
+            >
+                <span className="account-settings-form-label-text">Email</span>
+                <input
+                    className="account-settings-form-input"
+                    type="email"
+                    {...register('email')}
+                />
+                {errors?.email?.message && (
+                    <span className="account-settings-form-error-text">
+                        {errors.email.message}
+                    </span>
+                )}
             </label>
-            <br />
-            <label htmlFor="password">
-                Email:
-                <input type="password" {...register('password')} />
-                {errors?.password && <p>{errors.password.message}</p>}
+
+            <label
+                htmlFor="password"
+                className="account-settings-form-label-container"
+            >
+                <span className="account-settings-form-label-text">
+                    Password
+                </span>
+                <input
+                    className="account-settings-form-input"
+                    type="password"
+                    {...register('password')}
+                />
+                {errors?.password?.message && (
+                    <span className="account-settings-form-error-text">
+                        {errors.password.message}
+                    </span>
+                )}
             </label>
-            <br />
-            <button type="submit">Change Email</button>
+
+            <button className="account-settings-form-button" type="submit">
+                Change Email
+            </button>
         </form>
     );
 }
