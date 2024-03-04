@@ -1,0 +1,38 @@
+# EditorConfig helps developers define and maintain consistent
+# coding styles between different editors and IDEs.
+# For more information about the properties used here, visit
+# http://editorconfig.org
+
+# Top-most EditorConfig file
+root = true
+
+# Set default charset
+[*]
+charset = utf-8
+
+# Indentation
+indent_style = space
+indent_size = 4
+
+# End-of-line character
+end_of_line = lf
+
+# Trim trailing whitespace
+trim_trailing_whitespace = true
+
+# Prettier rules
+[*.js]
+single_quote = true
+semi = true
+print_width = 80
+tab_width = 4
+arrow_parens = avoid
+bracket_spacing = true
+html_whitespace_sensitivity = css
+jsx_bracket_same_line = true
+quote_props = as-needed
+require_pragma = false
+insert_pragma = false
+trailing_comma = none
+prose_wrap = always
+use_tabs = false
