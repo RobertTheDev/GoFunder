@@ -1,4 +1,5 @@
 import SignUpForm from '@/app/components/auth/SignUpForm';
+import AuthPageTemplate from '@/app/templates/auth/AuthPage';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -7,9 +8,8 @@ export const metadata: Metadata = {
 
 export default function SignUpPage() {
     return (
-        <div>
-            <p>Sign Up Page</p>
-            <SignUpForm />
-        </div>
+        <AuthPageTemplate>
+            <SignUpForm />;
+        </AuthPageTemplate>
     );
 }
