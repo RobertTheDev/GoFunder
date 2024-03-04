@@ -1,3 +1,5 @@
+// The relevant imports required for the page.
+import { JSX } from 'react';
 import { Metadata } from 'next';
 import NotFoundTemplate from '../templates/not-found/NotFoundTemplate';
 
@@ -6,6 +8,7 @@ export const metadata: Metadata = {
     title: 'Not Found'
 };
 
-export default function NotFoundPage() {
+// The handler renders the not found page template to show on the page.
+export default function NotFoundPage(): JSX.Element {
     return <NotFoundTemplate />;
 }

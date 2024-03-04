@@ -1,3 +1,5 @@
+// The relevant imports required for the page.
+import { JSX } from 'react';
 import { Metadata } from 'next';
 
 // Metadata defines the seo options for this page.
@@ -5,7 +7,7 @@ export const metadata: Metadata = {
     title: 'Accessibility Statement'
 };
 
-export default function AccessibilityStatementPage() {
+export default function AccessibilityStatementPage(): JSX.Element {
     return (
         <div>
             <h1 id="accessibility-statement">Accessibility Statement</h1>

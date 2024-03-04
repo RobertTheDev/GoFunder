@@ -1,3 +1,5 @@
+// The relevant imports required for the page.
+import { JSX } from 'react';
 import { Metadata } from 'next';
 
 // Metadata defines the seo options for this page.
@@ -5,7 +7,7 @@ export const metadata: Metadata = {
     title: 'Terms and Conditions'
 };
 
-export default function TermsAndConditionsPage() {
+export default function TermsAndConditionsPage(): JSX.Element {
     return (
         <div>
             <h1 id="terms-and-conditions">Terms and Conditions</h1>

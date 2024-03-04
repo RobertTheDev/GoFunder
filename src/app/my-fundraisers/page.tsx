@@ -1,3 +1,5 @@
+// The relevant imports required for the page.
+import { JSX } from 'react';
 import { getClient } from '@/app/lib/apollo/apolloClient';
 import { gql } from '@apollo/client';
 import { Fundraiser } from '@prisma/client';
@@ -19,7 +21,7 @@ const GET_FUNDRAISERS = gql`
     }
 `;
 
-export default async function MyFundraisersPage() {
+export default async function MyFundraisersPage(): Promise<JSX.Element> {
     const client = getClient();
 
     const {

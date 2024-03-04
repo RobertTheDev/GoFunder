@@ -1,3 +1,5 @@
+// The relevant imports required for the page.
+import { JSX } from 'react';
 import FundraiserTemplate from '@/app/templates/fundraiser/FundraiserTemplate';
 import { Metadata } from 'next';
 
@@ -6,6 +8,6 @@ export const metadata: Metadata = {
     title: 'Fundraiser'
 };
 
-export default function FundraiserPage() {
+export default function FundraiserPage(): JSX.Element {
     return <FundraiserTemplate />;
 }
