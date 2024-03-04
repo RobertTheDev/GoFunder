@@ -23,18 +23,37 @@ export default function UpdateFundraiserForm() {
 
     return (
         <form
+            className="fundraiser-admin-form-container"
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleUpdateFundraiser(values);
             })}
         >
-            <label htmlFor="name">
-                Confirm:
-                <input type="text" {...register('name')} />
-                {errors?.name && <p>{errors.name.message}</p>}
+            <span className="fundraiser-admin-form-title">
+                Update Fundraiser
+            </span>
+            <label
+                htmlFor="name"
+                className="fundraiser-admin-form-label-container"
+            >
+                <span className="fundraiser-admin-form-label-text">
+                    Confirm
+                </span>
+                <input
+                    className="fundraiser-admin-form-input"
+                    type="text"
+                    {...register('name')}
+                />
+                {errors?.name && (
+                    <p className="fundraiser-admin-form-error-text">
+                        {errors.name.message}
+                    </p>
+                )}
             </label>
-            <br />
-            <button type="submit">Update Fundraiser</button>
+
+            <button className="fundraiser-admin-form-button" type="submit">
+                Update Fundraiser
+            </button>
         </form>
     );
 }
