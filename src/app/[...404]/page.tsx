@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import NotFoundTemplate from '../components/not-found/NotFoundTemplate';
+import NotFoundTemplate from '../templates/not-found/NotFoundTemplate';
 
 export const metadata: Metadata = {
     title: 'Not Found'
