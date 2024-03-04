@@ -1,3 +1,4 @@
+import FundraiserAdminPageTemplate from '@/app/templates/fundraiser/FundraiserAdminPage';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -6,8 +7,8 @@ export const metadata: Metadata = {
 
 export default function FundraiserDonationsPage() {
     return (
-        <div>
+        <FundraiserAdminPageTemplate>
             <h1>Fundraiser Donations Page</h1>
-        </div>
+        </FundraiserAdminPageTemplate>
     );
 }
