@@ -2,12 +2,9 @@ const headerLinks: {
     href: string;
     name: string;
 }[] = [
-    {
-        href: '/about',
-        name: 'About'
-    },
-    { href: '/', name: 'Find Fundraisers' },
-    { href: '/create-fundraiser', name: 'Create A Fundraiser' }
+    { href: '/', name: 'Home' },
+    { href: '/', name: 'Explore' },
+    { href: '/create-fundraiser', name: 'Start Fundraising' }
 ];
 
 export default headerLinks;

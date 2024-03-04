@@ -2,13 +2,9 @@ const footerLinks: {
     href: string;
     name: string;
 }[] = [
-    {
-        href: '/about',
-        name: 'About'
-    },
-    { href: '/accessibility-statement', name: 'Accessibility Statement' },
-    { href: '/privacy-policy', name: 'Privacy Policy' },
-    { href: '/terms-and-conditions', name: 'Terms and Conditions' }
+    { href: '/info/accessibility-statement', name: 'Accessibility Statement' },
+    { href: '/info/privacy-policy', name: 'Privacy Policy' },
+    { href: '/info/terms-and-conditions', name: 'Terms and Conditions' }
 ];
 
 export default footerLinks;
