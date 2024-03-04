@@ -28,10 +28,12 @@ export default async function HomePage() {
     if (loading) return <p>Loading...</p>;
 
     return (
-        <div>
-            {fundraisers.map((fundraiser: Fundraiser) => (
-                <FundraiserCard {...fundraiser} key={fundraiser.id} />
-            ))}
+        <div className="fundraisers-page-container">
+            <div className="fundraiser-card-grid">
+                {fundraisers.map((fundraiser: Fundraiser) => (
+                    <FundraiserCard {...fundraiser} key={fundraiser.id} />
+                ))}
+            </div>
         </div>
     );
 }
