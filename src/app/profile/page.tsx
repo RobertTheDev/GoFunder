@@ -1,7 +1,7 @@
 // The relevant imports required for the page.
 import { JSX } from 'react';
 import { Metadata } from 'next';
-// import ProfileTemplate from '../components/profile/ProfileTemplate';
+import ProfileTemplate from '@/app/templates/profile/ProfileTemplate';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -9,10 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function ProfilePage(): JSX.Element {
-    return (
-        <div>
-            <h1>Profile Page</h1>
-            {/* <ProfileTemplate /> */}
-        </div>
-    );
+    return <ProfileTemplate />;
 }

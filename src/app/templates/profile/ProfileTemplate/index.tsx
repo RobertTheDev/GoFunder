@@ -1,12 +1,7 @@
-import { User } from '@prisma/client';
-
-export default function ProfileTemplate(profile: User) {
-    const { name } = profile;
-
+export default function ProfileTemplate() {
     return (
         <div>
             <p>Profile</p>
-            <p>{name}</p>
         </div>
     );
 }
