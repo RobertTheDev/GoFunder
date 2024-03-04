@@ -9,9 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function CreateFundraiserPage(): JSX.Element {
-    return (
-        <div>
-            <CreateFundraiserForm />
-        </div>
-    );
+    return <CreateFundraiserForm />;
 }
