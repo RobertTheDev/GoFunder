@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Outfit } from 'next/font/google';
 import './scss/styles.scss';
 import { ReactNode } from 'react';
 import { ApolloWrapper } from './lib/apollo/ApolloWrapper';
 import PageLayout from './components/layout/PageLayout';
 
-const inter = Inter({ subsets: ['latin'] });
+const outfit = Outfit({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     title: {
@@ -24,7 +24,7 @@ export default function RootLayout({
     return (
         <html lang="en">
             <ApolloWrapper>
-                <body className={inter.className}>
+                <body className={outfit.className}>
                     <PageLayout>{children}</PageLayout>
                 </body>
             </ApolloWrapper>
