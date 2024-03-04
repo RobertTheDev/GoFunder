@@ -1,0 +1,9 @@
+.auth-page {
+    &-container {
+        display: flex;
+        flex-direction: column;
+        padding: 3.2rem 0;
+        min-width: 100%;
+        align-items: center;
+    }
+}
