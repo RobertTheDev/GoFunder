@@ -1,0 +1,8 @@
+.fundraisers-page {
+    &-container {
+        display: flex;
+        flex-direction: column;
+        padding: 3.2rem 8rem;
+        min-width: 100%;
+    }
+}
