@@ -1,5 +1,6 @@
 // The relevant imports required for the page.
 import VerifyTotpForm from '@/app/components/account-settings/VerifyTotpForm';
+import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
 import { Metadata } from 'next';
 import { JSX } from 'react';
 
@@ -9,5 +10,9 @@ export const metadata: Metadata = {
 };
 
 export default function VerifyTotpPage(): JSX.Element {
-    return <VerifyTotpForm />;
+    return (
+        <AccountSettingsPageTemplate>
+            <VerifyTotpForm />
+        </AccountSettingsPageTemplate>
+    );
 }
