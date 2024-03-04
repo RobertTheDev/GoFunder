@@ -1,4 +1,4 @@
-import FundraiserTemplate from '@/app/components/fundraiser/FundraiserTemplate';
+import FundraiserTemplate from '@/app/templates/fundraiser/FundraiserTemplate';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
