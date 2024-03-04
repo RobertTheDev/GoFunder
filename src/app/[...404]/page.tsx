@@ -1,3 +1,5 @@
+// PURPOSE: This page is displayed and returns a 404 message when no page is found.
+
 // The relevant imports required for the page.
 import { JSX } from 'react';
 import { Metadata } from 'next';
