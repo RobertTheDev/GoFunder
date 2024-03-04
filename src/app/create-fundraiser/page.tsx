@@ -8,7 +8,6 @@ export const metadata: Metadata = {
 export default function CreateFundraiserPage() {
     return (
         <div>
-            <h1>Create Fundraiser</h1>
             <CreateFundraiserForm />
         </div>
     );

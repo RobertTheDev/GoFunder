@@ -6,10 +6,5 @@ export const metadata: Metadata = {
 };
 
 export default function FundraiserDonationPage() {
-    return (
-        <div>
-            <h1>Donate</h1>
-            <CreateDonationForm />
-        </div>
-    );
+    return <CreateDonationForm />;
 }
