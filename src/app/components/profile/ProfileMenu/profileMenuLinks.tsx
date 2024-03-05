@@ -2,7 +2,7 @@ import { FaCog, FaHandHoldingHeart, FaHeart, FaSketch } from 'react-icons/fa';
 
 const profileMenuLinks = [
     {
-        name: 'Saved Fundraiser',
+        name: 'Saved Fundraisers',
         path: '/saved-fundraisers',
         icon: <FaHeart />
     },
