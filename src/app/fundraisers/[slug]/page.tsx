@@ -13,11 +13,14 @@ export const metadata: Metadata = {
 };
 
 const GET_FUNDRAISERS = gql`
-    query FundraiserBySlugQuery($slug: String) {
+    query FundraiserBySlugQuery($slug: String!) {
         fundraiserBySlug(slug: $slug) {
             id
             name
+            createdAt
             image
+            category
+            description
             donations {
                 amount
                 id
