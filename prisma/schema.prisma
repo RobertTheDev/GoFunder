@@ -36,14 +36,13 @@ model Fundraiser {
   donations        Donation[] // List of donations for the fundraiser.
   image            String // URL to the image associated with the fundraiser.
   name             String
-  owner            User?             @relation(fields: [userId], references: [id])
+  owner            User?             @relation(fields: [ownerId], references: [id])
   ownerId          String            @map("owner_id")
   savedFundraisers SavedFundraiser[] // List of saved fundraisers.
   slug             String            @unique @default(cuid()) // Unique slug url for the fundraiser.
   target           Int // Fundraising target amount.
   totalDonations   Int               @default(0) @map("total_donations") // Total number of donations received.
   totalRaised      Int               @default(0) @map("total_raised") // Total amount raised.
-  userId           String
 
   @@map("fundraisers")
 }
