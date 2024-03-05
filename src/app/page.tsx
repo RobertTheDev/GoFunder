@@ -9,7 +9,11 @@ const GET_FUNDRAISERS = gql`
             id
             image
             name
-        }``
+            slug
+            target
+            totalDonations
+            totalRaised
+        }
     }
 `;
 
