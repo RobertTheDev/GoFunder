@@ -2,7 +2,10 @@ import { Fundraiser } from '@prisma/client';
 import { prismaClient } from '../../db/prisma/prismaClient';
 
 export default async function getFundraiserController(
-    id: string
+    slug: string
 ): Promise<Fundraiser | null> {
-    return prismaClient.fundraiser.findUnique({ where: { id } });
+    return prismaClient.fundraiser.findUnique({
+        include: { donations: { include: { user: true } } },
+        where: { slug }
+    });
 }
