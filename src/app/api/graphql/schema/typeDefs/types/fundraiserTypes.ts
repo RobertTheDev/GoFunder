@@ -1,30 +1,24 @@
 import gql from 'graphql-tag';
 
 export const fundraiserTypes = gql`
-    type User {
-        id: String
-        name: String
-        email: String
-        username: String
-        image: String
-    }
-
-    type Donation {
-        id: String
-        amount: Int
-        message: String
-        user: User
-    }
-
     type Fundraiser {
         id: String!
+        createdAt: DateTime!
+        updatedAt: DateTime
+        category: String!
+        deadlineDate: String
+        defaultCurrency: String!
+        description: String!
+        donations: [Donation]
         image: String!
         name: String!
+        owner: User
+        ownerId: String!
+        savedFundraisers: [SavedFundraiser]
         slug: String!
         target: Int!
         totalDonations: Int!
         totalRaised: Int!
-        donations: [Donation]
     }
 
     type Query {
