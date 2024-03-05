@@ -8,7 +8,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
 export default function FundraiserCard(fundraiser: Fundraiser) {
-    const { id, image, name, totalRaised, target } = fundraiser;
+    const { id, image, name, slug, totalRaised, target } = fundraiser;
 
     const pathName = usePathname();
 
@@ -18,8 +18,8 @@ export default function FundraiserCard(fundraiser: Fundraiser) {
         <Link
             href={
                 pathName === '/my-fundraisers'
-                    ? `fundraisers/${id}/admin/overview`
-                    : `fundraisers/${id}`
+                    ? `fundraisers/${slug}/admin/overview`
+                    : `fundraisers/${slug}`
             }
             className="fundraiser-card-container"
         >
@@ -46,8 +46,6 @@ export default function FundraiserCard(fundraiser: Fundraiser) {
                 </p>
                 <div className="fundraiser-card-progress-container">
                     {totalRaised && target ? (
-                        <Skeleton />
-                    ) : (
                         <div className="fundraiser-card-progress-line-container">
                             <svg
                                 className="fundraiser-card-progress-line"
@@ -55,10 +53,12 @@ export default function FundraiserCard(fundraiser: Fundraiser) {
                                 width={`${(totalRaised / target) * 100}%`}
                             />
                         </div>
+                    ) : (
+                        <Skeleton />
                     )}
                     <p className="fundraiser-card-progress-text">
                         {totalRaised ? (
-                            `£${totalRaised.toLocaleString} raised`
+                            `£${totalRaised.toLocaleString()} raised of £${target.toLocaleString()} target`
                         ) : (
                             <Skeleton />
                         )}
