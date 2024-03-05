@@ -13,4 +13,10 @@ export const donationTypes = gql`
         user: User
         userId: String!
     }
+
+    type Query {
+        donationsByCurrentUser: [Donation]
+        donationsByFundraiser(fundraiserId: String!): [Donation]
+        donationsByUserId(userId: String!): [Donation]
+    }
 `;
