@@ -1,6 +1,7 @@
 import { ForwardedRef, forwardRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { FaSignOutAlt } from 'react-icons/fa';
 import profileMenuLinks from './profileMenuLinks';
 
 const ProfileMenu = forwardRef((_props, ref: ForwardedRef<HTMLDivElement>) => {
@@ -32,7 +33,7 @@ const ProfileMenu = forwardRef((_props, ref: ForwardedRef<HTMLDivElement>) => {
                 ))}
             </nav>
             <button className="profile-menu-sign-out-button" type="button">
-                Sign Out
+                <FaSignOutAlt /> Sign Out
             </button>
         </div>
     );

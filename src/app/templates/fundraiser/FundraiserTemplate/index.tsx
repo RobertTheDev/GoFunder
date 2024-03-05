@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { format } from 'date-fns';
 import DonationCard from '@/app/components/donation/DonationCard';
 import { IFundraiser } from '@/app/interfaces/Fundraiser';
+import { FaHandHoldingHeart, FaHeart } from 'react-icons/fa';
 
 export default function FundraiserTemplate(params: {
     fundraiser: IFundraiser;
@@ -45,10 +46,10 @@ export default function FundraiserTemplate(params: {
                 type="button"
                 onClick={() => router.push(`/fundraisers/${slug}/donate`)}
             >
-                Donate
+                <FaHandHoldingHeart /> Donate
             </button>
             <button type="button" onClick={() => {}}>
-                Save Fundraiser
+                <FaHeart /> Save Fundraiser
             </button>
 
             {donations.map(donation => (

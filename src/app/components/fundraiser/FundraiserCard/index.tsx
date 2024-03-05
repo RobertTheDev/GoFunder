@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { MdManageAccounts } from 'react-icons/md';
 import { usePathname, useRouter } from 'next/navigation';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -76,6 +77,7 @@ export default function FundraiserCard(fundraiser: IFundraiser) {
                                 }
                                 type="button"
                             >
+                                <MdManageAccounts />
                                 Manage Fundraiser
                             </button>
                         ) : (

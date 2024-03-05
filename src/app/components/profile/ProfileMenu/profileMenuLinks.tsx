@@ -1,4 +1,4 @@
-import { FaCog, FaHeart } from 'react-icons/fa';
+import { FaCog, FaHandHoldingHeart, FaHeart, FaSketch } from 'react-icons/fa';
 
 const profileMenuLinks = [
     {
@@ -9,12 +9,12 @@ const profileMenuLinks = [
     {
         name: 'My Fundraisers',
         path: '/my-fundraisers',
-        icon: <FaHeart />
+        icon: <FaSketch />
     },
     {
         name: 'My Donations',
         path: '/my-donations',
-        icon: <FaHeart />
+        icon: <FaHandHoldingHeart />
     },
     {
         name: 'Account Settings',
