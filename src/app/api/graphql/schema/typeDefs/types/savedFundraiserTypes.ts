@@ -10,4 +10,8 @@ export const savedFundraiserTypes = gql`
         user: User
         userId: String!
     }
+
+    type Query {
+        savedFundraisers: [SavedFundraiser]
+    }
 `;
