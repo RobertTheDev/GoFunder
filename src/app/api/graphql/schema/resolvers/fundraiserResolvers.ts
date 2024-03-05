@@ -5,6 +5,8 @@ export const fundraiserResolvers = {
     Query: {
         fundraiserBySlug: (_root: unknown, args: { slug: string }) =>
             getFundraiserController(args.slug),
-        fundraisers: getFundraisersController
+        fundraisers: getFundraisersController,
+        fundraisersByCategory: getFundraisersController,
+        fundraisersByOwnerId: getFundraisersController
     }
 };

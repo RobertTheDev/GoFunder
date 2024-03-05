@@ -22,7 +22,9 @@ export const fundraiserTypes = gql`
     }
 
     type Query {
-        fundraiserBySlug(slug: String): Fundraiser
+        fundraiserBySlug(slug: String!): Fundraiser
         fundraisers: [Fundraiser]
+        fundraisersByCategory(category: String!): [Fundraiser]
+        fundraisersByOwnerId(ownerId: String!): [Fundraiser]
     }
 `;
