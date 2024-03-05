@@ -3,7 +3,7 @@ const headerLinks: {
     name: string;
 }[] = [
     { href: '/', name: 'Home' },
-    { href: '/', name: 'Explore' },
+    { href: '/fundraisers', name: 'Explore' },
     { href: '/create-fundraiser', name: 'Start Fundraising' }
 ];
 
