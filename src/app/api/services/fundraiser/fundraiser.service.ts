@@ -21,10 +21,12 @@ export async function deleteFundraiser(
 
 // This handlers finds a fundraiser using a unique field in the database.
 export async function findFundraiser(
-    FundraiserWhereUniqueInput: Prisma.FundraiserWhereUniqueInput
+    include: Prisma.FundraiserInclude,
+    where: Prisma.FundraiserWhereUniqueInput
 ): Promise<Fundraiser | null> {
     return prismaClient.fundraiser.findUnique({
-        where: FundraiserWhereUniqueInput
+        include,
+        where
     });
 }
 
