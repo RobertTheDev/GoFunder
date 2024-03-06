@@ -10,6 +10,7 @@
 
     "env": {
         "browser": true,
+        "jest/globals": true,
         "node": true,
         "es6": true
     },
@@ -24,7 +25,7 @@
             }
         }
     },
-    "plugins": ["@typescript-eslint"],
+    "plugins": ["@typescript-eslint", "jest"],
     "extends": [
         "next",
         "next/core-web-vitals",
