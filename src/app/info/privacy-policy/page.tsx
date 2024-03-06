@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 // This handler returns the HTML content for the app's privacy policy.
 export default function PrivacyPolicyPage(): JSX.Element {
     return (
-        <div>
+        <div className="info-page-container">
             <h1 id="privacy-policy">Privacy Policy</h1>
             <p>
                 This Privacy Policy outlines how Eventee (&quot;we&quot;,

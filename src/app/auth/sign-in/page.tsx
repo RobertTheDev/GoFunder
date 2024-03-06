@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function SignInPage(): JSX.Element {
     return (
         <AuthPageTemplate>
-            <SignInForm />;
+            <SignInForm />
         </AuthPageTemplate>
     );
 }

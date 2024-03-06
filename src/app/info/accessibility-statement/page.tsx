@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 // This handler returns the HTML content for the app's accessiility statement.
 export default function AccessibilityStatementPage(): JSX.Element {
     return (
-        <div>
+        <div className="info-page-container">
             <h1 id="accessibility-statement">Accessibility Statement</h1>
             <p>
                 At Eventee, we are committed to ensuring digital accessibility
@@ -36,7 +36,7 @@ export default function AccessibilityStatementPage(): JSX.Element {
                 To enhance accessibility, we have implemented various features
                 including:
             </p>
-            <ol>
+            <ul>
                 <li>
                     <strong>Keyboard Navigation:</strong> Our website and
                     applications can be navigated easily using only a keyboard,
@@ -71,7 +71,7 @@ export default function AccessibilityStatementPage(): JSX.Element {
                     be accessible and easy to navigate, with clear labels and
                     instructions for screen reader users.
                 </li>
-            </ol>
+            </ul>
             <h2 id="feedback-and-support">Feedback and Support</h2>
             <p>
                 We welcome feedback from our users regarding the accessibility

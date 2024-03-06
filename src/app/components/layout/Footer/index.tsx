@@ -7,9 +7,6 @@ export default function Footer() {
 
     return (
         <footer className="footer-container">
-            <span className="footer-copyright">
-                ©{new Date().getFullYear()} GoFunder
-            </span>
             <nav className="footer-menu">
                 {footerLinks.map(link => (
                     <Link
@@ -25,6 +22,9 @@ export default function Footer() {
                     </Link>
                 ))}
             </nav>
+            <span className="footer-copyright">
+                ©{new Date().getFullYear()} GoFunder
+            </span>
         </footer>
     );
 }

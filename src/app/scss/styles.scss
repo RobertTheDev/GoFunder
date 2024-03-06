@@ -1,8 +1,35 @@
+@use 'abstracts/colours';
 @use 'abstracts';
 @use 'base';
 @use 'components';
 @use 'layout';
 @use 'pages';
+
+:root {
+    --neutral50: #eceff4;
+    --neutral100: #dadde0;
+    --neutral200: #e2e8f0;
+    --neutral300: #c8cdd0;
+    --neutral400: #919aa1;
+    --neutral500: #6c7981;
+    --neutral600: #475762;
+    --neutral700: #323d45;
+    --neutral800: #1c2327;
+    --neutral900: #0e1114;
+    --neutral950: #07090a;
+
+    --primary50: #e6f7f2;
+    --primary100: #ccefe5;
+    --primary200: #b3e6d8;
+    --primary300: #80d6be;
+    --primary400: #4dc6a3;
+    --primary500: #22c55e;
+    --primary600: #00ad7c;
+    --primary700: #009c70;
+    --primary800: #007957;
+    --primary900: #004532;
+    --primary950: #002319;
+}
 
 .loader {
     border: 3px solid #f3f3f3;
@@ -31,4 +58,75 @@
     100% {
         transform: rotate(360deg);
     }
+}
+
+body {
+    background-color: var(--neutral50);
+    @media (prefers-color-scheme: dark) {
+        background-color: var(--neutral950);
+    }
+}
+
+* {
+    color: var(--neutral950);
+    font-size: 1.6rem;
+    @media (prefers-color-scheme: dark) {
+        color: var(--neutral200);
+    }
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+p {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 40px;
+}
+
+ol {
+    display: block;
+    list-style-type: decimal;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 40px;
+}
+
+li {
+    display: list-item;
+    margin-bottom: 1em;
+}
+
+strong {
+    font-weight: bold;
 }

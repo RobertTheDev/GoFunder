@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 // This handler returns the HTML content for the app's accessiility statement.
 export default function TermsAndConditionsPage(): JSX.Element {
     return (
-        <div>
+        <div className="info-page-container">
             <h1 id="terms-and-conditions">Terms and Conditions</h1>
             <p>
                 These Terms and Conditions (&quot;Terms&quot;) govern your use

@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function SignUpPage(): JSX.Element {
     return (
         <AuthPageTemplate>
-            <SignUpForm />;
+            <SignUpForm />
         </AuthPageTemplate>
     );
 }

@@ -2,36 +2,51 @@
     &-container {
         align-items: center;
         background-color: white;
-        border-bottom: 1px solid rgb(228, 228, 228);
+        box-shadow:
+            0 4px 6px -1px rgb(0 0 0 / 0.1),
+            0 2px 4px -2px rgb(0 0 0 / 0.1);
         display: flex;
-        height: 8rem;
         justify-content: space-between;
-        padding: 0 8rem;
+        padding: 1.6rem 2.4rem;
         position: sticky;
         top: 0;
         width: 100%;
         z-index: 22;
+
+        @media (min-width: 1024px) {
+            padding: 1.6rem 8rem;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            background-color: var(--neutral950);
+        }
     }
     &-link {
-        color: inherit;
+        color: var(--neutral900);
         font-size: 1.5rem;
         font-weight: 500;
         text-decoration: none;
+        @media (prefers-color-scheme: dark) {
+            color: var(--neutral300);
+        }
         &-active {
-            color: #00a95c;
+            color: var(--primary600);
             font-size: 1.5rem;
             font-weight: 500;
             text-decoration: none;
         }
         &-menu {
             align-items: center;
-            display: flex;
-            gap: 3.6rem;
+            display: none;
+            gap: 4.8rem;
+            @media (min-width: 1024px) {
+                display: flex;
+            }
         }
     }
 
     &-logo {
-        color: #00a95c;
+        color: var(--primary600);
         font-size: 2.2rem;
         font-weight: 600;
         text-decoration: none;
@@ -48,29 +63,37 @@
         &-container {
             align-items: center;
             display: flex;
-            gap: 3.6rem;
+            gap: 4.8rem;
         }
     }
 
     &-auth {
         &-button {
             &-sign-in {
-                background-color: #eff0f3;
-                color: #0c0d0e;
-                padding: 1.2rem 1.6rem;
+                background-color: var(--neutral800);
+                background-color: var(--neutral50);
+                color: white;
+                color: var(--neutral800);
+                padding: 1.6rem;
                 border-radius: 3.2rem;
-                font-size: 1.5rem;
+                font-size: 1.4rem;
                 font-weight: 600;
                 min-width: 12rem;
+                &:hover {
+                    background-color: var(--neutral900);
+                }
             }
             &-sign-up {
-                background-color: #00a95c;
+                background-color: var(--primary600);
                 color: white;
-                padding: 1.2rem 1.6rem;
+                padding: 1.6rem;
                 border-radius: 3.2rem;
-                font-size: 1.5rem;
+                font-size: 1.4rem;
                 font-weight: 600;
                 min-width: 12rem;
+                &:hover {
+                    background-color: var(--primary700);
+                }
             }
         }
     }
@@ -78,8 +101,12 @@
     &-controls {
         &-container {
             align-items: center;
-            display: flex;
-            gap: 0.8rem;
+            display: none;
+            gap: 1.6rem;
+
+            @media (min-width: 1024px) {
+                display: flex;
+            }
         }
     }
 }
