@@ -1,0 +1,8 @@
+.pageContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    min-width: 100%;
+    padding: 3.2rem 0;
+
+}

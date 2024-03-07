@@ -6,6 +6,7 @@ import {
     updateFundraiserSchema,
     UpdateFundraiserSchemaType
 } from './updateFundraiser.schema';
+import styles from './styles.module.css';
 
 export default function UpdateFundraiserForm() {
     const {
@@ -23,35 +24,28 @@ export default function UpdateFundraiserForm() {
 
     return (
         <form
-            className="fundraiser-admin-form-container"
+            className={styles.formContainer}
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleUpdateFundraiser(values);
             })}
         >
-            <span className="fundraiser-admin-form-title">
-                Update Fundraiser
-            </span>
-            <label
-                htmlFor="name"
-                className="fundraiser-admin-form-label-container"
-            >
-                <span className="fundraiser-admin-form-label-text">
-                    Confirm
-                </span>
+            <span className={styles.formTitle}>Update Fundraiser</span>
+            <label htmlFor="name" className={styles.formLabelContainer}>
+                <span className={styles.formLabelText}>Confirm</span>
                 <input
-                    className="fundraiser-admin-form-input"
+                    className={styles.formInput}
                     type="text"
                     {...register('name')}
                 />
                 {errors?.name && (
-                    <p className="fundraiser-admin-form-error-text">
+                    <p className={styles.formErrorText}>
                         {errors.name.message}
                     </p>
                 )}
             </label>
 
-            <button className="fundraiser-admin-form-button" type="submit">
+            <button className={styles.formButton} type="submit">
                 Update Fundraiser
             </button>
         </form>

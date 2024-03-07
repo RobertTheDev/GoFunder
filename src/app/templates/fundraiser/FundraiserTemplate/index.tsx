@@ -6,6 +6,7 @@ import { format } from 'date-fns';
 import DonationCard from '@/app/components/donation/DonationCard';
 import { IFundraiser } from '@/app/interfaces/Fundraiser';
 import { FaHandHoldingHeart, FaHeart } from 'react-icons/fa';
+import styles from './styles.module.css';
 
 export default function FundraiserTemplate(params: {
     fundraiser: IFundraiser;
@@ -28,25 +29,25 @@ export default function FundraiserTemplate(params: {
     } = fundraiser;
 
     return (
-        <div className="fundraiser-page-container">
-            <div className="fundraiser-page-image-container">
+        <div className={styles.pageContainer}>
+            <div className={styles.imageContainer}>
                 <Image src={image} alt={name} fill />
             </div>
 
-            <p className="fundraiser-page-title">{name}</p>
+            <p className={styles.pageTitle}>{name}</p>
             <p>{format(new Date(createdAt), 'yyyy')}</p>
             {deadlineDate && <p>{format(new Date(deadlineDate), 'yyyy')}</p>}
 
-            <div className="fundraiser-page-button-group">
+            <div className={styles.buttonsContainer}>
                 <button
-                    className="fundraiser-page-button-save"
+                    className={styles.saveButton}
                     type="button"
                     onClick={() => {}}
                 >
                     <FaHeart /> Save
                 </button>
                 <button
-                    className="fundraiser-page-button-donate"
+                    className={styles.donateButton}
                     type="button"
                     onClick={() => router.push(`/fundraisers/${slug}/donate`)}
                 >
@@ -57,10 +58,8 @@ export default function FundraiserTemplate(params: {
             <p> {totalDonations}</p>
             <p>{totalRaised}</p>
 
-            <div className="fundraiser-page-description-container">
-                <p className="fundraiser-page-description-title">
-                    {description}
-                </p>
+            <div className={styles.descriptionContainer}>
+                <p className={styles.descriptionText}>{description}</p>
             </div>
 
             {donations.map(donation => (

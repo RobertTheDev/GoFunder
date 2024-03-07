@@ -6,6 +6,7 @@ import {
     updateProfileSchema,
     UpdateProfileSchemaType
 } from './updateProfile.schema';
+import styles from './styles.module.css';
 
 export default function UpdateProfileForm() {
     const {
@@ -23,50 +24,42 @@ export default function UpdateProfileForm() {
 
     return (
         <form
-            className="account-settings-form-container"
+            className={styles.formContainer}
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleCloseAcount(values);
             })}
         >
-            <span className="account-settings-form-title">Update Profile</span>
-            <label
-                className="account-settings-form-label-container"
-                htmlFor="name"
-            >
-                <span className="account-settings-form-label-text">Name</span>
+            <span className={styles.formTitle}>Update Profile</span>
+            <label className={styles.formLabelContainer} htmlFor="name">
+                <span className={styles.formLabelText}>Name</span>
                 <input
-                    className="account-settings-form-input"
+                    className={styles.formInput}
                     type="text"
                     {...register('name')}
                 />
                 {errors?.name && (
-                    <span className="account-settings-form-error-text">
+                    <span className={styles.formErrorText}>
                         {errors.name.message}
                     </span>
                 )}
             </label>
 
-            <label
-                className="account-settings-form-label-container"
-                htmlFor="annonymous"
-            >
-                <span className="account-settings-form-label-text">
-                    Annonymous
-                </span>
+            <label className={styles.formLabelContainer} htmlFor="annonymous">
+                <span className={styles.formLabelText}>Annonymous</span>
                 <input
-                    className="account-settings-form-checkbox"
+                    className={styles.formCheckbox}
                     type="checkbox"
                     {...register('annonymous')}
                 />
                 {errors?.annonymous && (
-                    <span className="account-settings-form-error-text">
+                    <span className={styles.formErrorText}>
                         {errors.annonymous.message}
                     </span>
                 )}
             </label>
 
-            <button className="account-settings-form-button" type="submit">
+            <button className={styles.formButton} type="submit">
                 Update Profile
             </button>
         </form>

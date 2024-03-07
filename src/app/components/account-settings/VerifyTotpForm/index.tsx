@@ -6,6 +6,7 @@ import {
     verifyTotpCodeSchema,
     type VerifyTotpCodeSchemaType
 } from './verifyTotpCode.schema';
+import styles from './styles.module.css';
 
 export default function VerifyTotpForm() {
     const {
@@ -23,30 +24,27 @@ export default function VerifyTotpForm() {
 
     return (
         <form
-            className="account-settings-form-container"
+            className={styles.formContainer}
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleVerifyTotp(values);
             })}
         >
-            <span className="account-settings-form-title">Verify TOTP</span>
-            <label
-                className="account-settings-form-label-container"
-                htmlFor="code"
-            >
-                <span className="account-settings-form-label-text">Code</span>
+            <span className={styles.formTitle}>Verify TOTP</span>
+            <label className={styles.formLabelContainer} htmlFor="code">
+                <span className={styles.formLabelText}>Code</span>
                 <input
-                    className="account-settings-form-input"
+                    className={styles.formInput}
                     type="text"
                     {...register('code')}
                 />
                 {errors?.code && (
-                    <span className="account-settings-form-error-text">
+                    <span className={styles.formErrorText}>
                         {errors.code.message}
                     </span>
                 )}
             </label>
-            <button className="account-settings-form-button" type="submit">
+            <button className={styles.formButton} type="submit">
                 Verify TOTP
             </button>
         </form>

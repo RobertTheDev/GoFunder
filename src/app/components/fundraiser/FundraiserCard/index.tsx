@@ -7,6 +7,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import { IFundraiser } from '@/app/interfaces/Fundraiser';
+import styles from './styles.module.css';
 
 export default function FundraiserCard(fundraiser: IFundraiser) {
     const { id, image, name, slug, totalRaised, target } = fundraiser;
@@ -22,12 +23,12 @@ export default function FundraiserCard(fundraiser: IFundraiser) {
                     ? `fundraisers/${slug}/admin/overview`
                     : `fundraisers/${slug}`
             }
-            className="fundraiser-card-container"
+            className={styles.cardContainer}
         >
-            <div className="fundraiser-card-image-container">
+            <div className={styles.cardImageContainer}>
                 {image ? (
                     <Image
-                        className="fundraiser-card-image"
+                        className={styles.cardImage}
                         src={image}
                         alt={name}
                         fill
@@ -41,15 +42,15 @@ export default function FundraiserCard(fundraiser: IFundraiser) {
                     />
                 )}
             </div>
-            <div className="fundraiser-card-content-container">
-                <p className="fundraiser-card-title">
+            <div className={styles.cardContentContainer}>
+                <p className={styles.cardTitle}>
                     {name !== null ? name : <Skeleton />}
                 </p>
-                <div className="fundraiser-card-progress-container">
+                <div className={styles.cardProgressContainer}>
                     {totalRaised && target ? (
-                        <div className="fundraiser-card-progress-line-container">
+                        <div className={styles.cardProgressLineContainer}>
                             <svg
-                                className="fundraiser-card-progress-line"
+                                className={styles.cardProgressLine}
                                 height="100%"
                                 width={`${(totalRaised / target) * 100}%`}
                             />
@@ -57,7 +58,7 @@ export default function FundraiserCard(fundraiser: IFundraiser) {
                     ) : (
                         <Skeleton />
                     )}
-                    <p className="fundraiser-card-progress-text">
+                    <p className={styles.cardProgressText}>
                         {totalRaised ? (
                             `£${totalRaised.toLocaleString()} raised of £${target.toLocaleString()} target`
                         ) : (
@@ -69,7 +70,7 @@ export default function FundraiserCard(fundraiser: IFundraiser) {
                     <div>
                         {id ? (
                             <button
-                                className="fundraiser-card-button"
+                                className={styles.cardButton}
                                 onClick={() =>
                                     router.push(
                                         `fundraisers/${id}/admin/overview`
@@ -81,7 +82,7 @@ export default function FundraiserCard(fundraiser: IFundraiser) {
                                 Manage Fundraiser
                             </button>
                         ) : (
-                            <Skeleton className="fundraiser-card-button" />
+                            <Skeleton className={styles.cardButton} />
                         )}
                     </div>
                 )}

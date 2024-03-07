@@ -5,6 +5,7 @@ import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SignUpSchemaType, signUpSchema } from './signUp.schema';
+import styles from './styles.module.css';
 
 export default function SignUpForm() {
     const {
@@ -22,81 +23,75 @@ export default function SignUpForm() {
 
     return (
         <form
-            className="auth-form-container"
+            className={styles.formContainer}
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleSignUp(values);
             })}
         >
-            <span className="auth-form-title">Sign up to GoFunder</span>
+            <span className={styles.formTitle}>Sign up to GoFunder</span>
 
-            <div className="auth-form-link-button-group">
-                <Link className="auth-form-link-button" href="/auth/sign-up">
+            <div className={styles.formLinkButtonGroup}>
+                <Link className={styles.formLinkButton} href="/auth/sign-up">
                     Sign Up
                 </Link>
-                <Link className="auth-form-link-button" href="/auth/sign-in">
+                <Link className={styles.formLinkButton} href="/auth/sign-in">
                     Sign In
                 </Link>
             </div>
 
-            <label className="auth-form-label-container" htmlFor="email">
-                <span className="auth-form-label-text">Email</span>
+            <label className={styles.formLabelContainer} htmlFor="email">
+                <span className={styles.formLabelText}>Email</span>
                 <input
-                    className="auth-form-input"
+                    className={styles.formInput}
                     type="email"
                     {...register('email')}
                 />
                 {errors?.email && (
-                    <span className="auth-form-error-text">
+                    <span className={styles.formErrorText}>
                         {errors.email.message}
                     </span>
                 )}
             </label>
 
-            <label className="auth-form-label-container" htmlFor="name">
-                <span className="auth-form-label-text">Name</span>
+            <label className={styles.formLabelContainer} htmlFor="name">
+                <span className={styles.formLabelText}>Name</span>
                 <input
-                    className="auth-form-input"
+                    className={styles.formInput}
                     type="text"
                     {...register('name')}
                 />
                 {errors?.name && (
-                    <span className="auth-form-error-text">
+                    <span className={styles.formErrorText}>
                         {errors.name.message}
                     </span>
                 )}
             </label>
 
-            <button className="auth-form-button" type="submit">
+            <button className={styles.formButton} type="submit">
                 Sign Up
             </button>
 
-            <div className="auth-form-seperator-container">
-                <div className="auth-form-seperator-line" />
-                <div className="auth-form-seperator-text-container">
-                    <p className="auth-form-seperator-text">or</p>
+            <div className={styles.formSeperatorContainer}>
+                <div className={styles.formSeperatorLine} />
+                <div className={styles.formSeperatorTextContainer}>
+                    <p className={styles.formSeperatorTextContainer}>or</p>
                 </div>
             </div>
-            <div className="auth-form-social-button-group">
+            <div className={styles.formSocialButtonGroup}>
                 <button
-                    className="auth-form-social-button-facebook"
+                    className={styles.formSocialButtonFacebook}
                     type="button"
                 >
-                    <FaFacebook className="auth-form-social-button-icon" />
+                    <FaFacebook className={styles.formSocialButtonIcon} />
                     Sign Up With Facebook
                 </button>
-                <button
-                    className="auth-form-social-button-github"
-                    type="button"
-                >
-                    <FaGithub className="auth-form-social-button-icon" />
+                <button className={styles.formSocialButtonGithub} type="button">
+                    <FaGithub className={styles.formSocialButtonIcon} />
                     Sign Up With Github
                 </button>
-                <button
-                    className="auth-form-social-button-google"
-                    type="button"
-                >
-                    <FaGoogle className="auth-form-social-button-icon" />
+                <button className={styles.formSocialButtonGoogle} type="button">
+                    <FaGoogle className={styles.formSocialButtonIcon} />
                     Sign Up With Google
                 </button>
             </div>

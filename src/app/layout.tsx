@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Outfit } from 'next/font/google';
-import './scss/styles.scss';
+import './styles.css';
 import { ReactNode } from 'react';
 import { ApolloWrapper } from './lib/apollo/ApolloWrapper';
 import PageLayout from './components/layout/PageLayout';

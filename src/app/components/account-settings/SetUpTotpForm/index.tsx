@@ -6,6 +6,7 @@ import {
     setUpTotpCodeSchema,
     SetUpTotpCodeSchemaType
 } from './setUpTotp.schema';
+import styles from './styles.module.css';
 
 export default function SetUpTotpForm() {
     const {
@@ -23,33 +24,28 @@ export default function SetUpTotpForm() {
 
     return (
         <form
-            className="account-settings-form-container"
+            className={styles.formContainer}
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleCloseAcount(values);
             })}
         >
-            <span className="account-settings-form-title">Set Up TOTP</span>
-            <label
-                className="account-settings-form-label-container"
-                htmlFor="mfaSecret"
-            >
-                <span className="account-settings-form-label-text">
-                    MFA Secret
-                </span>
+            <span className={styles.formTitle}>Set Up TOTP</span>
+            <label className={styles.formLabelContainer} htmlFor="mfaSecret">
+                <span className={styles.formLabelText}>MFA Secret</span>
                 <input
-                    className="account-settings-form-input"
+                    className={styles.formInput}
                     type="text"
                     {...register('mfaSecret')}
                 />
                 {errors?.mfaSecret && (
-                    <span className="account-settings-form-error-text">
+                    <span className={styles.formErrorText}>
                         {errors.mfaSecret.message}
                     </span>
                 )}
             </label>
 
-            <button className="account-settings-form-button" type="submit">
+            <button className={styles.formButton} type="submit">
                 Set Up TOTP
             </button>
         </form>

@@ -2,6 +2,7 @@
 
 import AccountSettingsMenu from '@/app/components/account-settings/AccountSettingsMenu';
 import { ReactNode } from 'react';
+import styles from './styles.module.css';
 
 export default function AccountSettingsPageTemplate({
     children
@@ -9,7 +10,7 @@ export default function AccountSettingsPageTemplate({
     children: ReactNode;
 }) {
     return (
-        <div className="account-settings-page-container">
+        <div className={styles.pageContainer}>
             <div>
                 <AccountSettingsMenu />
             </div>

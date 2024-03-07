@@ -6,6 +6,7 @@ import {
     CreateDonationSchemaType,
     createDonationSchema
 } from './createDonation.schema';
+import styles from './styles.module.css';
 
 export default function CreateDonationForm() {
     const {
@@ -23,69 +24,58 @@ export default function CreateDonationForm() {
 
     return (
         <form
-            className="create-donation-form-container"
+            className={styles.formContainer}
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleCreateDonation(values);
             })}
         >
-            <span className="create-donation-form-title">Make A Donation</span>
-            <label
-                htmlFor="amount"
-                className="create-donation-form-label-container"
-            >
-                <span className="create-donation-form-label-text">Amount</span>
+            <span className={styles.formTitle}>Make A Donation</span>
+            <label htmlFor="amount" className={styles.formLabelContainer}>
+                <span className={styles.formlLabelText}>Amount</span>
                 <input
-                    className="create-donation-form-input"
+                    className={styles.formInput}
                     type="number"
                     {...register('amount', { valueAsNumber: true })}
                 />
                 {errors?.amount && (
-                    <span className="create-donation-form-error-text">
+                    <span className={styles.formErrorText}>
                         {errors.amount.message}
                     </span>
                 )}
             </label>
 
-            <label
-                htmlFor="annonymous"
-                className="create-donation-form-label-container"
-            >
-                <span className="create-donation-form-label-text">
-                    Annonymous
-                </span>
+            <label htmlFor="annonymous" className={styles.formLabelContainer}>
+                <span className={styles.formlLabelText}>Annonymous</span>
                 <input
-                    className="create-donation-form-checkbox"
+                    className={styles.formCheckbox}
                     type="checkbox"
                     {...register('annonymous')}
                 />
                 {errors?.annonymous && (
-                    <span className="create-donation-form-error-text">
+                    <span className={styles.formErrorText}>
                         {errors.annonymous.message}
                     </span>
                 )}
             </label>
 
-            <label
-                htmlFor="message"
-                className="create-donation-form-label-container"
-            >
-                <span className="create-donation-form-label-text">
+            <label htmlFor="message" className={styles.formLabelContainer}>
+                <span className={styles.formlLabelText}>
                     Message (Optional)
                 </span>
                 <input
-                    className="create-donation-form-input"
+                    className={styles.formInput}
                     type="text"
                     {...register('message')}
                 />
                 {errors?.message && (
-                    <span className="create-donation-form-error-text">
+                    <span className={styles.formErrorText}>
                         {errors.message.message}
                     </span>
                 )}
             </label>
 
-            <button className="create-donation-form-button" type="submit">
+            <button className={styles.formButton} type="submit">
                 Create Donation
             </button>
         </form>

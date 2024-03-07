@@ -43,11 +43,11 @@ export default async function FundraiserSection({
     if (loading) return <p>Loading...</p>;
 
     return (
-        <div className="fundraisers-page-container">
+        <div>
             <div>
                 <p>{category}</p>
             </div>
-            <div className="fundraiser-card-grid">
+            <div>
                 {fundraisers.slice(0, 4).map((fundraiser: IFundraiser) => (
                     <FundraiserCard {...fundraiser} key={fundraiser.id} />
                 ))}

@@ -3,36 +3,35 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FaSignOutAlt } from 'react-icons/fa';
 import profileMenuLinks from './profileMenuLinks';
+import styles from './styles.module.css';
 
 const ProfileMenu = forwardRef((_props, ref: ForwardedRef<HTMLDivElement>) => {
     const pathName = usePathname();
 
     return (
-        <div className="profile-menu-container" ref={ref}>
-            <span className="profile-menu-title">Profile Menu</span>
-            <nav className="profile-menu-link-menu">
+        <div className={styles.menuContainer} ref={ref}>
+            <p className={styles.menuTitle}>Profile Menu</p>
+            <nav className={styles.menuLinksContainer}>
                 {profileMenuLinks.map(({ name, path, icon }) => (
                     <Link
                         key={path}
                         href={path}
-                        className="profile-menu-link-container"
+                        className={styles.menuLinkContainer}
                     >
-                        <div className="profile-menu-link-icon-container">
-                            {icon}
-                        </div>
-                        <span
+                        <div className={styles.menuLinkContainer}>{icon}</div>
+                        <p
                             className={
                                 pathName === path
-                                    ? 'profile-menu-link-active'
-                                    : 'profile-menu-link-text'
+                                    ? styles.menuLinkActive
+                                    : styles.menuLinkText
                             }
                         >
                             {name}
-                        </span>
+                        </p>
                     </Link>
                 ))}
             </nav>
-            <button className="profile-menu-sign-out-button" type="button">
+            <button className={styles.signOutButton} type="button">
                 <FaSignOutAlt /> Sign Out
             </button>
         </div>

@@ -5,6 +5,7 @@ import { useProfileMenu } from '@/app/hooks/profileMenu/useProfileMenu';
 import { usePathname, useRouter } from 'next/navigation';
 import ProfileMenu from '../../profile/ProfileMenu';
 import headerLinks from './headerLinks';
+import styles from './styles.module.css';
 
 export default function Header() {
     const { toggleProfileMenu, profileMenuActive, profileMenuRef } =
@@ -15,20 +16,20 @@ export default function Header() {
     const pathName = usePathname();
 
     return (
-        <header className="header-container">
-            <div className="header-content-container">
-                <Link href="/" className="header-logo">
+        <header className={styles.headerContainer}>
+            <div className={styles.headerContentContainer}>
+                <Link href="/" className={styles.headerLogo}>
                     GoFunder
                 </Link>
-                <nav className="header-link-menu">
+                <nav className={styles.headerLinkMenu}>
                     {headerLinks.map(({ href, name }) => (
                         <Link
                             key={name}
                             href={href}
                             className={
                                 pathName === href
-                                    ? 'header-link-active'
-                                    : 'header-link'
+                                    ? styles.headerLinkActive
+                                    : styles.headerLinkText
                             }
                         >
                             {name}
@@ -36,16 +37,16 @@ export default function Header() {
                     ))}
                 </nav>
             </div>
-            <div className="header-controls-container">
+            <div className={styles.headerControlsContainer}>
                 <button
-                    className="header-auth-button-sign-in"
+                    className={styles.headerSignInButton}
                     type="button"
                     onClick={() => router.push('/auth/sign-in')}
                 >
                     Sign In
                 </button>
                 <button
-                    className="header-auth-button-sign-up"
+                    className={styles.headerSignUpButton}
                     type="button"
                     onClick={() => router.push('/auth/sign-up')}
                 >
@@ -56,7 +57,7 @@ export default function Header() {
                     type="image"
                     src="/defaultAvatar.png"
                     alt="avatar image"
-                    className="header-avatar-input"
+                    className={styles.headerAvatarInput}
                     onClick={() => toggleProfileMenu()}
                 />
                 {profileMenuActive && <ProfileMenu ref={profileMenuRef} />}

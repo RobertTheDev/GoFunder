@@ -6,6 +6,7 @@ import {
     deleteFundraiserSchema,
     DeleteFundraiserSchemaType
 } from './deleteFundraiser.schema';
+import styles from './styles.module.css';
 
 export default function DeleteFundraiserForm() {
     const {
@@ -23,35 +24,28 @@ export default function DeleteFundraiserForm() {
 
     return (
         <form
-            className="fundraiser-admin-form-container"
+            className={styles.formContainer}
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleDeleteFundraiser(values);
             })}
         >
-            <span className="fundraiser-admin-form-title">
-                Delete Fundraiser
-            </span>
-            <label
-                htmlFor="email"
-                className="fundraiser-admin-form-label-container"
-            >
-                <span className="fundraiser-admin-form-label-text">
-                    Confirm
-                </span>
+            <span className={styles.formTitle}>Delete Fundraiser</span>
+            <label htmlFor="email" className={styles.formLabelContainer}>
+                <span className={styles.formLabelText}>Confirm</span>
                 <input
-                    className="fundraiser-admin-form-input"
+                    className={styles.formInput}
                     type="text"
                     {...register('confirm')}
                 />
                 {errors?.confirm && (
-                    <p className="fundraiser-admin-form-error-text">
+                    <p className={styles.formErrorText}>
                         {errors.confirm.message}
                     </p>
                 )}
             </label>
 
-            <button className="fundraiser-admin-form-button" type="submit">
+            <button className={styles.formButton} type="submit">
                 Delete Fundraiser
             </button>
         </form>

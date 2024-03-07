@@ -6,6 +6,7 @@ import {
     CreateFundraiserSchemaType,
     createFundraiserSchema
 } from './createFundraiser.schema';
+import styles from './styles.module.css';
 
 export default function CreateFundraiserForm() {
     const {
@@ -23,34 +24,27 @@ export default function CreateFundraiserForm() {
 
     return (
         <form
-            className="create-fundraiser-form-container"
+            className={styles.formContainer}
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleCreateFundraiser(values);
             })}
         >
-            <span className="create-fundraiser-form-title">
-                Create Fundraiser
-            </span>
-            <label
-                className="create-fundraiser-form-label-container"
-                htmlFor="name"
-            >
-                <span className="create-fundraiser-form-label-text">
-                    Confirm
-                </span>
+            <span className={styles.formTitle}>Create Fundraiser</span>
+            <label className={styles.formLabelContainer} htmlFor="name">
+                <span className={styles.formLabelText}>Confirm</span>
                 <input
-                    className="create-fundraiser-form-input"
+                    className={styles.formInput}
                     type="text"
                     {...register('name')}
                 />
                 {errors?.name && (
-                    <p className="create-fundraiser-form-error-text">
+                    <p className={styles.formErrorText}>
                         {errors.name.message}
                     </p>
                 )}
             </label>
-            <button className="create-fundraiser-form-button" type="submit">
+            <button className={styles.formButton} type="submit">
                 <div className="loader" />
                 <span>Create Fundraiser</span>
             </button>

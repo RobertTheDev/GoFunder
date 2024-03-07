@@ -6,6 +6,7 @@ import {
     ChangePasswordSchemaType,
     changePasswordSchema
 } from './changePassword.schema';
+import styles from './styles.module.css';
 
 export default function ChangePasswordForm() {
     const {
@@ -23,48 +24,45 @@ export default function ChangePasswordForm() {
 
     return (
         <form
-            className="account-settings-form-container"
+            className={styles.formContainer}
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleChangePassword(values);
             })}
         >
-            <span className="account-settings-form-title">Change Password</span>
-            <label
-                className="account-settings-form-label-container"
-                htmlFor="newPassword"
-            >
-                <span className="account-settings-form-label-text">Email</span>
+            <span className={styles.formTitle}>Change Password</span>
+            <label className={styles.formLabelContainer} htmlFor="newPassword">
+                <span className={styles.formLabelText}>Email</span>
                 <input
-                    className="account-settings-form-input"
+                    className={styles.formInput}
                     type="password"
                     {...register('newPassword')}
                 />
                 {errors?.newPassword && (
-                    <span className="account-settings-form-error-text">
+                    <span className={styles.formErrorText}>
                         {errors.newPassword.message}
                     </span>
                 )}
             </label>
 
             <label
-                className="account-settings-form-label-container"
+                className={styles.formLabelContainer}
                 htmlFor="currentPassword"
             >
-                <span className="account-settings-form-label-text">Email</span>
+                <span className={styles.formLabelText}>Email</span>
                 <input
-                    className="account-settings-form-input"
+                    className={styles.formInput}
                     type="password"
                     {...register('currentPassword')}
                 />
                 {errors?.currentPassword && (
-                    <span className="account-settings-form-error-text">
+                    <span className={styles.formErrorText}>
                         {errors.currentPassword.message}
                     </span>
                 )}
             </label>
 
-            <button className="account-settings-form-button" type="submit">
+            <button className={styles.formButton} type="submit">
                 Change Password
             </button>
         </form>

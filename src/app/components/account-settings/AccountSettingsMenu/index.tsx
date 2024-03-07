@@ -2,20 +2,21 @@ import { JSX } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import accountSettingsLinks from './accountSettingsLinks';
+import styles from './styles.module.css';
 
 export default function AccountSettingsMenu(): JSX.Element {
     const pathName = usePathname();
 
     return (
-        <div className="account-settings-menu-container">
-            <p className="account-settings-menu-title">Account Settings</p>
-            <nav className="account-settings-menu-link-menu">
+        <div className={styles.menuContainer}>
+            <p className={styles.menuTitle}>Account Settings</p>
+            <nav className={styles.menuLinksContainer}>
                 {accountSettingsLinks.map(({ name, path }) => (
                     <Link
                         className={
                             pathName === path
-                                ? 'account-settings-menu-link-active'
-                                : 'account-settings-menu-link-text'
+                                ? styles.menuLinkActive
+                                : styles.menuLinkText
                         }
                         href={path}
                         key={path}

@@ -6,6 +6,7 @@ import {
     closeAccountSchema,
     CloseAccountSchemaType
 } from './closeAccount.schema';
+import styles from './styles.module.css';
 
 export default function CloseAccountForm() {
     const {
@@ -23,50 +24,42 @@ export default function CloseAccountForm() {
 
     return (
         <form
-            className="account-settings-form-container"
+            className={styles.formContainer}
             onSubmit={handleSubmit(values => {
                 // eslint-disable-next-line no-alert
                 handleCloseAcount(values);
             })}
         >
-            <span className="account-settings-form-title">Close Account</span>
-            <label
-                className="account-settings-form-label-container"
-                htmlFor="confirm"
-            >
-                <span className="account-settings-form-label-text">
-                    Confirm
-                </span>
+            <span className={styles.formTitle}>Close Account</span>
+            <label className={styles.formLabelContainer} htmlFor="confirm">
+                <span className={styles.formLabelText}>Confirm</span>
                 <input
-                    className="account-settings-form-input"
+                    className={styles.formInput}
                     type="text"
                     {...register('confirm')}
                 />
                 {errors?.confirm && (
-                    <span className="account-settings-form-error-text">
+                    <span className={styles.formErrorText}>
                         {errors.confirm.message}
                     </span>
                 )}
             </label>
 
-            <label
-                className="account-settings-form-label-container"
-                htmlFor="password"
-            >
-                <span className="account-settings-form-label-text">Email</span>
+            <label className={styles.formLabelContainer} htmlFor="password">
+                <span className={styles.formLabelText}>Email</span>
                 <input
-                    className="account-settings-form-input"
+                    className={styles.formInput}
                     type="password"
                     {...register('password')}
                 />
                 {errors?.password && (
-                    <span className="account-settings-form-error-text">
+                    <span className={styles.formErrorText}>
                         {errors.password.message}
                     </span>
                 )}
             </label>
 
-            <button className="account-settings-form-button" type="submit">
+            <button className={styles.formButton} type="submit">
                 Close Account
             </button>
         </form>

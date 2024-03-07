@@ -2,31 +2,32 @@ import CategoryMenu from '@/app/components/home/CategoryMenu';
 import FundraiserSection from '@/app/components/home/FundraiserSection';
 import Image from 'next/image';
 import { JSX } from 'react';
+import styles from './styles.module.css';
 
 export default function HomeTemplate(): JSX.Element {
     return (
-        <div className="home-page-container">
-            <div className="home-page-banner-container">
-                <div className="home-page-banner-image-container">
+        <div className={styles.pageContainer}>
+            <div className={styles.bannerContainer}>
+                <div className={styles.bannerImageContainer}>
                     <Image
                         src="https://images.unsplash.com/photo-1596460658047-1826d5921c56?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                         alt="home"
                         fill
                     />
                 </div>
-                <div className="home-page-banner-content-container">
-                    <span className="home-page-banner-content-title">
+                <div className={styles.bannerContentContainer}>
+                    <span className={styles.bannerTitle}>
                         Raise funds for the causes you care about
                     </span>
-                    <div className="home-page-banner-content-button-group">
+                    <div className={styles.bannerButtonGroup}>
                         <button
-                            className="home-page-banner-content-button-primary"
+                            className={styles.bannerButtonPrimary}
                             type="button"
                         >
                             Find Fundraisers
                         </button>
                         <button
-                            className="home-page-banner-content-button-secondary"
+                            className={styles.bannerButtonSecondary}
                             type="button"
                         >
                             Start Fundraising

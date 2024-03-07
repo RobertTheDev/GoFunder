@@ -1,0 +1,39 @@
+.menuContainer {
+    background-color: white;
+    background-color: var(--neutral900);
+    border-radius: 1.6rem;
+    box-shadow:
+        0 4px 6px -1px rgb(0 0 0 / 10%),
+        0 2px 4px -2px rgb(0 0 0 / 10%);
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+    overflow: hidden;
+    padding: 3.2rem;
+    width: 28rem;
+}
+
+.menuLinkActive {
+    color: #00a95c;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.menuLinksContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 3.2rem;
+}
+
+.menuLinkText {
+    color: inherit;
+    font-size: 1.4rem;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.menuTitle {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
