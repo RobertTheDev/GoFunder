@@ -8,9 +8,7 @@ export default function AccountSettingsMenu(): JSX.Element {
 
     return (
         <div className="account-settings-menu-container">
-            <span className="account-settings-menu-title">
-                Account Settings
-            </span>
+            <p className="account-settings-menu-title">Account Settings</p>
             <nav className="account-settings-menu-link-menu">
                 {accountSettingsLinks.map(({ name, path }) => (
                     <Link
