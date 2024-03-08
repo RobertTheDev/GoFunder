@@ -3,7 +3,7 @@
 // The relevant imports required for the page.
 import { JSX } from 'react';
 import UpdateFundraiserForm from '@/app/modules/fundraiser/components/UpdateFundraiserForm';
-import FundraiserAdminPageTemplate from '@/app/templates/fundraiser/FundraiserAdminPage';
+import FundraiserAdminPageTemplate from '@/app/modules/fundraiser/layouts/FundraiserAdminLayout';
 import { Metadata } from 'next';
 
 // Metadata defines the seo options for this page.

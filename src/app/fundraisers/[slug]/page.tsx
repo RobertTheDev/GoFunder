@@ -2,7 +2,7 @@
 
 // The relevant imports required for the page.
 import { JSX } from 'react';
-import FundraiserTemplate from '@/app/templates/fundraiser/FundraiserTemplate';
+import FundraiserTemplate from '@/app/modules/fundraiser/templates/FundraiserTemplate';
 import { Metadata } from 'next';
 import { getClient } from '@/app/lib/apollo/apolloClient';
 import { gql } from '@apollo/client';
