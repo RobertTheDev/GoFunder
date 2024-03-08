@@ -7,6 +7,7 @@ import { gql } from '@apollo/client';
 import { Metadata } from 'next';
 import FundraiserCard from '../modules/fundraiser/components/FundraiserCard';
 import { IFundraiser } from '../interfaces/Fundraiser';
+import DonationCardsLayout from '../modules/donation/layouts/DonationCardsLayout';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -39,12 +40,10 @@ export default async function MyDonationsPage(): Promise<JSX.Element> {
     if (loading) return <p>Loading...</p>;
 
     return (
-        <div className="fundraisers-page-container">
-            <div className="fundraiser-card-grid">
-                {fundraisers.map((fundraiser: IFundraiser) => (
-                    <FundraiserCard {...fundraiser} key={fundraiser.id} />
-                ))}
-            </div>
-        </div>
+        <DonationCardsLayout>
+            {fundraisers.map((fundraiser: IFundraiser) => (
+                <FundraiserCard {...fundraiser} key={fundraiser.id} />
+            ))}
+        </DonationCardsLayout>
     );
 }
