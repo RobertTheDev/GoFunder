@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { format } from 'date-fns';
-import DonationCard from '@/app/components/donation/DonationCard';
+import DonationCard from '@/app/modules/donation/components/DonationCard';
 import { IFundraiser } from '@/app/interfaces/Fundraiser';
 import { FaHandHoldingHeart, FaHeart } from 'react-icons/fa';
 import styles from './styles.module.css';
