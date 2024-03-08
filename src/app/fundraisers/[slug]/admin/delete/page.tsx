@@ -3,7 +3,7 @@
 // The relevant imports required for the page.
 import { JSX } from 'react';
 import DeleteFundraiserForm from '@/app/modules/fundraiser/components/DeleteFundraiserForm';
-import FundraiserAdminPageTemplate from '@/app/modules/fundraiser/layouts/FundraiserAdminLayout';
+import FundraiserAdminLayout from '@/app/modules/fundraiser/layouts/FundraiserAdminLayout';
 import { Metadata } from 'next';
 
 // Metadata defines the seo options for this page.
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 // This handler wraps the page with the fundraiser admin page layout template.
 export default function DeleteFundraiserPage(): JSX.Element {
     return (
-        <FundraiserAdminPageTemplate>
+        <FundraiserAdminLayout>
             <DeleteFundraiserForm />
-        </FundraiserAdminPageTemplate>
+        </FundraiserAdminLayout>
     );
 }
