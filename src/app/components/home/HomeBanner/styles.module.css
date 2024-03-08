@@ -1,0 +1,68 @@
+.bannerContainer {
+    width: 100%;
+    display: flex;
+    position: relative;
+    height: 64rem;
+
+}
+
+.bannerContentContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 4.8rem;
+    flex: 1;
+    margin: 9.6rem 8rem;
+    width: 40%;
+}
+
+.bannerButtonGroup {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    width: 100%;
+}
+
+.bannerButtonPrimary {
+    background-color: var(--neutral50);
+    color: var(--neutral800);
+    padding: 2.4rem;
+    border-radius: 3.2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    min-width: 12rem;
+}
+
+.bannerButtonPrimary:hover {
+    background-color: var(--neutral100);
+}
+
+.bannerButtonSecondary {
+    background-color: var(--primary600);
+    color: white;
+    padding: 2.4rem;
+    border-radius: 3.2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    min-width: 12rem;
+
+
+}
+
+.bannerButtonSecondary:hover {
+    background-color: var(--primary700);
+}
+
+
+.bannerTitle {
+    font-size: 5.6rem;
+    font-weight: 500;
+}
+
+
+.bannerImageContainer {
+    position: relative;
+    width: 100%;
+    flex: 1;
+
+}
