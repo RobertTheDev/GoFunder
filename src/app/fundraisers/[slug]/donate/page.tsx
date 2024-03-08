@@ -2,8 +2,8 @@
 
 // The relevant imports required for the page.
 import { JSX } from 'react';
-import CreateDonationForm from '@/app/modules/donation/components/CreateDonationForm';
 import { Metadata } from 'next';
+import CreateDonationTemplate from '@/app/modules/donation/templates/CreateDonationTemplate';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -12,5 +12,5 @@ export const metadata: Metadata = {
 
 // This handler returns a form for a user to make a donation to a fundraiser.
 export default function FundraiserDonationPage(): JSX.Element {
-    return <CreateDonationForm />;
+    return <CreateDonationTemplate />;
 }
