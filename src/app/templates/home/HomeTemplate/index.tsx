@@ -8,10 +8,10 @@ export default function HomeTemplate(): JSX.Element {
         <div className={styles.pageContainer}>
             <HomeBanner />
             <div className={styles.pageSectionsContainer}>
-                <FundraiserSection category="Category" />
-                <FundraiserSection category="Category" />
-                <FundraiserSection category="Category" />
-                <FundraiserSection category="Category" />
+                <FundraiserSection category="Animals and Pets" />
+                <FundraiserSection category="Disablity" />
+                <FundraiserSection category="International Aid" />
+                <FundraiserSection category="Sports" />
             </div>
         </div>
     );
