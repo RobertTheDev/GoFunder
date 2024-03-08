@@ -2,7 +2,7 @@
 
 // The relevant imports required for the page.
 import { JSX } from 'react';
-import SignUpForm from '@/app/components/auth/SignUpForm';
+import SignUpForm from '@/app/modules/auth/components/SignUpForm';
 import AuthPageTemplate from '@/app/templates/auth/AuthPage';
 import { Metadata } from 'next';
 
