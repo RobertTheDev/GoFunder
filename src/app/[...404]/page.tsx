@@ -3,7 +3,7 @@
 // The relevant imports required for the page.
 import { JSX } from 'react';
 import { Metadata } from 'next';
-import NotFoundTemplate from '../templates/not-found/NotFoundTemplate';
+import NotFoundTemplate from '@/app/modules/not-found/template/NotFoundTemplate';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
