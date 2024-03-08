@@ -3,7 +3,7 @@
 // The relevant imports required for the page.
 import { JSX } from 'react';
 import { Metadata } from 'next';
-import ProfileTemplate from '@/app/templates/profile/ProfileTemplate';
+import ProfileTemplate from '@/app/modules/profile/templates/ProfileTemplate';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
