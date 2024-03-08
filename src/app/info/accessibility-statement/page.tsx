@@ -3,6 +3,7 @@
 // The relevant imports required for the page.
 import { JSX } from 'react';
 import { Metadata } from 'next';
+import InfoLayout from '@/app/modules/info/layouts/InfoLayout';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 // This handler returns the HTML content for the app's accessiility statement.
 export default function AccessibilityStatementPage(): JSX.Element {
     return (
-        <div className="info-page-container">
+        <InfoLayout>
             <h1 id="accessibility-statement">Accessibility Statement</h1>
             <p>
                 At Eventee, we are committed to ensuring digital accessibility
@@ -113,6 +114,6 @@ export default function AccessibilityStatementPage(): JSX.Element {
             <p>
                 <strong>Last Updated: February 2024</strong>
             </p>
-        </div>
+        </InfoLayout>
     );
 }

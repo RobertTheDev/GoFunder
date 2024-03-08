@@ -3,6 +3,7 @@
 // The relevant imports required for the page.
 import { JSX } from 'react';
 import { Metadata } from 'next';
+import InfoLayout from '@/app/modules/info/layouts/InfoLayout';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 // This handler returns the HTML content for the app's accessiility statement.
 export default function TermsAndConditionsPage(): JSX.Element {
     return (
-        <div className="info-page-container">
+        <InfoLayout>
             <h1 id="terms-and-conditions">Terms and Conditions</h1>
             <p>
                 These Terms and Conditions (&quot;Terms&quot;) govern your use
@@ -103,6 +104,6 @@ export default function TermsAndConditionsPage(): JSX.Element {
             <p>
                 <strong>Last Updated: [Insert Date]</strong>
             </p>
-        </div>
+        </InfoLayout>
     );
 }

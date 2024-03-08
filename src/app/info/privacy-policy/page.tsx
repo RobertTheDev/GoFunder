@@ -3,6 +3,7 @@
 // The relevant imports required for the page.
 import { JSX } from 'react';
 import { Metadata } from 'next';
+import InfoLayout from '@/app/modules/info/layouts/InfoLayout';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 // This handler returns the HTML content for the app's privacy policy.
 export default function PrivacyPolicyPage(): JSX.Element {
     return (
-        <div className="info-page-container">
+        <InfoLayout>
             <h1 id="privacy-policy">Privacy Policy</h1>
             <p>
                 This Privacy Policy outlines how Eventee (&quot;we&quot;,
@@ -138,6 +139,6 @@ export default function PrivacyPolicyPage(): JSX.Element {
             <p>
                 <strong>Last Updated: [Insert Date]</strong>
             </p>
-        </div>
+        </InfoLayout>
     );
 }
