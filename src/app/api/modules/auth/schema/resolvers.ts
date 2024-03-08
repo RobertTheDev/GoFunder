@@ -1,8 +1,10 @@
-import { GraphQLArgs } from 'graphql';
-import signUpController from '@/app/api/modules/auth/resolvers/signUp';
+import signUpResolver from '@/app/api/modules/auth/resolvers/signUp';
 
 export const authResolvers = {
     Mutation: {
-        signUp: (_root: unknown, args: GraphQLArgs) => signUpController(args)
+        signUp: (
+            _root: unknown,
+            args: { input: { email: string; name: string } }
+        ) => signUpResolver({ args })
     }
 };

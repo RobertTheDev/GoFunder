@@ -1,12 +1,12 @@
 import { GraphQLError } from 'graphql';
-import { User } from '@prisma/client';
 import { signUpSchema } from '@/app/api/modules/auth/resolvers/signUp/signUp.schema';
-import { prismaClient } from '@/app/api/db/prisma/prismaClient';
 
-export default async function signUpController(
-    input: unknown
-): Promise<User | null> {
-    const validation = await signUpSchema.safeParseAsync(input);
+export default async function signUpResolver(props: {
+    args: { input: { email: string; name: string } };
+}): Promise<{ email: string; name: string } | null> {
+    const { args } = props;
+
+    const validation = await signUpSchema.safeParseAsync(args.input);
 
     if (!validation.success) {
         throw new GraphQLError(validation.error.errors[0].message);
@@ -14,5 +14,5 @@ export default async function signUpController(
 
     const { data } = validation;
 
-    return prismaClient.user.create({ data });
+    return data;
 }
