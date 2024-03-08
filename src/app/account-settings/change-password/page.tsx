@@ -1,7 +1,7 @@
 // PURPOSE: This page displays a form for a user to change their password.
 
 // The relevant imports required for the page.
-import ChangePasswordForm from '@/app/components/account-settings/ChangePasswordForm/ChangePasswordForm';
+import ChangePasswordForm from '@/app/modules/account-settings/components/ChangePasswordForm/ChangePasswordForm';
 import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
 import { Metadata } from 'next';
 import { JSX } from 'react';

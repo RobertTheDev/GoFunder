@@ -1,7 +1,7 @@
 // PURPOSE: This page displays a form for a user to change their email address.
 
 // The relevant imports required for the page.
-import ChangeEmailForm from '@/app/components/account-settings/ChangeEmailForm';
+import ChangeEmailForm from '@/app/modules/account-settings/components/ChangeEmailForm';
 import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
 import { Metadata } from 'next';
 import { JSX } from 'react';

@@ -1,7 +1,7 @@
 // PURPOSE: This page displays a form for a user to update their profile.
 
 // The relevant imports required for the page.
-import UpdateProfileForm from '@/app/components/account-settings/UpdateProfileForm';
+import UpdateProfileForm from '@/app/modules/account-settings/components/UpdateProfileForm';
 import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
 import { Metadata } from 'next';
 import { JSX } from 'react';

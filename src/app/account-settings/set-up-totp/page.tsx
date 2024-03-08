@@ -1,7 +1,7 @@
 // PURPOSE: This page displays a form for a user to set up TOTP (time based one-time password).
 
 // The relevant imports required for the page.
-import SetUpTotpForm from '@/app/components/account-settings/SetUpTotpForm';
+import SetUpTotpForm from '@/app/modules/account-settings/components/SetUpTotpForm';
 import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
 import { Metadata } from 'next';
 import { JSX } from 'react';

@@ -1,7 +1,7 @@
 // PURPOSE: This page displays a form for a user verfy a TOTP (time based one-time password) code.
 
 // The relevant imports required for the page.
-import VerifyTotpForm from '@/app/components/account-settings/VerifyTotpForm';
+import VerifyTotpForm from '@/app/modules/account-settings/components/VerifyTotpForm';
 import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
 import { Metadata } from 'next';
 import { JSX } from 'react';

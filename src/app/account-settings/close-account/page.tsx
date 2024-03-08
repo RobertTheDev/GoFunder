@@ -1,7 +1,7 @@
 // PURPOSE: This page displays a form for a user to close their account.
 
 // The relevant imports required for the page.
-import CloseAccountForm from '@/app/components/account-settings/CloseAccountForm';
+import CloseAccountForm from '@/app/modules/account-settings/components/CloseAccountForm';
 import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
 import { Metadata } from 'next';
 import { JSX } from 'react';
