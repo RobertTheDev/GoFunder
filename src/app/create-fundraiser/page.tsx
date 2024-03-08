@@ -3,7 +3,7 @@
 // The relevant imports required for the page.
 import { JSX } from 'react';
 import { Metadata } from 'next';
-import CreateFundraiserForm from '../modules/fundraiser/components/CreateFundraiserForm';
+import CreateFundraiserTemplate from '../modules/fundraiser/templates/CreateFundraiserTemplate';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -12,5 +12,5 @@ export const metadata: Metadata = {
 
 // This handler displays a form to create a fundraiser.
 export default function CreateFundraiserPage(): JSX.Element {
-    return <CreateFundraiserForm />;
+    return <CreateFundraiserTemplate />;
 }
