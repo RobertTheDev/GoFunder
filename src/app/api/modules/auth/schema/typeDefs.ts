@@ -1,7 +1,17 @@
 import gql from 'graphql-tag';
 
 export const authTypeDefs = gql`
+    type SignUpResponse {
+        email: String
+        name: String
+    }
+
+    input SignUpInput {
+        email: String!
+        name: String!
+    }
+
     type Mutation {
-        signUp(email: String, name: String, password: String): User
+        signUp(input: SignUpInput!): SignUpResponse
     }
 `;
