@@ -1,4 +1,3 @@
-import CategoryMenu from '@/app/components/home/CategoryMenu';
 import FundraiserSection from '@/app/components/home/FundraiserSection';
 import Image from 'next/image';
 import { JSX } from 'react';
@@ -35,11 +34,12 @@ export default function HomeTemplate(): JSX.Element {
                     </div>
                 </div>
             </div>
-            <CategoryMenu />
-            <FundraiserSection category="Category" />
-            <FundraiserSection category="Category" />
-            <FundraiserSection category="Category" />
-            <FundraiserSection category="Category" />
+            <div className={styles.pageSectionsContainer}>
+                <FundraiserSection category="Category" />
+                <FundraiserSection category="Category" />
+                <FundraiserSection category="Category" />
+                <FundraiserSection category="Category" />
+            </div>
         </div>
     );
 }

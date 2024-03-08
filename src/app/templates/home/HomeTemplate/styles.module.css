@@ -3,22 +3,27 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    position: relative;
+    background-color: whitesmoke;
+    flex: 1;
 }
 
 .bannerContainer {
     width: 100%;
     display: flex;
-    padding: 3.2rem 8rem;
-    gap: 4.8rem;
+    position: relative;
+    height: 64rem;
+
 }
 
 .bannerContentContainer {
-    position: relative;
-    width: 100%;
+    position: absolute;
     display: flex;
     flex-direction: column;
     gap: 4.8rem;
     flex: 1;
+    margin: 9.6rem 8rem;
+    width: 40%;
 }
 
 .bannerButtonGroup {
@@ -32,9 +37,9 @@
     background-color: #eff0f3;
     background-color: var(--neutral800);
     color: white;
-    padding: 1.6rem;
+    padding: 2.4rem;
     border-radius: 3.2rem;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 600;
     min-width: 12rem;
 
@@ -48,9 +53,9 @@
 .bannerButtonSecondary {
     background-color: var(--primary600);
     color: white;
-    padding: 1.6rem;
+    padding: 2.4rem;
     border-radius: 3.2rem;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-weight: 600;
     min-width: 12rem;
 
@@ -71,8 +76,15 @@
 .bannerImageContainer {
     position: relative;
     width: 100%;
-    height: 40rem;
     flex: 1;
-    border-radius: 3.2rem;
-    overflow: hidden;
+
+}
+
+.pageSectionsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.6rem 0;
+    width: 100%;
+    gap: 1.6rem;
 }

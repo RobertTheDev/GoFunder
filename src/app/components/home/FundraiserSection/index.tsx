@@ -4,6 +4,7 @@ import { gql } from '@apollo/client';
 import { IFundraiser } from '@/app/interfaces/Fundraiser';
 import FundraiserCard from '@/app/components/fundraiser/FundraiserCard';
 import { Metadata } from 'next';
+import styles from './styles.module.css';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -43,11 +44,10 @@ export default async function FundraiserSection({
     if (loading) return <p>Loading...</p>;
 
     return (
-        <div>
-            <div>
-                <p>{category}</p>
-            </div>
-            <div>
+        <div className={styles.sectionContainer}>
+            <p className={styles.sectionTitle}>{category}</p>
+
+            <div className={styles.sectionCardsGrid}>
                 {fundraisers.slice(0, 4).map((fundraiser: IFundraiser) => (
                     <FundraiserCard {...fundraiser} key={fundraiser.id} />
                 ))}
