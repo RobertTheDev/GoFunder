@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useProfileMenu } from '@/app/hooks/profileMenu/useProfileMenu';
 import { usePathname, useRouter } from 'next/navigation';
-import ProfileMenu from '../../profile/ProfileMenu';
+import ProfileMenu from '../../../modules/profile/components/ProfileMenu';
 import headerLinks from './headerLinks';
 import styles from './styles.module.css';
 
