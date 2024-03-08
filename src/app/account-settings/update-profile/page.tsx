@@ -2,7 +2,7 @@
 
 // The relevant imports required for the page.
 import UpdateProfileForm from '@/app/modules/account-settings/components/UpdateProfileForm';
-import AccountSettingsPageTemplate from '@/app/modules/account-settings/layouts/AccountSettingsLayout';
+import AccountSettingsLayout from '@/app/modules/account-settings/layouts/AccountSettingsLayout';
 import { Metadata } from 'next';
 import { JSX } from 'react';
 
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 // This handler wraps the form component with the account settings page layout template.
 export default function UpdateProfilePage(): JSX.Element {
     return (
-        <AccountSettingsPageTemplate>
+        <AccountSettingsLayout>
             <UpdateProfileForm />
-        </AccountSettingsPageTemplate>
+        </AccountSettingsLayout>
     );
 }
