@@ -2,7 +2,7 @@
 
 // The relevant imports required for the page.
 import ChangePasswordForm from '@/app/modules/account-settings/components/ChangePasswordForm/ChangePasswordForm';
-import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
+import AccountSettingsPageTemplate from '@/app/modules/account-settings/layouts/AccountSettingsLayout';
 import { Metadata } from 'next';
 import { JSX } from 'react';
 

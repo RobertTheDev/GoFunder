@@ -2,7 +2,7 @@
 
 // The relevant imports required for the page.
 import SetUpTotpForm from '@/app/modules/account-settings/components/SetUpTotpForm';
-import AccountSettingsPageTemplate from '@/app/templates/account-settings/AccountSettingsPage';
+import AccountSettingsPageTemplate from '@/app/modules/account-settings/layouts/AccountSettingsLayout';
 import { Metadata } from 'next';
 import { JSX } from 'react';
 

@@ -4,7 +4,7 @@ import AccountSettingsMenu from '@/app/modules/account-settings/components/Accou
 import { ReactNode } from 'react';
 import styles from './styles.module.css';
 
-export default function AccountSettingsPageTemplate({
+export default function AccountSettingsLayout({
     children
 }: {
     children: ReactNode;
