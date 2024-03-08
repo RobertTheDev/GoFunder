@@ -4,6 +4,7 @@
 import { JSX } from 'react';
 import FundraiserAdminLayout from '@/app/modules/fundraiser/layouts/FundraiserAdminLayout';
 import { Metadata } from 'next';
+import FundraiserOverview from '@/app/modules/fundraiser/components/FundraiserOverview';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 export default function FundraiserAdminOverviewPage(): JSX.Element {
     return (
         <FundraiserAdminLayout>
-            <p>Findraiser ajnjnj</p>
+            <FundraiserOverview />
         </FundraiserAdminLayout>
     );
 }
