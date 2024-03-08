@@ -1,12 +1,10 @@
 import { makeExecutableSchema } from '@graphql-tools/schema';
 import { typeDefs } from './typeDefs';
-import { fundraiserResolvers } from './resolvers/fundraiserResolvers';
-import { authResolvers } from './resolvers/authResolvers';
-import { dateResolvers } from './resolvers/dateResolvers';
+import { resolvers } from './resolvers';
 
 export const schema = makeExecutableSchema({
     typeDefs,
-    resolvers: [dateResolvers, authResolvers, fundraiserResolvers]
+    resolvers
     // logger, // optional
     // resolverValidationOptions: {}, // optional
     // parseOptions: {}, // optional
