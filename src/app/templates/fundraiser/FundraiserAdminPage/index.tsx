@@ -1,6 +1,6 @@
 'use client';
 
-import FundraiserAdminMenu from '@/app/components/fundraiser/FundraiserAdminMenu';
+import FundraiserAdminMenu from '@/app/modules/fundraiser/components/FundraiserAdminMenu';
 import { ReactNode } from 'react';
 import styles from './styles.module.css';
 

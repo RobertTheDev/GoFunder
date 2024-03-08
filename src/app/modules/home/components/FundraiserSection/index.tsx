@@ -2,7 +2,7 @@ import { JSX } from 'react';
 import { getClient } from '@/app/lib/apollo/apolloClient';
 import { gql } from '@apollo/client';
 import { IFundraiser } from '@/app/interfaces/Fundraiser';
-import FundraiserCard from '@/app/components/fundraiser/FundraiserCard';
+import FundraiserCard from '@/app/modules/fundraiser/components/FundraiserCard';
 import { Metadata } from 'next';
 import styles from './styles.module.css';
 

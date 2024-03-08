@@ -5,7 +5,7 @@ import { JSX } from 'react';
 import { getClient } from '@/app/lib/apollo/apolloClient';
 import { gql } from '@apollo/client';
 import { Metadata } from 'next';
-import FundraiserCard from '../components/fundraiser/FundraiserCard';
+import FundraiserCard from '../modules/fundraiser/components/FundraiserCard';
 import { IFundraiser } from '../interfaces/Fundraiser';
 
 // Metadata defines the seo options for this page.

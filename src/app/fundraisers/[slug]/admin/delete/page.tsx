@@ -2,7 +2,7 @@
 
 // The relevant imports required for the page.
 import { JSX } from 'react';
-import DeleteFundraiserForm from '@/app/components/fundraiser/DeleteFundraiserForm';
+import DeleteFundraiserForm from '@/app/modules/fundraiser/components/DeleteFundraiserForm';
 import FundraiserAdminPageTemplate from '@/app/templates/fundraiser/FundraiserAdminPage';
 import { Metadata } from 'next';
 
