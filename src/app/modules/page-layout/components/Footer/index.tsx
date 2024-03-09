@@ -1,10 +1,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { JSX } from 'react';
-import footerLinks from './footerLinks';
+import { footerLinks } from './footerLinks';
 import styles from './styles.module.css';
 
-export default function Footer(): JSX.Element {
+export default function Footer() {
     const pathName = usePathname();
 
     return (
@@ -24,9 +23,9 @@ export default function Footer(): JSX.Element {
                     </Link>
                 ))}
             </nav>
-            <span className={styles.footerCopyrightText}>
+            <small className={styles.footerCopyrightText}>
                 ©{new Date().getFullYear()} GoFunder
-            </span>
+            </small>
         </footer>
     );
 }

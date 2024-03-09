@@ -1,7 +1,7 @@
 .pageContainer {
-    align-items: flex-start;
-    display: flex;
-    gap: 16rem;
-    padding: 3.2rem 8rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4.8rem;
+    padding: 4.8rem 8rem;
     width: 100%;
 }

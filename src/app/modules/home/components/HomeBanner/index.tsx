@@ -13,9 +13,9 @@ export default function HomeBanner(): JSX.Element {
                 />
             </div>
             <div className={styles.bannerContentContainer}>
-                <span className={styles.bannerTitle}>
+                <p className={styles.bannerTitle}>
                     Raise funds for the causes you care about
-                </span>
+                </p>
                 <div className={styles.bannerButtonGroup}>
                     <button
                         className={styles.bannerButtonPrimary}

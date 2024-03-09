@@ -24,9 +24,6 @@
 .cardContainer {
     background-color: white;
     border-radius: 16px;
-    box-shadow:
-        0 4px 6px -1px rgb(0 0 0 / 10%),
-        0 2px 4px -2px rgb(0 0 0 / 10%);
     color: inherit;
     display: flex;
     flex-direction: column;
@@ -89,7 +86,7 @@
 .cardProgressText {
     color: var(--neutral900);
     font-size: 1.4rem;
-    font-weight: 600;
+    font-weight: 500;
 
     @media (prefers-color-scheme: dark) {
         color: var(--neutral300);
