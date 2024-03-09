@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { JSX } from 'react';
 import footerLinks from './footerLinks';
 import styles from './styles.module.css';
 
-export default function Footer() {
+export default function Footer(): JSX.Element {
     const pathName = usePathname();
 
     return (

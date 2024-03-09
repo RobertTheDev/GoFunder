@@ -1,10 +1,9 @@
-import { JSX } from 'react';
 import { getClient } from '@/app/lib/apollo/apolloClient';
 import { gql } from '@apollo/client';
 import { IFundraiser } from '@/app/interfaces/Fundraiser';
 import FundraiserCard from '@/app/modules/fundraiser/components/FundraiserCard';
 import { Metadata } from 'next';
-import FundraiserCardsLayout from '../modules/fundraiser/layouts/FundraiserCardsLayout';
+import FundraiserCardsLayout from '@/app/modules/fundraiser/layouts/FundraiserCardsLayout';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -25,7 +24,7 @@ const GET_FUNDRAISERS = gql`
     }
 `;
 
-export default async function FundraisersPage(): Promise<JSX.Element> {
+export default async function FundraisersPage() {
     const client = getClient();
 
     const {

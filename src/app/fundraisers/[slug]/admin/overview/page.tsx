@@ -1,7 +1,6 @@
 // PURPOSE: This page displays a fundraiser's performance statistics.
 
 // The relevant imports required for the page.
-import { JSX } from 'react';
 import FundraiserAdminLayout from '@/app/modules/fundraiser/layouts/FundraiserAdminLayout';
 import { Metadata } from 'next';
 import FundraiserOverview from '@/app/modules/fundraiser/components/FundraiserOverview';
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
 
 // This handler displays the fetched performance data for a fundraiser.
 // This handler wraps the page with the fundraiser admin page layout template.
-export default function FundraiserAdminOverviewPage(): JSX.Element {
+export default function FundraiserAdminOverviewPage() {
     return (
         <FundraiserAdminLayout>
             <FundraiserOverview />

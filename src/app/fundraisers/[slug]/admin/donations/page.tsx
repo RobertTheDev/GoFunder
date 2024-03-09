@@ -1,7 +1,6 @@
 // PURPOSE: This page fecthes and displays donations for a fundraiser.
 
 // The relevant imports required for the page.
-import { JSX } from 'react';
 import FundraiserAdminLayout from '@/app/modules/fundraiser/layouts/FundraiserAdminLayout';
 import { Metadata } from 'next';
 
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
 
 // This handler displays the fetched fundraiser donations data as donation cards.
 // This handler wraps the page with the fundraiser admin page layout template.
-export default function FundraiserDonationsPage(): JSX.Element {
+export default function FundraiserDonationsPage() {
     return (
         <FundraiserAdminLayout>
             <h1>Fundraiser Donations Page</h1>

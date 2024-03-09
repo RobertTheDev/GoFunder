@@ -4,16 +4,15 @@
 import UpdateProfileForm from '@/app/modules/account-settings/components/UpdateProfileForm';
 import AccountSettingsLayout from '@/app/modules/account-settings/layouts/AccountSettingsLayout';
 import { Metadata } from 'next';
-import { JSX } from 'react';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
     title: 'Update Profile'
 };
 
-// This handler returns and displays a form to update a user's profile.
-// This handler wraps the form component with the account settings page layout template.
-export default function UpdateProfilePage(): JSX.Element {
+// This handler returns a form to update a user's profile.
+// This handler wraps the form component with the account settings layout.
+export default function UpdateProfilePage() {
     return (
         <AccountSettingsLayout>
             <UpdateProfileForm />

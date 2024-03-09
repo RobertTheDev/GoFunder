@@ -1,7 +1,6 @@
 // PURPOSE: This page fetches and displays the user'profile data.
 
 // The relevant imports required for the page.
-import { JSX } from 'react';
 import { Metadata } from 'next';
 import ProfileTemplate from '@/app/modules/profile/templates/ProfileTemplate';
 
@@ -11,6 +10,6 @@ export const metadata: Metadata = {
 };
 
 // The handler displays and injects profile data into the profile template.
-export default function ProfilePage(): JSX.Element {
+export default function ProfilePage() {
     return <ProfileTemplate />;
 }

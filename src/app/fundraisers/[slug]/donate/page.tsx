@@ -1,7 +1,6 @@
 // PURPOSE: This page displays a form for a user to donate to a fundraiser.
 
 // The relevant imports required for the page.
-import { JSX } from 'react';
 import { Metadata } from 'next';
 import CreateDonationTemplate from '@/app/modules/donation/templates/CreateDonationTemplate';
 
@@ -11,6 +10,6 @@ export const metadata: Metadata = {
 };
 
 // This handler returns a form for a user to make a donation to a fundraiser.
-export default function FundraiserDonationPage(): JSX.Element {
+export default function FundraiserDonationPage() {
     return <CreateDonationTemplate />;
 }

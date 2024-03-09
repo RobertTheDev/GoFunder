@@ -1,13 +1,12 @@
 // PURPOSE: This page fetches and displays the donations by the user.
 
 // The relevant imports required for the page.
-import { JSX } from 'react';
 import { getClient } from '@/app/lib/apollo/apolloClient';
 import { gql } from '@apollo/client';
 import { Metadata } from 'next';
-import FundraiserCard from '../modules/fundraiser/components/FundraiserCard';
-import { IFundraiser } from '../interfaces/Fundraiser';
-import DonationCardsLayout from '../modules/donation/layouts/DonationCardsLayout';
+import FundraiserCard from '@/app/modules/fundraiser/components/FundraiserCard';
+import { IFundraiser } from '@/app/interfaces/Fundraiser';
+import DonationCardsLayout from '@/app/modules/donation/layouts/DonationCardsLayout';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -25,7 +24,7 @@ const GET_FUNDRAISERS = gql`
 `;
 
 // The handler injects and maps donation cards with fetched user donations data.
-export default async function MyDonationsPage(): Promise<JSX.Element> {
+export default async function MyDonationsPage() {
     const client = getClient();
 
     const {

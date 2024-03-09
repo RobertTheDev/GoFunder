@@ -1,7 +1,6 @@
 // PURPOSE: This page displays the app's privacy policy.
 
 // The relevant imports required for the page.
-import { JSX } from 'react';
 import { Metadata } from 'next';
 import InfoLayout from '@/app/modules/info/layouts/InfoLayout';
 
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 // This handler returns the HTML content for the app's privacy policy.
-export default function PrivacyPolicyPage(): JSX.Element {
+export default function PrivacyPolicyPage() {
     return (
         <InfoLayout>
             <h1 id="privacy-policy">Privacy Policy</h1>

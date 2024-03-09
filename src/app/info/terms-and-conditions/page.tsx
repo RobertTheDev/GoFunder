@@ -1,7 +1,6 @@
 // PURPOSE: This page displays the app's terms and condtions.
 
 // The relevant imports required for the page.
-import { JSX } from 'react';
 import { Metadata } from 'next';
 import InfoLayout from '@/app/modules/info/layouts/InfoLayout';
 
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 // This handler returns the HTML content for the app's accessiility statement.
-export default function TermsAndConditionsPage(): JSX.Element {
+export default function TermsAndConditionsPage() {
     return (
         <InfoLayout>
             <h1 id="terms-and-conditions">Terms and Conditions</h1>

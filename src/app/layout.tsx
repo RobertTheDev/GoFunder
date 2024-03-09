@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Outfit } from 'next/font/google';
 import './styles.css';
 import { ReactNode } from 'react';
-import { ApolloWrapper } from './lib/apollo/ApolloWrapper';
-import PageLayout from './modules/page-layout/components/PageLayout';
+import { ApolloWrapper } from '@/app/lib/apollo/ApolloWrapper';
+import PageLayout from '@/app/modules/page-layout/components/PageLayout';
 
 const outfit = Outfit({ subsets: ['latin'] });
 

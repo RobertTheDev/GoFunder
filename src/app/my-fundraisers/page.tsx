@@ -1,13 +1,12 @@
 // PURPOSE: This page fetches and displays the fundraisers owned by the user.
 
 // The relevant imports required for the page.
-import { JSX } from 'react';
 import { getClient } from '@/app/lib/apollo/apolloClient';
 import { gql } from '@apollo/client';
 import { Metadata } from 'next';
-import FundraiserCard from '../modules/fundraiser/components/FundraiserCard';
-import { IFundraiser } from '../interfaces/Fundraiser';
-import FundraiserCardsLayout from '../modules/fundraiser/layouts/FundraiserCardsLayout';
+import FundraiserCard from '@/app/modules/fundraiser/components/FundraiserCard';
+import { IFundraiser } from '@/app/interfaces/Fundraiser';
+import FundraiserCardsLayout from '@/app/modules/fundraiser/layouts/FundraiserCardsLayout';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -25,7 +24,7 @@ const GET_FUNDRAISERS = gql`
 `;
 
 // The handler injects and maps fundraiser cards with fetched owned fundraisers data.
-export default async function MyFundraisersPage(): Promise<JSX.Element> {
+export default async function MyFundraisersPage() {
     const client = getClient();
 
     const {

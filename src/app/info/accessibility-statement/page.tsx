@@ -1,7 +1,6 @@
 // PURPOSE: This page displays the app's accessibility statement.
 
 // The relevant imports required for the page.
-import { JSX } from 'react';
 import { Metadata } from 'next';
 import InfoLayout from '@/app/modules/info/layouts/InfoLayout';
 
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
 };
 
 // This handler returns the HTML content for the app's accessiility statement.
-export default function AccessibilityStatementPage(): JSX.Element {
+export default function AccessibilityStatementPage() {
     return (
         <InfoLayout>
             <h1 id="accessibility-statement">Accessibility Statement</h1>
