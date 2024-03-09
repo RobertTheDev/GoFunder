@@ -41,7 +41,7 @@ export default async function FundraisersPage() {
     return (
         <FundraiserCardsLayout>
             {fundraisers.map((fundraiser: IFundraiser) => (
-                <FundraiserCard {...fundraiser} key={fundraiser.id} />
+                <FundraiserCard fundraiser={fundraiser} key={fundraiser.id} />
             ))}
         </FundraiserCardsLayout>
     );

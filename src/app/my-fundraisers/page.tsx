@@ -1,38 +1,41 @@
-// PURPOSE: This page fetches and displays the fundraisers owned by the user.
+// PURPOSE: This page fetched and displays the fundraisers saved by the user.
 
 // The relevant imports required for the page.
-import { getClient } from '@/app/lib/apollo/apolloClient';
-import { gql } from '@apollo/client';
 import { Metadata } from 'next';
-import FundraiserCard from '@/app/modules/fundraiser/components/FundraiserCard';
-import { IFundraiser } from '@/app/interfaces/Fundraiser';
 import FundraiserCardsLayout from '@/app/modules/fundraiser/layouts/FundraiserCardsLayout';
+import gql from 'graphql-tag';
+import { getClient } from '../lib/apollo/apolloClient';
+import FundraiserCard from '../modules/fundraiser/components/FundraiserCard';
+import { IFundraiser } from '../interfaces/Fundraiser';
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
     title: 'My Fundraisers'
 };
 
-const GET_FUNDRAISERS = gql`
-    query getFundraisers {
-        fundraisers {
+const GET_OWNED_FUNDRAISERS = gql`
+    query getOwnedFundraisers {
+        ownedFundraisers {
             id
             image
             name
+            target
+            totalDonations
+            totalRaised
         }
     }
 `;
 
-// The handler injects and maps fundraiser cards with fetched owned fundraisers data.
+// The handler maps fundraiser cards with saved fundraiser data fetched from the API injected.
 export default async function MyFundraisersPage() {
     const client = getClient();
 
     const {
         loading,
         error,
-        data: { fundraisers }
+        data: { ownedFundraisers }
     } = await client.query({
-        query: GET_FUNDRAISERS
+        query: GET_OWNED_FUNDRAISERS
     });
 
     if (error) return <p>There was an error</p>;
@@ -40,8 +43,11 @@ export default async function MyFundraisersPage() {
 
     return (
         <FundraiserCardsLayout>
-            {fundraisers.map((fundraiser: IFundraiser) => (
-                <FundraiserCard {...fundraiser} key={fundraiser.id} />
+            {ownedFundraisers.map((ownedFundraiser: IFundraiser) => (
+                <FundraiserCard
+                    fundraiser={ownedFundraiser}
+                    key={ownedFundraiser.id}
+                />
             ))}
         </FundraiserCardsLayout>
     );

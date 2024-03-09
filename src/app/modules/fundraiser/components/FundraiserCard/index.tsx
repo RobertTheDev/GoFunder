@@ -9,7 +9,11 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import { IFundraiser } from '@/app/interfaces/Fundraiser';
 import styles from './styles.module.css';
 
-export default function FundraiserCard(fundraiser: IFundraiser) {
+export default function FundraiserCard({
+    fundraiser
+}: {
+    fundraiser: IFundraiser;
+}) {
     const { id, image, name, slug, totalRaised, target } = fundraiser;
 
     const pathName = usePathname();
