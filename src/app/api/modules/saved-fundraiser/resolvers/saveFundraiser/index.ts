@@ -3,7 +3,7 @@ import { SavedFundraiser } from '@prisma/client';
 import { prismaClient } from '@/app/api/db/prisma/prismaClient';
 import { saveFundraiserSchema } from './saveFundraiser.schema';
 
-export default async function saveFundraiserController(
+export default async function saveFundraiserMutation(
     input: unknown
 ): Promise<SavedFundraiser | null> {
     const validation = await saveFundraiserSchema.safeParseAsync(input);
