@@ -4,7 +4,6 @@ import getDonationsByUserController from '@/app/api/modules/donation/resolvers/g
 export const donationResolvers = {
     Query: {
         donationsByCurrentUser: getDonationsByUserController,
-        donationsByFundraiser: getDonationsByFundraiserController,
-        donationsByUserId: getDonationsByUserController
+        donationsByFundraiser: getDonationsByFundraiserController
     }
 };

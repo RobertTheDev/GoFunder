@@ -25,6 +25,6 @@ export const fundraiserTypeDefs = gql`
         fundraiserBySlug(slug: String!): Fundraiser
         fundraisers: [Fundraiser]
         fundraisersByCategory(category: String!): [Fundraiser]
-        fundraisersByOwnerId(ownerId: String!): [Fundraiser]
+        ownedFundraisers: [Fundraiser]
     }
 `;

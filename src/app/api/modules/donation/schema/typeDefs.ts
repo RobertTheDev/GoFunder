@@ -16,7 +16,6 @@ export const donationTypeDefs = gql`
 
     type Query {
         donationsByCurrentUser: [Donation]
-        donationsByFundraiser(fundraiserId: String!): [Donation]
-        donationsByUserId(userId: String!): [Donation]
+        donationsByFundraiser: [Donation]
     }
 `;
