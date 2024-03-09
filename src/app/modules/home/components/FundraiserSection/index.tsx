@@ -49,7 +49,10 @@ export default async function FundraiserSection({
 
             <div className={styles.sectionCardsGrid}>
                 {fundraisers.slice(0, 4).map((fundraiser: IFundraiser) => (
-                    <FundraiserCard {...fundraiser} key={fundraiser.id} />
+                    <FundraiserCard
+                        fundraiser={fundraiser}
+                        key={fundraiser.id}
+                    />
                 ))}
             </div>
         </div>
