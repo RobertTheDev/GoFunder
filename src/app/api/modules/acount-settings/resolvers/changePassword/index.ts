@@ -1,6 +1,6 @@
 import { GraphQLError } from "graphql";
 import { User } from "@prisma/client";
-import { prismaClient } from "../../../../db/prisma/prismaClient";
+import prismaClient from "../../../../db/prisma/prismaClient";
 import { changePasswordSchema } from "./changePassword.schema";
 
 export default async function changePasswordController(

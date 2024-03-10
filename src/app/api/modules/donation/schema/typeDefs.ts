@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-export const donationTypeDefs = gql`
+const donationTypeDefs = gql`
     type Donation {
         id: String!
         createdAt: DateTime!
@@ -19,3 +19,5 @@ export const donationTypeDefs = gql`
         donationsByFundraiser: [Donation]
     }
 `;
+
+export default donationTypeDefs;

@@ -9,7 +9,7 @@ import {
 } from "@apollo/experimental-nextjs-app-support/ssr";
 import { ReactNode } from "react";
 
-function makeClient() {
+export default function makeClient() {
     const httpLink = new HttpLink({
         uri: "http://localhost:3000/api/graphql",
     });

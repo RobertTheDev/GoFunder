@@ -1,6 +1,6 @@
 import signUpResolver from "@/app/api/modules/auth/resolvers/signUp";
 
-export const authResolvers = {
+const authResolvers = {
     Mutation: {
         signUp: (
             _root: unknown,
@@ -8,3 +8,5 @@ export const authResolvers = {
         ) => signUpResolver({ args }),
     },
 };
+
+export default authResolvers;

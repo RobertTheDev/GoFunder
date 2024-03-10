@@ -2,7 +2,7 @@ import getFundraiserController from "@/app/api/modules/fundraiser/resolvers/getF
 import getFundraisersController from "@/app/api/modules/fundraiser/resolvers/getFundraisers";
 import getOwnedFundraisersQuery from "@/app/api/modules/fundraiser/resolvers/getOwnedFundraisers";
 
-export const fundraiserResolvers = {
+const fundraiserResolvers = {
     Query: {
         fundraiserBySlug: (_root: unknown, args: { slug: string }) =>
             getFundraiserController(args.slug),
@@ -11,3 +11,5 @@ export const fundraiserResolvers = {
         ownedFundraisers: getOwnedFundraisersQuery,
     },
 };
+
+export default fundraiserResolvers;

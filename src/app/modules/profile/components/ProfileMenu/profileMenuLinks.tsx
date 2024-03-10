@@ -1,6 +1,6 @@
 import { FaCog, FaHandHoldingHeart, FaHeart, FaSketch } from "react-icons/fa";
 
-export const profileMenuLinks = [
+const profileMenuLinks = [
     {
         name: "Saved Fundraisers",
         path: "/saved-fundraisers",
@@ -22,3 +22,5 @@ export const profileMenuLinks = [
         icon: <FaCog />,
     },
 ];
+
+export default profileMenuLinks;

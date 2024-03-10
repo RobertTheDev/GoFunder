@@ -1,10 +1,10 @@
-import { authTypeDefs } from "@/app/api/modules/auth/schema/typeDefs";
+import authTypeDefs from "@/app/api/modules/auth/schema/typeDefs";
 import { mergeTypeDefs } from "@graphql-tools/merge";
-import { donationTypeDefs } from "@/app/api/modules/donation/schema/typeDefs";
-import { fundraiserTypeDefs } from "@/app/api/modules/fundraiser/schema/typeDefs";
-import { savedFundraiserTypeDefs } from "@/app/api/modules/saved-fundraiser/schema/typeDefs";
-import { userTypeDefs } from "@/app/api/modules/user/schema/typeDefs";
-import { accountSettingsTypeDefs } from "@/app/api/modules/acount-settings/schema/typeDefs";
+import donationTypeDefs from "@/app/api/modules/donation/schema/typeDefs";
+import fundraiserTypeDefs from "@/app/api/modules/fundraiser/schema/typeDefs";
+import savedFundraiserTypeDefs from "@/app/api/modules/saved-fundraiser/schema/typeDefs";
+import userTypeDefs from "@/app/api/modules/user/schema/typeDefs";
+import accountSettingsTypeDefs from "@/app/api/modules/acount-settings/schema/typeDefs";
 import gql from "graphql-tag";
 
 const dateTypes = gql`
@@ -21,4 +21,6 @@ const mergedTypeDefs = [
     userTypeDefs,
 ];
 
-export const typeDefs = mergeTypeDefs(mergedTypeDefs);
+const typeDefs = mergeTypeDefs(mergedTypeDefs);
+
+export default typeDefs;

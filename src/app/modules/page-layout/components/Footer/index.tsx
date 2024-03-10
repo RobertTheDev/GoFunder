@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { footerLinks } from "./footerLinks";
+import footerLinks from "./footerLinks";
 import styles from "./styles.module.css";
 
 export default function Footer() {

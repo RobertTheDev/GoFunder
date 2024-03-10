@@ -1,6 +1,6 @@
 import { GraphQLError } from "graphql";
 import { User } from "@prisma/client";
-import { prismaClient } from "../../../../db/prisma/prismaClient";
+import prismaClient from "../../../../db/prisma/prismaClient";
 import { signInSchema } from "./signIn.schema";
 
 export default async function signInController(

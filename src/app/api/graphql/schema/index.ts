@@ -1,8 +1,8 @@
 import { makeExecutableSchema } from "@graphql-tools/schema";
-import { typeDefs } from "./typeDefs";
-import { resolvers } from "./resolvers";
+import typeDefs from "./typeDefs";
+import resolvers from "./resolvers";
 
-export const schema = makeExecutableSchema({
+const schema = makeExecutableSchema({
     typeDefs,
     resolvers,
     // logger, // optional
@@ -10,3 +10,5 @@ export const schema = makeExecutableSchema({
     // parseOptions: {}, // optional
     // inheritResolversFromInterfaces: false // optional
 });
+
+export default schema;

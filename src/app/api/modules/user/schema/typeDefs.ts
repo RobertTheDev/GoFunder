@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-export const userTypeDefs = gql`
+const userTypeDefs = gql`
     type Query {
         profile: User
     }
@@ -32,3 +32,5 @@ export const userTypeDefs = gql`
         username: String!
     }
 `;
+
+export default userTypeDefs;

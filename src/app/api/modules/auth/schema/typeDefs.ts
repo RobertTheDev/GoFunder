@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-export const authTypeDefs = gql`
+const authTypeDefs = gql`
     type SignUpResponse {
         email: String
         name: String
@@ -15,3 +15,5 @@ export const authTypeDefs = gql`
         signUp(input: SignUpInput!): SignUpResponse
     }
 `;
+
+export default authTypeDefs;
