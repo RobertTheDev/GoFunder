@@ -1,6 +1,6 @@
-import { IDonation } from "./Donation";
-import { IFundraiser } from "./Fundraiser";
-import { ISavedFundraiser } from "./SavedFundraiser";
+import { type IDonation } from "./Donation";
+import { type IFundraiser } from "./Fundraiser";
+import { type ISavedFundraiser } from "./SavedFundraiser";
 
 export interface IUser {
     id: string;

@@ -1,5 +1,5 @@
-import { IFundraiser } from "./Fundraiser";
-import { IUser } from "./User";
+import { type IFundraiser } from "./Fundraiser";
+import { type IUser } from "./User";
 
 export interface IDonation {
     id: string;
