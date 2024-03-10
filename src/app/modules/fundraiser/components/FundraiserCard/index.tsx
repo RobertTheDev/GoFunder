@@ -47,9 +47,11 @@ export default function FundraiserCard({
                 )}
             </div>
             <div className={styles.cardContentContainer}>
-                <p className={styles.cardTitle}>
-                    {name !== null ? name : <Skeleton />}
-                </p>
+                <div className={styles.cardTitleContainer}>
+                    <p className={styles.cardTitle}>
+                        {name !== null ? name : <Skeleton />}
+                    </p>
+                </div>
                 <div className={styles.cardProgressContainer}>
                     {totalRaised && target ? (
                         <div className={styles.cardProgressLineContainer}>
