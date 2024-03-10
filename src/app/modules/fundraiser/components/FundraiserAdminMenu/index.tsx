@@ -1,10 +1,9 @@
-import { JSX } from 'react';
 import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
-import fundraiserAdminMenuLinks from './fundraiserAdminMenuLinks';
+import { fundraiserAdminMenuLinks } from './fundraiserAdminMenuLinks';
 import styles from './styles.module.css';
 
-export default function FundraiserAdminMenu(): JSX.Element {
+export default function FundraiserAdminMenu() {
     const pathName = usePathname();
 
     const { slug } = useParams();
