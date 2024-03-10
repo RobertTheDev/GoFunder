@@ -8,17 +8,11 @@ export const createFundraiserSchema = object({
     }).min(1, 'Category is required'),
     deadlineDate: string({
         invalid_type_error: 'Deadline date must be of type string'
-    })
-        .datetime({ message: 'Deadline date must be a valid date format' })
-        .optional(),
+    }).optional(),
     description: string({
         invalid_type_error: 'Description must be of type string',
         required_error: 'Description is required'
     }).min(1, 'Description is required'),
-    headline: string({
-        invalid_type_error: 'Headline must be of type string',
-        required_error: 'Headline is required'
-    }).min(1, 'Headline is required'),
     image: string({
         invalid_type_error: 'Image must be of type string',
         required_error: 'Image is required'
