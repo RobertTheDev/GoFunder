@@ -64,7 +64,6 @@
                 "specialLink": ["hrefLeft", "hrefRight"],
                 "aspects": ["invalidHref", "preferButton"]
             }
-        ],
-        "no-nested-ternary": "off"
+        ]
     }
 }
