@@ -42,7 +42,6 @@
     border-radius: 0.8rem;
     text-decoration: none;
     width: 100%;
-
 }
 
 .menuLinkIconContainer {
@@ -55,7 +54,6 @@
     justify-content: center;
     width: 4rem;
 }
-
 
 .menuLinkText {
     color: inherit;

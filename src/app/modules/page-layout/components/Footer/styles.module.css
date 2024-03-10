@@ -56,7 +56,6 @@
     font-weight: 400;
     text-decoration: none;
 
-
     @media (prefers-color-scheme: dark) {
         color: var(--neutral50);
     }

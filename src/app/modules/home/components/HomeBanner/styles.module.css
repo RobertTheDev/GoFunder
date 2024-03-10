@@ -41,7 +41,6 @@
 
 .bannerButtonPrimary:hover {
     background-color: var(--neutral100);
-
 }
 
 .bannerButtonSecondary {
@@ -56,13 +55,11 @@
     font-size: 1.2rem;
     font-weight: 500;
     transition: 0.4s ease-in-out;
-
 }
 
 .bannerButtonSecondary:hover {
     background-color: var(--primary700);
 }
-
 
 .bannerTitle {
     /* font-size: 6.4rem; */
@@ -76,7 +73,6 @@
         text-shadow: white 0 0 11px;
     }
 }
-
 
 .bannerImageContainer {
     position: relative;

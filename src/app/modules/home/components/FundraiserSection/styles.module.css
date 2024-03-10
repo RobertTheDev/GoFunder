@@ -24,13 +24,11 @@
     padding: 1.6rem 0;
     overflow-x: scroll;
 
-
     /* IE and Edge */
     -ms-overflow-style: none;
 
     /* Firefox */
     scrollbar-width: none;
-
 }
 
 .sectionCardsGrid::-webkit-scrollbar {
