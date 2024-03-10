@@ -1,10 +1,9 @@
-import { JSX } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import accountSettingsLinks from './accountSettingsLinks';
+import { accountSettingsLinks } from './accountSettingsLinks';
 import styles from './styles.module.css';
 
-export default function AccountSettingsMenu(): JSX.Element {
+export default function AccountSettingsMenu() {
     const pathName = usePathname();
 
     return (
