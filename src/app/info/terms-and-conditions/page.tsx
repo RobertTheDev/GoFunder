@@ -16,8 +16,8 @@ export default function TermsAndConditionsPage() {
             <h1 id="terms-and-conditions">Terms and Conditions</h1>
             <p>
                 These Terms and Conditions (&quot;Terms&quot;) govern your use
-                of the Eventee website and mobile applications (collectively,
-                the &quot;Service&quot;) provided by Eventee (&quot;we&quot;,
+                of the GoFunder website and mobile applications (collectively,
+                the &quot;Service&quot;) provided by GoFunder (&quot;we&quot;,
                 &quot;us&quot;, or &quot;our&quot;). By accessing or using the
                 Service, you agree to be bound by these Terms. If you do not
                 agree to these Terms, please do not use the Service.
@@ -38,7 +38,7 @@ export default function TermsAndConditionsPage() {
             <h2 id="intellectual-property">Intellectual Property</h2>
             <p>
                 The Service and its original content, features, and
-                functionality are owned by Eventee and are protected by
+                functionality are owned by GoFunder and are protected by
                 international copyright, trademark, patent, trade secret, and
                 other intellectual property or proprietary rights laws.
             </p>
@@ -65,7 +65,7 @@ export default function TermsAndConditionsPage() {
             </p>
             <h2 id="limitation-of-liability">Limitation of Liability</h2>
             <p>
-                In no event shall Eventee, nor its directors, employees,
+                In no event shall GoFunder, nor its directors, employees,
                 partners, agents, suppliers, or affiliates, be liable for any
                 indirect, incidental, special, consequential, or punitive
                 damages, including without limitation, loss of profits, data,
@@ -97,11 +97,11 @@ export default function TermsAndConditionsPage() {
             <h2 id="contact-us">Contact Us</h2>
             <p>
                 If you have any questions about these Terms, please contact us
-                at
-                <a href="mailto:contact@eventee.com">contact@eventee.com</a>.
+                at &nbsp;
+                <a href="mailto:contact@gofunder.com">contact@GoFunder.com</a>.
             </p>
             <p>
-                <strong>Last Updated: [Insert Date]</strong>
+                <strong>Last Updated: 24 February 2024</strong>
             </p>
         </InfoLayout>
     );

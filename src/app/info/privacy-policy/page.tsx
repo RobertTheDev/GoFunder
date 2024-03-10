@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
         <InfoLayout>
             <h1 id="privacy-policy">Privacy Policy</h1>
             <p>
-                This Privacy Policy outlines how Eventee (&quot;we&quot;,
+                This Privacy Policy outlines how GoFunder (&quot;we&quot;,
                 &quot;us&quot;, or &quot;our&quot;) collects, uses, shares, and
                 protects personal information obtained from users
                 (&quot;you&quot; or &quot;your&quot;) of our website and mobile
@@ -132,11 +132,11 @@ export default function PrivacyPolicyPage() {
             <h2 id="contact-us">Contact Us</h2>
             <p>
                 If you have any questions or concerns about our Privacy Policy
-                or our data practices, please contact us at
-                <a href="mailto:contact@eventee.com">contact@eventee.com</a>.
+                or our data practices, please contact us at &nbsp;
+                <a href="mailto:contact@gofunder.com">contact@GoFunder.com</a>.
             </p>
             <p>
-                <strong>Last Updated: [Insert Date]</strong>
+                <strong>Last Updated: 24 February 2024</strong>
             </p>
         </InfoLayout>
     );

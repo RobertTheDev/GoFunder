@@ -15,7 +15,7 @@ export default function AccessibilityStatementPage() {
         <InfoLayout>
             <h1 id="accessibility-statement">Accessibility Statement</h1>
             <p>
-                At Eventee, we are committed to ensuring digital accessibility
+                At GoFunder, we are committed to ensuring digital accessibility
                 for everyone, including those with disabilities. We believe in
                 providing an inclusive and seamless experience for all users,
                 regardless of their abilities. We strive to adhere to the Web
@@ -25,7 +25,7 @@ export default function AccessibilityStatementPage() {
             </p>
             <h2 id="our-commitment">Our Commitment</h2>
             <p>
-                Eventee is dedicated to making our digital platforms accessible
+                GoFunder is dedicated to making our digital platforms accessible
                 to all users, including those with visual, auditory, motor, and
                 cognitive impairments. We continuously work towards improving
                 the accessibility of our website and applications to provide an
@@ -77,16 +77,17 @@ export default function AccessibilityStatementPage() {
                 We welcome feedback from our users regarding the accessibility
                 of our platforms. If you encounter any accessibility barriers or
                 have suggestions for improvement, please contact us at{' '}
-                <a href="mailto:contact@eventee.com">contact@eventee.com</a>.
+                <a href="mailto:contact@GoFunder.com">contact@GoFunder.com</a>.
                 Your input helps us enhance accessibility and improve the user
                 experience for everyone.
             </p>
             <h2 id="continuous-improvement">Continuous Improvement</h2>
             <p>
-                Eventee is committed to ongoing accessibility efforts, including
-                regular audits, user testing, and staff training. We strive to
-                stay up-to-date with accessibility standards and best practices
-                to ensure our digital platforms remain accessible to all users.
+                GoFunder is committed to ongoing accessibility efforts,
+                including regular audits, user testing, and staff training. We
+                strive to stay up-to-date with accessibility standards and best
+                practices to ensure our digital platforms remain accessible to
+                all users.
             </p>
             <h2 id="accessibility-statement-updates">
                 Accessibility Statement Updates
@@ -103,15 +104,15 @@ export default function AccessibilityStatementPage() {
                 platforms, please contact us at:
             </p>
             <p>
-                Email:
-                <a href="mailto:contact@eventee.com">contact@eventee.com</a>
+                Email: &nbsp;
+                <a href="mailto:contact@gofunder.com">contact@GoFunder.com</a>
             </p>
             <p>
                 We appreciate your support as we work towards creating an
                 inclusive and accessible online environment for all users.
             </p>
             <p>
-                <strong>Last Updated: February 2024</strong>
+                <strong>Last Updated: 24 February 2024</strong>
             </p>
         </InfoLayout>
     );
