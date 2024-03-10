@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { footerLinks } from './footerLinks';
-import styles from './styles.module.css';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { footerLinks } from "./footerLinks";
+import styles from "./styles.module.css";
 
 export default function Footer() {
     const pathName = usePathname();
@@ -9,7 +9,7 @@ export default function Footer() {
     return (
         <footer className={styles.footerContainer}>
             <nav className={styles.footerLinkMenu}>
-                {footerLinks.map(link => (
+                {footerLinks.map((link) => (
                     <Link
                         href={link.href}
                         key={link.href}

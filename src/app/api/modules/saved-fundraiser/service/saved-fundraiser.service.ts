@@ -1,30 +1,30 @@
-import { SavedFundraiser, Prisma } from '@prisma/client';
-import { prismaClient } from '@/app/api/db/prisma/prismaClient';
+import { SavedFundraiser, Prisma } from "@prisma/client";
+import { prismaClient } from "@/app/api/db/prisma/prismaClient";
 
 // This handler creates a saved fundraiser with an input into the database.
 export async function createSavedFundraiser(
-    data: Prisma.SavedFundraiserCreateInput
+    data: Prisma.SavedFundraiserCreateInput,
 ): Promise<SavedFundraiser> {
     return prismaClient.savedFundraiser.create({
-        data
+        data,
     });
 }
 
 // This handler deletes a saved fundraiser using a unique field in the database.
 export async function deleteSavedFundraiser(
-    where: Prisma.SavedFundraiserWhereUniqueInput
+    where: Prisma.SavedFundraiserWhereUniqueInput,
 ): Promise<SavedFundraiser> {
     return prismaClient.savedFundraiser.delete({
-        where
+        where,
     });
 }
 
 // This handlers finds a saved fundraiser using a unique field in the database.
 export async function findSavedFundraiser(
-    SavedFundraiserWhereUniqueInput: Prisma.SavedFundraiserWhereUniqueInput
+    SavedFundraiserWhereUniqueInput: Prisma.SavedFundraiserWhereUniqueInput,
 ): Promise<SavedFundraiser | null> {
     return prismaClient.savedFundraiser.findUnique({
-        where: SavedFundraiserWhereUniqueInput
+        where: SavedFundraiserWhereUniqueInput,
     });
 }
 
@@ -42,7 +42,7 @@ export async function findSavedFundraisers(params: {
         take,
         cursor,
         where,
-        orderBy
+        orderBy,
     });
 }
 
@@ -54,6 +54,6 @@ export async function updateSavedFundraiser(params: {
     const { where, data } = params;
     return prismaClient.savedFundraiser.update({
         data,
-        where
+        where,
     });
 }

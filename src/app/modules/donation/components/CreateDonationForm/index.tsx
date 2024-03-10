@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
     CreateDonationSchemaType,
-    createDonationSchema
-} from './createDonation.schema';
-import styles from './styles.module.css';
+    createDonationSchema,
+} from "./createDonation.schema";
+import styles from "./styles.module.css";
 
 export default function CreateDonationForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm<CreateDonationSchemaType>({
-        resolver: zodResolver(createDonationSchema)
+        resolver: zodResolver(createDonationSchema),
     });
 
     function handleCreateDonation(values: CreateDonationSchemaType) {
@@ -25,7 +25,7 @@ export default function CreateDonationForm() {
     return (
         <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(values => {
+            onSubmit={handleSubmit((values) => {
                 // eslint-disable-next-line no-alert
                 handleCreateDonation(values);
             })}
@@ -36,7 +36,7 @@ export default function CreateDonationForm() {
                 <input
                     className={styles.formInput}
                     type="number"
-                    {...register('amount', { valueAsNumber: true })}
+                    {...register("amount", { valueAsNumber: true })}
                 />
                 {errors?.amount && (
                     <span className={styles.formErrorText}>
@@ -50,7 +50,7 @@ export default function CreateDonationForm() {
                 <input
                     className={styles.formCheckbox}
                     type="checkbox"
-                    {...register('annonymous')}
+                    {...register("annonymous")}
                 />
                 {errors?.annonymous && (
                     <span className={styles.formErrorText}>
@@ -66,7 +66,7 @@ export default function CreateDonationForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register('message')}
+                    {...register("message")}
                 />
                 {errors?.message && (
                     <span className={styles.formErrorText}>

@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
     closeAccountSchema,
-    CloseAccountSchemaType
-} from './closeAccount.schema';
-import styles from './styles.module.css';
+    CloseAccountSchemaType,
+} from "./closeAccount.schema";
+import styles from "./styles.module.css";
 
 export default function CloseAccountForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm<CloseAccountSchemaType>({
-        resolver: zodResolver(closeAccountSchema)
+        resolver: zodResolver(closeAccountSchema),
     });
 
     function handleCloseAcount(values: CloseAccountSchemaType) {
@@ -25,7 +25,7 @@ export default function CloseAccountForm() {
     return (
         <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(values => {
+            onSubmit={handleSubmit((values) => {
                 // eslint-disable-next-line no-alert
                 handleCloseAcount(values);
             })}
@@ -36,7 +36,7 @@ export default function CloseAccountForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register('confirm')}
+                    {...register("confirm")}
                 />
                 {errors?.confirm && (
                     <span className={styles.formErrorText}>
@@ -50,7 +50,7 @@ export default function CloseAccountForm() {
                 <input
                     className={styles.formInput}
                     type="password"
-                    {...register('password')}
+                    {...register("password")}
                 />
                 {errors?.password && (
                     <span className={styles.formErrorText}>

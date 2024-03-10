@@ -1,10 +1,10 @@
-import { GraphQLError } from 'graphql';
-import { Fundraiser } from '@prisma/client';
-import { prismaClient } from '@/app/api/db/prisma/prismaClient';
-import { createFundraiserSchema } from './createFundraiser.schema';
+import { GraphQLError } from "graphql";
+import { Fundraiser } from "@prisma/client";
+import { prismaClient } from "@/app/api/db/prisma/prismaClient";
+import { createFundraiserSchema } from "./createFundraiser.schema";
 
 export default async function createFundraiserController(
-    input: unknown
+    input: unknown,
 ): Promise<Fundraiser> {
     const validation = await createFundraiserSchema.safeParseAsync(input);
 
@@ -14,5 +14,5 @@ export default async function createFundraiserController(
 
     const { data } = validation;
 
-    return prismaClient.fundraiser.create({ data: { ...data, ownerId: '2' } });
+    return prismaClient.fundraiser.create({ data: { ...data, ownerId: "2" } });
 }

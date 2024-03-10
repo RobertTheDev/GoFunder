@@ -1,12 +1,12 @@
 // PURPOSE: This page displays the app's terms and condtions.
 
 // The relevant imports required for the page.
-import { Metadata } from 'next';
-import InfoLayout from '@/app/modules/info/layouts/InfoLayout';
+import { Metadata } from "next";
+import InfoLayout from "@/app/modules/info/layouts/InfoLayout";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
-    title: 'Terms and Conditions'
+    title: "Terms and Conditions",
 };
 
 // This handler returns the HTML content for the app's accessiility statement.

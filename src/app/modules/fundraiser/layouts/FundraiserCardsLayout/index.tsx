@@ -1,8 +1,8 @@
-import { ReactNode } from 'react';
-import styles from './styles.module.css';
+import { ReactNode } from "react";
+import styles from "./styles.module.css";
 
 export default function FundraiserCardsLayout({
-    children
+    children,
 }: {
     children: ReactNode;
 }) {

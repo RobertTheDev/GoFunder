@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { accountSettingsLinks } from './accountSettingsLinks';
-import styles from './styles.module.css';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { accountSettingsLinks } from "./accountSettingsLinks";
+import styles from "./styles.module.css";
 
 export default function AccountSettingsMenu() {
     const pathName = usePathname();

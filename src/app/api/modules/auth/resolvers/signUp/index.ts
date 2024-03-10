@@ -1,5 +1,5 @@
-import { GraphQLError } from 'graphql';
-import { signUpSchema } from '@/app/api/modules/auth/resolvers/signUp/signUp.schema';
+import { GraphQLError } from "graphql";
+import { signUpSchema } from "@/app/api/modules/auth/resolvers/signUp/signUp.schema";
 
 export default async function signUpResolver(props: {
     args: { input: { email: string; name: string } };

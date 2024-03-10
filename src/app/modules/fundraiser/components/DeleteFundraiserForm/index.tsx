@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
     deleteFundraiserSchema,
-    DeleteFundraiserSchemaType
-} from './deleteFundraiser.schema';
-import styles from './styles.module.css';
+    DeleteFundraiserSchemaType,
+} from "./deleteFundraiser.schema";
+import styles from "./styles.module.css";
 
 export default function DeleteFundraiserForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm<DeleteFundraiserSchemaType>({
-        resolver: zodResolver(deleteFundraiserSchema)
+        resolver: zodResolver(deleteFundraiserSchema),
     });
 
     function handleDeleteFundraiser(values: DeleteFundraiserSchemaType) {
@@ -25,7 +25,7 @@ export default function DeleteFundraiserForm() {
     return (
         <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(values => {
+            onSubmit={handleSubmit((values) => {
                 // eslint-disable-next-line no-alert
                 handleDeleteFundraiser(values);
             })}
@@ -36,7 +36,7 @@ export default function DeleteFundraiserForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register('confirm')}
+                    {...register("confirm")}
                 />
                 {errors?.confirm && (
                     <p className={styles.formErrorText}>

@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import AccountSettingsMenu from '@/app/modules/account-settings/components/AccountSettingsMenu';
-import { ReactNode } from 'react';
-import styles from './styles.module.css';
+import AccountSettingsMenu from "@/app/modules/account-settings/components/AccountSettingsMenu";
+import { ReactNode } from "react";
+import styles from "./styles.module.css";
 
 export default function AccountSettingsLayout({
-    children
+    children,
 }: {
     children: ReactNode;
 }) {

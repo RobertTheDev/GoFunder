@@ -1,16 +1,16 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import Link from 'next/link';
-import { MdManageAccounts } from 'react-icons/md';
-import { usePathname, useRouter } from 'next/navigation';
-import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
-import { IFundraiser } from '@/app/interfaces/Fundraiser';
-import styles from './styles.module.css';
+import Image from "next/image";
+import Link from "next/link";
+import { MdManageAccounts } from "react-icons/md";
+import { usePathname, useRouter } from "next/navigation";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import { IFundraiser } from "@/app/interfaces/Fundraiser";
+import styles from "./styles.module.css";
 
 export default function FundraiserCard({
-    fundraiser
+    fundraiser,
 }: {
     fundraiser: IFundraiser;
 }) {
@@ -23,7 +23,7 @@ export default function FundraiserCard({
     return (
         <Link
             href={
-                pathName === '/my-fundraisers'
+                pathName === "/my-fundraisers"
                     ? `fundraisers/${slug}/admin/overview`
                     : `fundraisers/${slug}`
             }
@@ -40,8 +40,8 @@ export default function FundraiserCard({
                 ) : (
                     <Skeleton
                         style={{
-                            height: '100%',
-                            position: 'absolute'
+                            height: "100%",
+                            position: "absolute",
                         }}
                     />
                 )}
@@ -72,14 +72,14 @@ export default function FundraiserCard({
                         )}
                     </p>
                 </div>
-                {pathName === '/my-fundraisers' && (
+                {pathName === "/my-fundraisers" && (
                     <div>
                         {id ? (
                             <button
                                 className={styles.cardButton}
                                 onClick={() =>
                                     router.push(
-                                        `fundraisers/${id}/admin/overview`
+                                        `fundraisers/${id}/admin/overview`,
                                     )
                                 }
                                 type="button"

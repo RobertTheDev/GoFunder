@@ -1,12 +1,12 @@
-import { GraphQLError } from 'graphql';
-import { User } from '@prisma/client';
-import { prismaClient } from '@/app/api/db/prisma/prismaClient';
-import { sendEmailVerficationSchema } from './sendEmailVerification.schema';
+import { GraphQLError } from "graphql";
+import { User } from "@prisma/client";
+import { prismaClient } from "@/app/api/db/prisma/prismaClient";
+import { sendEmailVerficationSchema } from "./sendEmailVerification.schema";
 
 export default async function sendEmailVerificationController(
-    input: unknown
+    input: unknown,
 ): Promise<User | null> {
-    const id = '1';
+    const id = "1";
 
     const validation = await sendEmailVerficationSchema.safeParseAsync(input);
 

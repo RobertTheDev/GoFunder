@@ -1,30 +1,30 @@
-import { Donation, Prisma } from '@prisma/client';
-import { prismaClient } from '@/app/api/db/prisma/prismaClient';
+import { Donation, Prisma } from "@prisma/client";
+import { prismaClient } from "@/app/api/db/prisma/prismaClient";
 
 // This handler creates a donation with an input into the database.
 export async function createDonation(
-    data: Prisma.DonationCreateInput
+    data: Prisma.DonationCreateInput,
 ): Promise<Donation> {
     return prismaClient.donation.create({
-        data
+        data,
     });
 }
 
 // This handler deletes a donation using a unique field in the database.
 export async function deleteDonation(
-    where: Prisma.DonationWhereUniqueInput
+    where: Prisma.DonationWhereUniqueInput,
 ): Promise<Donation> {
     return prismaClient.donation.delete({
-        where
+        where,
     });
 }
 
 // This handlers finds a donation using a unique field in the database.
 export async function findDonation(
-    DonationWhereUniqueInput: Prisma.DonationWhereUniqueInput
+    DonationWhereUniqueInput: Prisma.DonationWhereUniqueInput,
 ): Promise<Donation | null> {
     return prismaClient.donation.findUnique({
-        where: DonationWhereUniqueInput
+        where: DonationWhereUniqueInput,
     });
 }
 
@@ -42,7 +42,7 @@ export async function findDonations(params: {
         take,
         cursor,
         where,
-        orderBy
+        orderBy,
     });
 }
 
@@ -54,6 +54,6 @@ export async function updateDonation(params: {
     const { where, data } = params;
     return prismaClient.donation.update({
         data,
-        where
+        where,
     });
 }

@@ -1,14 +1,14 @@
 // PURPOSE: This page fecthes and displays donations for a fundraiser.
 
 // The relevant imports required for the page.
-import { getClient } from '@/app/lib/apollo/apolloClient';
-import FundraiserAdminLayout from '@/app/modules/fundraiser/layouts/FundraiserAdminLayout';
-import gql from 'graphql-tag';
-import { Metadata } from 'next';
+import { getClient } from "@/app/lib/apollo/apolloClient";
+import FundraiserAdminLayout from "@/app/modules/fundraiser/layouts/FundraiserAdminLayout";
+import gql from "graphql-tag";
+import { Metadata } from "next";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
-    title: 'Fundraiser Donations'
+    title: "Fundraiser Donations",
 };
 
 const GET_DONATIONS_BY_FUNDRAISER = gql`
@@ -28,9 +28,9 @@ export default async function FundraiserDonationsPage() {
     const {
         loading,
         error,
-        data: { donationsByFundraiser: donations }
+        data: { donationsByFundraiser: donations },
     } = await client.query({
-        query: GET_DONATIONS_BY_FUNDRAISER
+        query: GET_DONATIONS_BY_FUNDRAISER,
     });
 
     if (error) return <p>There was an error</p>;

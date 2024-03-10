@@ -1,12 +1,12 @@
 // PURPOSE: This page displays a form for a user to donate to a fundraiser.
 
 // The relevant imports required for the page.
-import { Metadata } from 'next';
-import CreateDonationTemplate from '@/app/modules/donation/templates/CreateDonationTemplate';
+import { Metadata } from "next";
+import CreateDonationTemplate from "@/app/modules/donation/templates/CreateDonationTemplate";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
-    title: 'Make A Donation'
+    title: "Make A Donation",
 };
 
 // This handler returns a form for a user to make a donation to a fundraiser.

@@ -1,10 +1,10 @@
-import { GraphQLError } from 'graphql';
-import { User } from '@prisma/client';
-import { prismaClient } from '../../../../db/prisma/prismaClient';
-import { signInSchema } from './signIn.schema';
+import { GraphQLError } from "graphql";
+import { User } from "@prisma/client";
+import { prismaClient } from "../../../../db/prisma/prismaClient";
+import { signInSchema } from "./signIn.schema";
 
 export default async function signInController(
-    input: unknown
+    input: unknown,
 ): Promise<User | null> {
     const validation = await signInSchema.safeParseAsync(input);
 
@@ -15,6 +15,6 @@ export default async function signInController(
     const { data } = validation;
 
     return prismaClient.user.findUnique({
-        where: { email: data.email }
+        where: { email: data.email },
     });
 }

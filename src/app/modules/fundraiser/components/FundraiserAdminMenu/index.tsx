@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import { useParams, usePathname } from 'next/navigation';
-import { fundraiserAdminMenuLinks } from './fundraiserAdminMenuLinks';
-import styles from './styles.module.css';
+import Link from "next/link";
+import { useParams, usePathname } from "next/navigation";
+import { fundraiserAdminMenuLinks } from "./fundraiserAdminMenuLinks";
+import styles from "./styles.module.css";
 
 export default function FundraiserAdminMenu() {
     const pathName = usePathname();

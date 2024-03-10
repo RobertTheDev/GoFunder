@@ -1,4 +1,4 @@
-import CreateFundraiserForm from '../../components/CreateFundraiserForm';
+import CreateFundraiserForm from "../../components/CreateFundraiserForm";
 
 export default function CreateFundraiserTemplate() {
     return (

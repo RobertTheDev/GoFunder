@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import { IDonation } from '@/app/interfaces/Donation';
-import Image from 'next/image';
-import styles from './styles.module.css';
+import { IDonation } from "@/app/interfaces/Donation";
+import Image from "next/image";
+import styles from "./styles.module.css";
 
 export default function DonationCard(params: { donation: IDonation }) {
     const {
-        donation: { amount, message, fundraiser }
+        donation: { amount, message, fundraiser },
     } = params;
 
     return (

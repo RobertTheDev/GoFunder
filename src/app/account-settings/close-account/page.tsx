@@ -1,13 +1,13 @@
 // PURPOSE: This page displays a form for a user to close their account.
 
 // The relevant imports required for the page.
-import CloseAccountForm from '@/app/modules/account-settings/components/CloseAccountForm';
-import AccountSettingsLayout from '@/app/modules/account-settings/layouts/AccountSettingsLayout';
-import { Metadata } from 'next';
+import CloseAccountForm from "@/app/modules/account-settings/components/CloseAccountForm";
+import AccountSettingsLayout from "@/app/modules/account-settings/layouts/AccountSettingsLayout";
+import { Metadata } from "next";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
-    title: 'Close Account'
+    title: "Close Account",
 };
 
 // This handler returns a form to close a user's account.

@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import FundraiserAdminMenu from '@/app/modules/fundraiser/components/FundraiserAdminMenu';
-import { ReactNode } from 'react';
-import styles from './styles.module.css';
+import FundraiserAdminMenu from "@/app/modules/fundraiser/components/FundraiserAdminMenu";
+import { ReactNode } from "react";
+import styles from "./styles.module.css";
 
 export default function FundraiserAdminPageTemplate({
-    children
+    children,
 }: {
     children: ReactNode;
 }) {

@@ -1,11 +1,11 @@
-import { GraphQLError } from 'graphql';
-import { Donation } from '@prisma/client';
-import { prismaClient } from '@/app/api/db/prisma/prismaClient';
-import { updateDonationSchema } from './updateDonation.schema';
+import { GraphQLError } from "graphql";
+import { Donation } from "@prisma/client";
+import { prismaClient } from "@/app/api/db/prisma/prismaClient";
+import { updateDonationSchema } from "./updateDonation.schema";
 
 export default async function updateDonationController(
     input: unknown,
-    id: string
+    id: string,
 ): Promise<Donation> {
     const validation = await updateDonationSchema.safeParseAsync(input);
 

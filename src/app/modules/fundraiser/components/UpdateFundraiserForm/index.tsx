@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
     updateFundraiserSchema,
-    UpdateFundraiserSchemaType
-} from './updateFundraiser.schema';
-import styles from './styles.module.css';
+    UpdateFundraiserSchemaType,
+} from "./updateFundraiser.schema";
+import styles from "./styles.module.css";
 
 export default function UpdateFundraiserForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm<UpdateFundraiserSchemaType>({
-        resolver: zodResolver(updateFundraiserSchema)
+        resolver: zodResolver(updateFundraiserSchema),
     });
 
     function handleUpdateFundraiser(values: UpdateFundraiserSchemaType) {
@@ -25,7 +25,7 @@ export default function UpdateFundraiserForm() {
     return (
         <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(values => {
+            onSubmit={handleSubmit((values) => {
                 // eslint-disable-next-line no-alert
                 handleUpdateFundraiser(values);
             })}
@@ -36,7 +36,7 @@ export default function UpdateFundraiserForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register('name')}
+                    {...register("name")}
                 />
                 {errors?.name && (
                     <p className={styles.formErrorText}>

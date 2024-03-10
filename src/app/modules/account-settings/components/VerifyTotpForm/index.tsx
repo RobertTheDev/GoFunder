@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
     verifyTotpCodeSchema,
-    type VerifyTotpCodeSchemaType
-} from './verifyTotpCode.schema';
-import styles from './styles.module.css';
+    type VerifyTotpCodeSchemaType,
+} from "./verifyTotpCode.schema";
+import styles from "./styles.module.css";
 
 export default function VerifyTotpForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm<VerifyTotpCodeSchemaType>({
-        resolver: zodResolver(verifyTotpCodeSchema)
+        resolver: zodResolver(verifyTotpCodeSchema),
     });
 
     function handleVerifyTotp(values: VerifyTotpCodeSchemaType) {
@@ -25,7 +25,7 @@ export default function VerifyTotpForm() {
     return (
         <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(values => {
+            onSubmit={handleSubmit((values) => {
                 // eslint-disable-next-line no-alert
                 handleVerifyTotp(values);
             })}
@@ -36,7 +36,7 @@ export default function VerifyTotpForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register('code')}
+                    {...register("code")}
                 />
                 {errors?.code && (
                     <span className={styles.formErrorText}>

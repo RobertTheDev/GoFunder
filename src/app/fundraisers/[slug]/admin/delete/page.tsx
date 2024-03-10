@@ -1,13 +1,13 @@
 // PURPOSE: This page displays a form for a user to delete a fundraiser.
 
 // The relevant imports required for the page.
-import DeleteFundraiserForm from '@/app/modules/fundraiser/components/DeleteFundraiserForm';
-import FundraiserAdminLayout from '@/app/modules/fundraiser/layouts/FundraiserAdminLayout';
-import { Metadata } from 'next';
+import DeleteFundraiserForm from "@/app/modules/fundraiser/components/DeleteFundraiserForm";
+import FundraiserAdminLayout from "@/app/modules/fundraiser/layouts/FundraiserAdminLayout";
+import { Metadata } from "next";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
-    title: 'Delete Fundraiser'
+    title: "Delete Fundraiser",
 };
 
 // This handler displays a form to delete a fundraiser.

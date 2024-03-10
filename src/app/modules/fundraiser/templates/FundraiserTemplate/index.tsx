@@ -1,12 +1,12 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-import { format } from 'date-fns';
-import DonationCard from '@/app/modules/donation/components/DonationCard';
-import { IFundraiser } from '@/app/interfaces/Fundraiser';
-import { FaHandHoldingHeart, FaHeart } from 'react-icons/fa';
-import styles from './styles.module.css';
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { format } from "date-fns";
+import DonationCard from "@/app/modules/donation/components/DonationCard";
+import { IFundraiser } from "@/app/interfaces/Fundraiser";
+import { FaHandHoldingHeart, FaHeart } from "react-icons/fa";
+import styles from "./styles.module.css";
 
 export default function FundraiserTemplate(params: {
     fundraiser: IFundraiser;
@@ -25,7 +25,7 @@ export default function FundraiserTemplate(params: {
         target,
         totalDonations,
         totalRaised,
-        donations
+        donations,
     } = fundraiser;
 
     return (
@@ -35,8 +35,8 @@ export default function FundraiserTemplate(params: {
             </div>
 
             <p className={styles.pageTitle}>{name}</p>
-            <p>{format(new Date(createdAt), 'yyyy')}</p>
-            {deadlineDate && <p>{format(new Date(deadlineDate), 'yyyy')}</p>}
+            <p>{format(new Date(createdAt), "yyyy")}</p>
+            {deadlineDate && <p>{format(new Date(deadlineDate), "yyyy")}</p>}
 
             <div className={styles.buttonsContainer}>
                 <button
@@ -62,7 +62,7 @@ export default function FundraiserTemplate(params: {
                 <p className={styles.descriptionText}>{description}</p>
             </div>
 
-            {donations.map(donation => (
+            {donations.map((donation) => (
                 <DonationCard key={donation.id} donation={donation} />
             ))}
         </div>

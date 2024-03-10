@@ -1,12 +1,12 @@
-import { GraphQLError } from 'graphql';
-import { User } from '@prisma/client';
-import { prismaClient } from '@/app/api/db/prisma/prismaClient';
-import { closeAccountSchema } from './closeAccount.schema';
+import { GraphQLError } from "graphql";
+import { User } from "@prisma/client";
+import { prismaClient } from "@/app/api/db/prisma/prismaClient";
+import { closeAccountSchema } from "./closeAccount.schema";
 
 export default async function closeAccountController(
-    input: unknown
+    input: unknown,
 ): Promise<User | null> {
-    const id = '1';
+    const id = "1";
 
     const validation = await closeAccountSchema.safeParseAsync(input);
 

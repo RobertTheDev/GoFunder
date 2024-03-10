@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
     updateProfileSchema,
-    UpdateProfileSchemaType
-} from './updateProfile.schema';
-import styles from './styles.module.css';
+    UpdateProfileSchemaType,
+} from "./updateProfile.schema";
+import styles from "./styles.module.css";
 
 export default function UpdateProfileForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm<UpdateProfileSchemaType>({
-        resolver: zodResolver(updateProfileSchema)
+        resolver: zodResolver(updateProfileSchema),
     });
 
     function handleCloseAcount(values: UpdateProfileSchemaType) {
@@ -25,7 +25,7 @@ export default function UpdateProfileForm() {
     return (
         <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(values => {
+            onSubmit={handleSubmit((values) => {
                 // eslint-disable-next-line no-alert
                 handleCloseAcount(values);
             })}
@@ -36,7 +36,7 @@ export default function UpdateProfileForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register('name')}
+                    {...register("name")}
                 />
                 {errors?.name && (
                     <span className={styles.formErrorText}>
@@ -50,7 +50,7 @@ export default function UpdateProfileForm() {
                 <input
                     className={styles.formCheckbox}
                     type="checkbox"
-                    {...register('annonymous')}
+                    {...register("annonymous")}
                 />
                 {errors?.annonymous && (
                     <span className={styles.formErrorText}>

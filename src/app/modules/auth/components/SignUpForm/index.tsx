@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { SignUpSchemaType, signUpSchema } from './signUp.schema';
-import styles from './styles.module.css';
+import Link from "next/link";
+import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { SignUpSchemaType, signUpSchema } from "./signUp.schema";
+import styles from "./styles.module.css";
 
 export default function SignUpForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm<SignUpSchemaType>({
-        resolver: zodResolver(signUpSchema)
+        resolver: zodResolver(signUpSchema),
     });
 
     function handleSignUp(values: SignUpSchemaType): void {
@@ -24,7 +24,7 @@ export default function SignUpForm() {
     return (
         <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(values => {
+            onSubmit={handleSubmit((values) => {
                 // eslint-disable-next-line no-alert
                 handleSignUp(values);
             })}
@@ -45,7 +45,7 @@ export default function SignUpForm() {
                 <input
                     className={styles.formInput}
                     type="email"
-                    {...register('email')}
+                    {...register("email")}
                 />
                 {errors?.email && (
                     <span className={styles.formErrorText}>
@@ -59,7 +59,7 @@ export default function SignUpForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register('name')}
+                    {...register("name")}
                 />
                 {errors?.name && (
                     <span className={styles.formErrorText}>

@@ -1,15 +1,15 @@
 // PURPOSE: This page fecthes and displays data for a queried fundraiser using its slug.
 
 // The relevant imports required for the page.
-import { JSX } from 'react';
-import FundraiserTemplate from '@/app/modules/fundraiser/templates/FundraiserTemplate';
-import { Metadata } from 'next';
-import { getClient } from '@/app/lib/apollo/apolloClient';
-import { gql } from '@apollo/client';
+import { JSX } from "react";
+import FundraiserTemplate from "@/app/modules/fundraiser/templates/FundraiserTemplate";
+import { Metadata } from "next";
+import { getClient } from "@/app/lib/apollo/apolloClient";
+import { gql } from "@apollo/client";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
-    title: 'Fundraiser'
+    title: "Fundraiser",
 };
 
 const GET_FUNDRAISERS = gql`
@@ -39,7 +39,7 @@ const GET_FUNDRAISERS = gql`
 
 // This handler fetched fundraiser data from the API and inject it into the fundraiser template.
 export default async function FundraiserPage({
-    params
+    params,
 }: {
     params: { slug: string };
 }): Promise<JSX.Element> {
@@ -50,10 +50,10 @@ export default async function FundraiserPage({
     const {
         loading,
         error,
-        data: { fundraiserBySlug: fundraiser }
+        data: { fundraiserBySlug: fundraiser },
     } = await client.query({
         query: GET_FUNDRAISERS,
-        variables: { slug }
+        variables: { slug },
     });
 
     if (error) return <p>There was an error</p>;

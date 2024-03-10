@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
     CreateFundraiserSchemaType,
-    createFundraiserSchema
-} from './createFundraiser.schema';
-import styles from './styles.module.css';
+    createFundraiserSchema,
+} from "./createFundraiser.schema";
+import styles from "./styles.module.css";
 
 export default function CreateFundraiserForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm<CreateFundraiserSchemaType>({
-        resolver: zodResolver(createFundraiserSchema)
+        resolver: zodResolver(createFundraiserSchema),
     });
 
     function handleCreateFundraiser(values: CreateFundraiserSchemaType) {
@@ -25,7 +25,7 @@ export default function CreateFundraiserForm() {
     return (
         <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(values => {
+            onSubmit={handleSubmit((values) => {
                 // eslint-disable-next-line no-alert
                 handleCreateFundraiser(values);
             })}
@@ -39,7 +39,7 @@ export default function CreateFundraiserForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register('name')}
+                    {...register("name")}
                 />
                 {errors?.name && (
                     <p className={styles.formErrorText}>
@@ -54,7 +54,7 @@ export default function CreateFundraiserForm() {
                 <input
                     className={styles.formInput}
                     type="number"
-                    {...register('target', { valueAsNumber: true })}
+                    {...register("target", { valueAsNumber: true })}
                 />
                 {errors?.target && (
                     <p className={styles.formErrorText}>
@@ -68,7 +68,7 @@ export default function CreateFundraiserForm() {
                 <span className={styles.formLabelText}>Description</span>
                 <textarea
                     className={styles.formInput}
-                    {...register('description')}
+                    {...register("description")}
                 />
                 {errors?.description && (
                     <p className={styles.formErrorText}>
@@ -83,7 +83,7 @@ export default function CreateFundraiserForm() {
                 <input
                     className={styles.formInput}
                     type="date"
-                    {...register('deadlineDate', { valueAsDate: true })}
+                    {...register("deadlineDate", { valueAsDate: true })}
                 />
                 {errors?.deadlineDate && (
                     <p className={styles.formErrorText}>
@@ -98,7 +98,7 @@ export default function CreateFundraiserForm() {
                 <input
                     className={styles.formInput}
                     type="file"
-                    {...register('image')}
+                    {...register("image")}
                 />
                 {errors?.image && (
                     <p className={styles.formErrorText}>
@@ -110,7 +110,7 @@ export default function CreateFundraiserForm() {
             {/* category */}
             <label className={styles.formLabelContainer} htmlFor="category">
                 <span className={styles.formLabelText}>category</span>
-                <select {...register('category')}>
+                <select {...register("category")}>
                     <option>Burger</option>
                     <option>Pizza</option>
                 </select>

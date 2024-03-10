@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
     setUpTotpCodeSchema,
-    SetUpTotpCodeSchemaType
-} from './setUpTotp.schema';
-import styles from './styles.module.css';
+    SetUpTotpCodeSchemaType,
+} from "./setUpTotp.schema";
+import styles from "./styles.module.css";
 
 export default function SetUpTotpForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm<SetUpTotpCodeSchemaType>({
-        resolver: zodResolver(setUpTotpCodeSchema)
+        resolver: zodResolver(setUpTotpCodeSchema),
     });
 
     function handleCloseAcount(values: SetUpTotpCodeSchemaType) {
@@ -25,7 +25,7 @@ export default function SetUpTotpForm() {
     return (
         <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(values => {
+            onSubmit={handleSubmit((values) => {
                 // eslint-disable-next-line no-alert
                 handleCloseAcount(values);
             })}
@@ -36,7 +36,7 @@ export default function SetUpTotpForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register('mfaSecret')}
+                    {...register("mfaSecret")}
                 />
                 {errors?.mfaSecret && (
                     <span className={styles.formErrorText}>

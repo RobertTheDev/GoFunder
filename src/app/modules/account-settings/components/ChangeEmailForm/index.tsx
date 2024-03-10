@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { ChangeEmailSchemaType, changeEmailSchema } from './changeEmail.schema';
-import styles from './styles.module.css';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { ChangeEmailSchemaType, changeEmailSchema } from "./changeEmail.schema";
+import styles from "./styles.module.css";
 
 export default function ChangeEmailForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm<ChangeEmailSchemaType>({
-        resolver: zodResolver(changeEmailSchema)
+        resolver: zodResolver(changeEmailSchema),
     });
 
     function handleChangeEmail(values: ChangeEmailSchemaType) {
@@ -22,7 +22,7 @@ export default function ChangeEmailForm() {
     return (
         <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(values => {
+            onSubmit={handleSubmit((values) => {
                 // eslint-disable-next-line no-alert
                 handleChangeEmail(values);
             })}
@@ -33,7 +33,7 @@ export default function ChangeEmailForm() {
                 <input
                     className={styles.formInput}
                     type="email"
-                    {...register('email')}
+                    {...register("email")}
                 />
                 {errors?.email?.message && (
                     <span className={styles.formErrorText}>
@@ -47,7 +47,7 @@ export default function ChangeEmailForm() {
                 <input
                     className={styles.formInput}
                     type="password"
-                    {...register('password')}
+                    {...register("password")}
                 />
                 {errors?.password?.message && (
                     <span className={styles.formErrorText}>

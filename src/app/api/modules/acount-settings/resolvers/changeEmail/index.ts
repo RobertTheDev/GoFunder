@@ -1,12 +1,12 @@
-import { GraphQLError } from 'graphql';
-import { User } from '@prisma/client';
-import { prismaClient } from '@/app/api/db/prisma/prismaClient';
-import { changeEmailSchema } from './changeEmail.schema';
+import { GraphQLError } from "graphql";
+import { User } from "@prisma/client";
+import { prismaClient } from "@/app/api/db/prisma/prismaClient";
+import { changeEmailSchema } from "./changeEmail.schema";
 
 export default async function changeEmailController(
-    input: unknown
+    input: unknown,
 ): Promise<User | null> {
-    const id = '1';
+    const id = "1";
 
     const validation = await changeEmailSchema.safeParseAsync(input);
 

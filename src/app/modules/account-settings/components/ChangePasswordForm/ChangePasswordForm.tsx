@@ -1,20 +1,20 @@
-'use client';
+"use client";
 
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 import {
     ChangePasswordSchemaType,
-    changePasswordSchema
-} from './changePassword.schema';
-import styles from './styles.module.css';
+    changePasswordSchema,
+} from "./changePassword.schema";
+import styles from "./styles.module.css";
 
 export default function ChangePasswordForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm<ChangePasswordSchemaType>({
-        resolver: zodResolver(changePasswordSchema)
+        resolver: zodResolver(changePasswordSchema),
     });
 
     function handleChangePassword(values: ChangePasswordSchemaType) {
@@ -25,7 +25,7 @@ export default function ChangePasswordForm() {
     return (
         <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(values => {
+            onSubmit={handleSubmit((values) => {
                 // eslint-disable-next-line no-alert
                 handleChangePassword(values);
             })}
@@ -36,7 +36,7 @@ export default function ChangePasswordForm() {
                 <input
                     className={styles.formInput}
                     type="password"
-                    {...register('newPassword')}
+                    {...register("newPassword")}
                 />
                 {errors?.newPassword && (
                     <span className={styles.formErrorText}>
@@ -53,7 +53,7 @@ export default function ChangePasswordForm() {
                 <input
                     className={styles.formInput}
                     type="password"
-                    {...register('currentPassword')}
+                    {...register("currentPassword")}
                 />
                 {errors?.currentPassword && (
                     <span className={styles.formErrorText}>

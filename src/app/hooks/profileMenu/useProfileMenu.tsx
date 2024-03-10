@@ -1,5 +1,5 @@
-import { MutableRefObject, useRef, useState } from 'react';
-import { useOnClickOutside } from 'usehooks-ts';
+import { MutableRefObject, useRef, useState } from "react";
+import { useOnClickOutside } from "usehooks-ts";
 
 export function useProfileMenu(): {
     profileMenuActive: boolean;
@@ -24,6 +24,6 @@ export function useProfileMenu(): {
     return {
         profileMenuActive,
         profileMenuRef,
-        toggleProfileMenu
+        toggleProfileMenu,
     };
 }

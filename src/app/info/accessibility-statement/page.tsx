@@ -1,12 +1,12 @@
 // PURPOSE: This page displays the app's accessibility statement.
 
 // The relevant imports required for the page.
-import { Metadata } from 'next';
-import InfoLayout from '@/app/modules/info/layouts/InfoLayout';
+import { Metadata } from "next";
+import InfoLayout from "@/app/modules/info/layouts/InfoLayout";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
-    title: 'Accessibility Statement'
+    title: "Accessibility Statement",
 };
 
 // This handler returns the HTML content for the app's accessiility statement.
@@ -76,7 +76,7 @@ export default function AccessibilityStatementPage() {
             <p>
                 We welcome feedback from our users regarding the accessibility
                 of our platforms. If you encounter any accessibility barriers or
-                have suggestions for improvement, please contact us at{' '}
+                have suggestions for improvement, please contact us at{" "}
                 <a href="mailto:contact@GoFunder.com">contact@GoFunder.com</a>.
                 Your input helps us enhance accessibility and improve the user
                 experience for everyone.

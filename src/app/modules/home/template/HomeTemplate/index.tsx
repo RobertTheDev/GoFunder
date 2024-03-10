@@ -1,6 +1,6 @@
-import FundraiserSection from '@/app/modules/home/components/FundraiserSection';
-import HomeBanner from '@/app/modules/home/components/HomeBanner';
-import styles from './styles.module.css';
+import FundraiserSection from "@/app/modules/home/components/FundraiserSection";
+import HomeBanner from "@/app/modules/home/components/HomeBanner";
+import styles from "./styles.module.css";
 
 export default function HomeTemplate() {
     return (

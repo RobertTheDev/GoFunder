@@ -25,13 +25,12 @@
             }
         }
     },
-    "plugins": ["@typescript-eslint", "jest"],
+    "plugins": ["@typescript-eslint", "jest", "import", "prettier"],
     "extends": [
         "next",
         "next/core-web-vitals",
         "plugin:@typescript-eslint/recommended",
         "plugin:jsx-a11y/recommended",
-        "plugin:prettier/recommended",
         "plugin:security/recommended-legacy",
         "plugin:sonarjs/recommended",
         "airbnb",

@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import Link from 'next/link';
-import { SignInSchemaType, signInSchema } from './signIn.schema';
-import styles from './styles.module.css';
+import { FaFacebook, FaGithub, FaGoogle } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import Link from "next/link";
+import { SignInSchemaType, signInSchema } from "./signIn.schema";
+import styles from "./styles.module.css";
 
 export default function SignInForm() {
     const {
         register,
         handleSubmit,
-        formState: { errors }
+        formState: { errors },
     } = useForm<SignInSchemaType>({
-        resolver: zodResolver(signInSchema)
+        resolver: zodResolver(signInSchema),
     });
 
     function handleSignIn(values: SignInSchemaType) {
@@ -24,7 +24,7 @@ export default function SignInForm() {
     return (
         <form
             className={styles.formContainer}
-            onSubmit={handleSubmit(values => {
+            onSubmit={handleSubmit((values) => {
                 // eslint-disable-next-line no-alert
                 handleSignIn(values);
             })}
@@ -45,7 +45,7 @@ export default function SignInForm() {
                 <input
                     className={styles.formInput}
                     type="email"
-                    {...register('email')}
+                    {...register("email")}
                 />
                 {errors?.email && (
                     <p className={styles.formErrorText}>

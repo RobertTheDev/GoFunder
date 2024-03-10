@@ -1,12 +1,12 @@
 // PURPOSE: This page displays the app's privacy policy.
 
 // The relevant imports required for the page.
-import { Metadata } from 'next';
-import InfoLayout from '@/app/modules/info/layouts/InfoLayout';
+import { Metadata } from "next";
+import InfoLayout from "@/app/modules/info/layouts/InfoLayout";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
-    title: 'Privacy Policy'
+    title: "Privacy Policy",
 };
 
 // This handler returns the HTML content for the app's privacy policy.

@@ -1,9 +1,9 @@
-import { ForwardedRef, forwardRef } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { FaSignOutAlt } from 'react-icons/fa';
-import { profileMenuLinks } from './profileMenuLinks';
-import styles from './styles.module.css';
+import { ForwardedRef, forwardRef } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { FaSignOutAlt } from "react-icons/fa";
+import { profileMenuLinks } from "./profileMenuLinks";
+import styles from "./styles.module.css";
 
 const ProfileMenu = forwardRef((_props, ref: ForwardedRef<HTMLDivElement>) => {
     const pathName = usePathname();
