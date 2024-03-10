@@ -1,8 +1,7 @@
-import { JSX } from 'react';
 import Image from 'next/image';
 import styles from './styles.module.css';
 
-export default function NotFoundTemplate(): JSX.Element {
+export default function NotFoundTemplate() {
     return (
         <div className={styles.pageContainer}>
             <h1 className={styles.pageTitle}>404 - Not Found</h1>

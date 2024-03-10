@@ -1,6 +1,4 @@
-import { JSX } from 'react';
-
-export default function FundraiserOverview(): JSX.Element {
+export default function FundraiserOverview() {
     return (
         <div>
             <p>FundraiserOverview</p>

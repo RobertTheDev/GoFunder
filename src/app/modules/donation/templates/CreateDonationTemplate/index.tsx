@@ -1,7 +1,6 @@
-import { JSX } from 'react';
 import CreateDonationForm from '../../components/CreateDonationForm';
 
-export default function CreateDonationTemplate(): JSX.Element {
+export default function CreateDonationTemplate() {
     return (
         <div>
             <CreateDonationForm />

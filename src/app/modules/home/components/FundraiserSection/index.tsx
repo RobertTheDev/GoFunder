@@ -1,4 +1,3 @@
-import { JSX } from 'react';
 import { getClient } from '@/app/lib/apollo/apolloClient';
 import { gql } from '@apollo/client';
 import { IFundraiser } from '@/app/interfaces/Fundraiser';
@@ -29,7 +28,7 @@ export default async function FundraiserSection({
     category
 }: {
     category: string;
-}): Promise<JSX.Element> {
+}) {
     const client = getClient();
 
     const {

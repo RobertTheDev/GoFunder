@@ -1,6 +1,4 @@
-import { JSX } from 'react';
-
-export default function ProfileTemplate(): JSX.Element {
+export default function ProfileTemplate() {
     return (
         <div>
             <p>Profile</p>
