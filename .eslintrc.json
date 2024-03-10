@@ -65,7 +65,6 @@
                 "aspects": ["invalidHref", "preferButton"]
             }
         ],
-        "no-nested-ternary": "off",
-        "import/prefer-default-export": "off"
+        "no-nested-ternary": "off"
     }
 }
