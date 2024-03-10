@@ -1,4 +1,4 @@
-import { getClient } from "@/app/lib/apollo/apolloClient";
+import getClient from "@/app/lib/apollo/apolloClient";
 import { gql } from "@apollo/client";
 import { IFundraiser } from "@/app/interfaces/Fundraiser";
 import FundraiserCard from "@/app/modules/fundraiser/components/FundraiserCard";

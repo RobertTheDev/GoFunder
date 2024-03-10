@@ -1,7 +1,7 @@
 // PURPOSE: This page fetches and displays the donations by the user.
 
 // The relevant imports required for the page.
-import { getClient } from "@/app/lib/apollo/apolloClient";
+import getClient from "@/app/lib/apollo/apolloClient";
 import { gql } from "@apollo/client";
 import { Metadata } from "next";
 import DonationCardsLayout from "@/app/modules/donation/layouts/DonationCardsLayout";

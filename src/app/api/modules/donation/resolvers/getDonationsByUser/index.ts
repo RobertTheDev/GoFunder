@@ -1,4 +1,4 @@
-import { prismaClient } from "@/app/api/db/prisma/prismaClient";
+import prismaClient from "@/app/api/db/prisma/prismaClient";
 
 export default async function getDonationsByUserController() {
     return prismaClient.donation.findMany({

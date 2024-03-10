@@ -1,6 +1,6 @@
 import { GraphQLError } from "graphql";
 import { Donation } from "@prisma/client";
-import { prismaClient } from "@/app/api/db/prisma/prismaClient";
+import prismaClient from "@/app/api/db/prisma/prismaClient";
 import { createDonationSchema } from "./createDonation.schema";
 
 export default async function createDonationController(

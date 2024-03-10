@@ -1,5 +1,5 @@
 import { Donation, Prisma } from "@prisma/client";
-import { prismaClient } from "@/app/api/db/prisma/prismaClient";
+import prismaClient from "@/app/api/db/prisma/prismaClient";
 
 // This handler creates a donation with an input into the database.
 export async function createDonation(

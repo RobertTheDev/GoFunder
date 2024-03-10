@@ -1,4 +1,4 @@
-import { redisClient } from "../../db/redis/redisClient";
+import redisClient from "../../db/redis/redisClient";
 
 // This handler deletes an item from the cache using a unique key.
 export async function deleteFromCache(key: string): Promise<number> {

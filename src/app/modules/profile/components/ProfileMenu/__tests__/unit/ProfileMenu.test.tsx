@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { createRef } from "react";
 import ProfileMenu from "../..";
-import { profileMenuLinks } from "../../profileMenuLinks";
+import profileMenuLinks from "../../profileMenuLinks";
 
 jest.mock("next/navigation", () => ({
     usePathname: () => "/saved-fundraisers",

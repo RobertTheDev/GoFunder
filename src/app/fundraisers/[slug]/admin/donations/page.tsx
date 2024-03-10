@@ -1,7 +1,7 @@
 // PURPOSE: This page fecthes and displays donations for a fundraiser.
 
 // The relevant imports required for the page.
-import { getClient } from "@/app/lib/apollo/apolloClient";
+import getClient from "@/app/lib/apollo/apolloClient";
 import FundraiserAdminLayout from "@/app/modules/fundraiser/layouts/FundraiserAdminLayout";
 import gql from "graphql-tag";
 import { Metadata } from "next";

@@ -4,7 +4,7 @@
 import { Metadata } from "next";
 import FundraiserCardsLayout from "@/app/modules/fundraiser/layouts/FundraiserCardsLayout";
 import gql from "graphql-tag";
-import { getClient } from "../lib/apollo/apolloClient";
+import getClient from "../lib/apollo/apolloClient";
 import FundraiserCard from "../modules/fundraiser/components/FundraiserCard";
 import { IFundraiser } from "../interfaces/Fundraiser";
 

@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import AccountSettingsMenu from "../..";
-import { accountSettingsLinks } from "../../accountSettingsLinks";
+import accountSettingsLinks from "../../accountSettingsLinks";
 
 jest.mock("next/navigation", () => ({
     usePathname: () => "/account-settings/update-profile",

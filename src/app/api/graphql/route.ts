@@ -1,7 +1,7 @@
 import { startServerAndCreateNextHandler } from "@as-integrations/next";
 import { ApolloServer } from "@apollo/server";
 import { NextRequest } from "next/server";
-import { schema } from "./schema";
+import schema from "./schema";
 
 const server = new ApolloServer({
     schema,

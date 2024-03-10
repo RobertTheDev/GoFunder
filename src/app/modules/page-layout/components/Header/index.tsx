@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useProfileMenu } from "@/app/hooks/profileMenu/useProfileMenu";
+import useProfileMenu from "@/app/hooks/profileMenu/useProfileMenu";
 import { usePathname } from "next/navigation";
 import ProfileMenu from "../../../profile/components/ProfileMenu";
-import { headerLinks } from "./headerLinks";
+import headerLinks from "./headerLinks";
 import styles from "./styles.module.css";
 
 export default function Header() {
