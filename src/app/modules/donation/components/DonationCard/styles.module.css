@@ -1,0 +1,15 @@
+.cardContainer {
+    display: flex;
+    background-color: white;
+    flex-direction: column;
+    padding: 1.6rem;
+    width: 100%;
+}
+
+.cardImageContainer {
+    height: 4.8rem;
+    width: 4.8rem;
+    border-radius: 100%;
+    overflow: hidden;
+    position: relative;
+}

@@ -24,16 +24,23 @@
 .cardContainer {
     background-color: white;
     border-radius: 16px;
+    box-shadow: var(--shadow-md);
     color: inherit;
     display: flex;
     flex-direction: column;
     overflow: hidden;
     text-decoration: none;
-    width: 100%;
+    min-width: 400px;
+    transition: box-shadow 0.5s;
+
 
     @media (prefers-color-scheme: dark) {
         background-color: var(--neutral900);
     }
+}
+
+.cardContainer:hover {
+    box-shadow: var(--shadow-2xl);
 }
 
 .cardButton {
@@ -65,6 +72,7 @@
 .cardProgressContainer {
     display: flex;
     flex-direction: column;
+    gap: 0.8rem;
     width: 100%;
 }
 
@@ -86,7 +94,8 @@
 .cardProgressText {
     color: var(--neutral900);
     font-size: 1.4rem;
-    font-weight: 500;
+    font-weight: 400;
+    margin: 0;
 
     @media (prefers-color-scheme: dark) {
         color: var(--neutral300);
@@ -97,18 +106,21 @@
 .cardTitle {
     color: var(--neutral900);
     font-size: 1.8rem;
-    font-weight: 600;
+    font-weight: 500;
+    margin: 0;
 
     @media (prefers-color-scheme: dark) {
         color: var(--neutral300);
     }
 }
 
+/* .cardTitleContainer {} */
+
 .cardContentContainer {
     display: flex;
-    flex: 1;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 0 1.6rem;
+    gap: 3.2rem;
+    padding: 1.6rem;
     width: 100%;
+    background-color: white;
 }

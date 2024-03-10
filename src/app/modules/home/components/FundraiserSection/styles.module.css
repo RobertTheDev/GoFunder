@@ -3,20 +3,36 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 0 8rem;
-    padding: 0 8rem;
+    gap: 2.4rem;
+
+    /* padding: 0 8rem; */
+    padding: 0 4rem;
 }
 
 .sectionTitle {
     font-size: 2.4rem;
     font-weight: 600;
     margin: 0;
-    margin-bottom: 3.2rem;
 }
 
 .sectionCardsGrid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     width: 100%;
-    gap: 4.8rem;
+    gap: 3.2rem;
+    overflow: hidden;
+    padding: 1.6rem 0;
+    overflow-x: scroll;
+
+
+    /* IE and Edge */
+    -ms-overflow-style: none;
+
+    /* Firefox */
+    scrollbar-width: none;
+
+}
+
+.sectionCardsGrid::-webkit-scrollbar {
+    display: none;
 }
