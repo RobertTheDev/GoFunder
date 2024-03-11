@@ -42,5 +42,13 @@
     ],
     "rules": {
         "react/react-in-jsx-scope": "off"
-    }
+    },
+    "overrides": [
+        {
+            "files": ["src/app/api/**/route.ts"],
+            "rules": {
+                "import/prefer-default-export": "off"
+            }
+        }
+    ]
 }
