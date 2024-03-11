@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { getIronSession } from "iron-session";
-import { SessionData, sessionCookie } from "@/app/api/configs/session";
+import { SessionData, sessionCookie } from "@/app/api/configs/auth/session";
 import { signUpSchema } from "./signUp.schema";
 import signUp from "./signUp.service";
 
