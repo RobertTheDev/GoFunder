@@ -22,6 +22,8 @@ export default function VerifyTotpForm() {
         alert(JSON.stringify(values));
     }
 
+    const codeReg = register("code");
+
     return (
         <form
             className={styles.formContainer}
@@ -36,7 +38,10 @@ export default function VerifyTotpForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register("code")}
+                    onChange={codeReg.onChange}
+                    onBlur={codeReg.onBlur}
+                    name={codeReg.name}
+                    ref={codeReg.ref}
                 />
                 {errors?.code && (
                     <span className={styles.formErrorText}>

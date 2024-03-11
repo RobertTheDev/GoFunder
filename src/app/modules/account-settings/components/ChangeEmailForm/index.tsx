@@ -19,6 +19,9 @@ export default function ChangeEmailForm() {
         alert(JSON.stringify(values));
     }
 
+    const emailReg = register("email");
+    const passwordReg = register("password");
+
     return (
         <form
             className={styles.formContainer}
@@ -33,7 +36,10 @@ export default function ChangeEmailForm() {
                 <input
                     className={styles.formInput}
                     type="email"
-                    {...register("email")}
+                    onChange={emailReg.onChange}
+                    onBlur={emailReg.onBlur}
+                    name={emailReg.name}
+                    ref={emailReg.ref}
                 />
                 {errors?.email?.message && (
                     <span className={styles.formErrorText}>
@@ -47,7 +53,10 @@ export default function ChangeEmailForm() {
                 <input
                     className={styles.formInput}
                     type="password"
-                    {...register("password")}
+                    onChange={passwordReg.onChange}
+                    onBlur={passwordReg.onBlur}
+                    name={passwordReg.name}
+                    ref={passwordReg.ref}
                 />
                 {errors?.password?.message && (
                     <span className={styles.formErrorText}>

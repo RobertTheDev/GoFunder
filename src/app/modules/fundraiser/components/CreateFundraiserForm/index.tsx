@@ -22,6 +22,13 @@ export default function CreateFundraiserForm() {
         alert(JSON.stringify(values));
     }
 
+    const nameReg = register("name");
+    const descriptionReg = register("description");
+    const targetReg = register("target", { valueAsNumber: true });
+    const deadlineDateReg = register("deadlineDate");
+    const imageReg = register("image");
+    const categoryReg = register("category");
+
     return (
         <form
             className={styles.formContainer}
@@ -39,7 +46,10 @@ export default function CreateFundraiserForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register("name")}
+                    onChange={nameReg.onChange}
+                    onBlur={nameReg.onBlur}
+                    name={nameReg.name}
+                    ref={nameReg.ref}
                 />
                 {errors?.name && (
                     <p className={styles.formErrorText}>
@@ -54,7 +64,10 @@ export default function CreateFundraiserForm() {
                 <input
                     className={styles.formInput}
                     type="number"
-                    {...register("target", { valueAsNumber: true })}
+                    onChange={targetReg.onChange}
+                    onBlur={targetReg.onBlur}
+                    name={targetReg.name}
+                    ref={targetReg.ref}
                 />
                 {errors?.target && (
                     <p className={styles.formErrorText}>
@@ -68,7 +81,10 @@ export default function CreateFundraiserForm() {
                 <span className={styles.formLabelText}>Description</span>
                 <textarea
                     className={styles.formInput}
-                    {...register("description")}
+                    onChange={descriptionReg.onChange}
+                    onBlur={descriptionReg.onBlur}
+                    name={descriptionReg.name}
+                    ref={descriptionReg.ref}
                 />
                 {errors?.description && (
                     <p className={styles.formErrorText}>
@@ -83,7 +99,10 @@ export default function CreateFundraiserForm() {
                 <input
                     className={styles.formInput}
                     type="date"
-                    {...register("deadlineDate", { valueAsDate: true })}
+                    onChange={deadlineDateReg.onChange}
+                    onBlur={deadlineDateReg.onBlur}
+                    name={deadlineDateReg.name}
+                    ref={deadlineDateReg.ref}
                 />
                 {errors?.deadlineDate && (
                     <p className={styles.formErrorText}>
@@ -98,7 +117,10 @@ export default function CreateFundraiserForm() {
                 <input
                     className={styles.formInput}
                     type="file"
-                    {...register("image")}
+                    onChange={imageReg.onChange}
+                    onBlur={imageReg.onBlur}
+                    name={imageReg.name}
+                    ref={imageReg.ref}
                 />
                 {errors?.image && (
                     <p className={styles.formErrorText}>
@@ -110,7 +132,12 @@ export default function CreateFundraiserForm() {
             {/* category */}
             <label className={styles.formLabelContainer} htmlFor="category">
                 <span className={styles.formLabelText}>category</span>
-                <select {...register("category")}>
+                <select
+                    onChange={categoryReg.onChange}
+                    onBlur={categoryReg.onBlur}
+                    name={categoryReg.name}
+                    ref={categoryReg.ref}
+                >
                     <option>Burger</option>
                     <option>Pizza</option>
                 </select>

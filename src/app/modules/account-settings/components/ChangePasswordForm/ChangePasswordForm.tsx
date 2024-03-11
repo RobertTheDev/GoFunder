@@ -22,6 +22,9 @@ export default function ChangePasswordForm() {
         alert(JSON.stringify(values));
     }
 
+    const newPasswordReg = register("newPassword");
+    const currentPasswordReg = register("currentPassword");
+
     return (
         <form
             className={styles.formContainer}
@@ -36,7 +39,10 @@ export default function ChangePasswordForm() {
                 <input
                     className={styles.formInput}
                     type="password"
-                    {...register("newPassword")}
+                    onChange={newPasswordReg.onChange}
+                    onBlur={newPasswordReg.onBlur}
+                    name={newPasswordReg.name}
+                    ref={newPasswordReg.ref}
                 />
                 {errors?.newPassword && (
                     <span className={styles.formErrorText}>
@@ -53,7 +59,10 @@ export default function ChangePasswordForm() {
                 <input
                     className={styles.formInput}
                     type="password"
-                    {...register("currentPassword")}
+                    onChange={currentPasswordReg.onChange}
+                    onBlur={currentPasswordReg.onBlur}
+                    name={currentPasswordReg.name}
+                    ref={currentPasswordReg.ref}
                 />
                 {errors?.currentPassword && (
                     <span className={styles.formErrorText}>

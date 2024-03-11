@@ -22,6 +22,8 @@ export default function UpdateFundraiserForm() {
         alert(JSON.stringify(values));
     }
 
+    const nameReg = register("name");
+
     return (
         <form
             className={styles.formContainer}
@@ -36,7 +38,10 @@ export default function UpdateFundraiserForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register("name")}
+                    onChange={nameReg.onChange}
+                    onBlur={nameReg.onBlur}
+                    name={nameReg.name}
+                    ref={nameReg.ref}
                 />
                 {errors?.name && (
                     <p className={styles.formErrorText}>

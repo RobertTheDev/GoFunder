@@ -22,6 +22,10 @@ export default function CreateDonationForm() {
         alert(JSON.stringify(values));
     }
 
+    const amountReg = register("amount", { valueAsNumber: true });
+    const annonymousReg = register("annonymous");
+    const messageReg = register("message");
+
     return (
         <form
             className={styles.formContainer}
@@ -36,7 +40,10 @@ export default function CreateDonationForm() {
                 <input
                     className={styles.formInput}
                     type="number"
-                    {...register("amount", { valueAsNumber: true })}
+                    onChange={amountReg.onChange}
+                    onBlur={amountReg.onBlur}
+                    name={amountReg.name}
+                    ref={amountReg.ref}
                 />
                 {errors?.amount && (
                     <span className={styles.formErrorText}>
@@ -50,7 +57,10 @@ export default function CreateDonationForm() {
                 <input
                     className={styles.formCheckbox}
                     type="checkbox"
-                    {...register("annonymous")}
+                    onChange={annonymousReg.onChange}
+                    onBlur={annonymousReg.onBlur}
+                    name={annonymousReg.name}
+                    ref={annonymousReg.ref}
                 />
                 {errors?.annonymous && (
                     <span className={styles.formErrorText}>
@@ -66,7 +76,10 @@ export default function CreateDonationForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register("message")}
+                    onChange={messageReg.onChange}
+                    onBlur={messageReg.onBlur}
+                    name={messageReg.name}
+                    ref={messageReg.ref}
                 />
                 {errors?.message && (
                     <span className={styles.formErrorText}>

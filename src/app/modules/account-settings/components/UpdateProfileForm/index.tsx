@@ -22,6 +22,9 @@ export default function UpdateProfileForm() {
         alert(JSON.stringify(values));
     }
 
+    const nameReg = register("name");
+    const annonymousReg = register("annonymous");
+
     return (
         <form
             className={styles.formContainer}
@@ -36,7 +39,10 @@ export default function UpdateProfileForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register("name")}
+                    onChange={nameReg.onChange}
+                    onBlur={nameReg.onBlur}
+                    name={nameReg.name}
+                    ref={nameReg.ref}
                 />
                 {errors?.name && (
                     <span className={styles.formErrorText}>
@@ -50,7 +56,10 @@ export default function UpdateProfileForm() {
                 <input
                     className={styles.formCheckbox}
                     type="checkbox"
-                    {...register("annonymous")}
+                    onChange={annonymousReg.onChange}
+                    onBlur={annonymousReg.onBlur}
+                    name={annonymousReg.name}
+                    ref={annonymousReg.ref}
                 />
                 {errors?.annonymous && (
                     <span className={styles.formErrorText}>

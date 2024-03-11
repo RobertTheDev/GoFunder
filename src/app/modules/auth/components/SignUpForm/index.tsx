@@ -21,6 +21,9 @@ export default function SignUpForm() {
         alert(JSON.stringify(values));
     }
 
+    const emailReg = register("email");
+    const nameReg = register("name");
+
     return (
         <form
             className={styles.formContainer}
@@ -45,7 +48,10 @@ export default function SignUpForm() {
                 <input
                     className={styles.formInput}
                     type="email"
-                    {...register("email")}
+                    onChange={emailReg.onChange}
+                    onBlur={emailReg.onBlur}
+                    name={emailReg.name}
+                    ref={emailReg.ref}
                 />
                 {errors?.email && (
                     <span className={styles.formErrorText}>
@@ -59,7 +65,10 @@ export default function SignUpForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register("name")}
+                    onChange={nameReg.onChange}
+                    onBlur={nameReg.onBlur}
+                    name={nameReg.name}
+                    ref={nameReg.ref}
                 />
                 {errors?.name && (
                     <span className={styles.formErrorText}>

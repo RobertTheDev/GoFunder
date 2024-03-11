@@ -22,6 +22,9 @@ export default function CloseAccountForm() {
         alert(JSON.stringify(values));
     }
 
+    const confirmReg = register("confirm");
+    const passwordReg = register("password");
+
     return (
         <form
             className={styles.formContainer}
@@ -36,7 +39,10 @@ export default function CloseAccountForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register("confirm")}
+                    onChange={confirmReg.onChange}
+                    onBlur={confirmReg.onBlur}
+                    name={confirmReg.name}
+                    ref={confirmReg.ref}
                 />
                 {errors?.confirm && (
                     <span className={styles.formErrorText}>
@@ -50,7 +56,10 @@ export default function CloseAccountForm() {
                 <input
                     className={styles.formInput}
                     type="password"
-                    {...register("password")}
+                    onChange={passwordReg.onChange}
+                    onBlur={passwordReg.onBlur}
+                    name={passwordReg.name}
+                    ref={passwordReg.ref}
                 />
                 {errors?.password && (
                     <span className={styles.formErrorText}>

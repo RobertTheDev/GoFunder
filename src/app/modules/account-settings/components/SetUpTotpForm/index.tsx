@@ -22,6 +22,8 @@ export default function SetUpTotpForm() {
         alert(JSON.stringify(values));
     }
 
+    const mfaSecretReg = register("mfaSecret");
+
     return (
         <form
             className={styles.formContainer}
@@ -36,7 +38,10 @@ export default function SetUpTotpForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register("mfaSecret")}
+                    onChange={mfaSecretReg.onChange}
+                    onBlur={mfaSecretReg.onBlur}
+                    name={mfaSecretReg.name}
+                    ref={mfaSecretReg.ref}
                 />
                 {errors?.mfaSecret && (
                     <span className={styles.formErrorText}>

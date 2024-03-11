@@ -22,6 +22,8 @@ export default function DeleteFundraiserForm() {
         alert(JSON.stringify(values));
     }
 
+    const confirmReg = register("confirm");
+
     return (
         <form
             className={styles.formContainer}
@@ -36,7 +38,10 @@ export default function DeleteFundraiserForm() {
                 <input
                     className={styles.formInput}
                     type="text"
-                    {...register("confirm")}
+                    onChange={confirmReg.onChange}
+                    onBlur={confirmReg.onBlur}
+                    name={confirmReg.name}
+                    ref={confirmReg.ref}
                 />
                 {errors?.confirm && (
                     <p className={styles.formErrorText}>
