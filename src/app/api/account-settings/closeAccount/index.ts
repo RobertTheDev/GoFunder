@@ -1,6 +1,6 @@
 import { GraphQLError } from "graphql";
 import { User } from "@prisma/client";
-import prismaClient from "@/app/api/db/prisma/prismaClient";
+import prismaClient from "@/app/api/configs/db/prisma/prismaClient";
 import { closeAccountSchema } from "./closeAccount.schema";
 
 export default async function closeAccountController(

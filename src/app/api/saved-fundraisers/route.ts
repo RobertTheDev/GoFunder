@@ -1,4 +1,4 @@
-import prismaClient from "@/app/api/db/prisma/prismaClient";
+import prismaClient from "@/app/api/configs/db/prisma/prismaClient";
 
 export default function getSavedFundraisersQuery() {
     return prismaClient.savedFundraiser.findMany({
