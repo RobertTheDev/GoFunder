@@ -2,23 +2,21 @@ import { User, Prisma } from "@prisma/client";
 import prismaClient from "@/app/api/db/prisma/prismaClient";
 
 // This handler creates a user with an input into the database.
-export async function createUser(data: Prisma.UserCreateInput): Promise<User> {
+async function createUser(data: Prisma.UserCreateInput): Promise<User> {
     return prismaClient.user.create({
         data,
     });
 }
 
 // This handler deletes a user using a unique field in the database.
-export async function deleteUser(
-    where: Prisma.UserWhereUniqueInput,
-): Promise<User> {
+async function deleteUser(where: Prisma.UserWhereUniqueInput): Promise<User> {
     return prismaClient.user.delete({
         where,
     });
 }
 
 // This handlers finds a user using a unique field in the database.
-export async function findUser(
+async function findUser(
     userWhereUniqueInput: Prisma.UserWhereUniqueInput,
 ): Promise<User | null> {
     return prismaClient.user.findUnique({
@@ -27,7 +25,7 @@ export async function findUser(
 }
 
 // This handlers finds and filters for users from the database.
-export async function findUsers(params: {
+async function findUsers(params: {
     skip?: number;
     take?: number;
     cursor?: Prisma.UserWhereUniqueInput;
@@ -45,7 +43,7 @@ export async function findUsers(params: {
 }
 
 // This handlers updates a user using a unique field and an input into the database.
-export async function updateUser(params: {
+async function updateUser(params: {
     where: Prisma.UserWhereUniqueInput;
     data: Prisma.UserUpdateInput;
 }): Promise<User> {
@@ -55,3 +53,13 @@ export async function updateUser(params: {
         where,
     });
 }
+
+const userService = {
+    createUser,
+    deleteUser,
+    findUser,
+    findUsers,
+    updateUser,
+};
+
+export default userService;

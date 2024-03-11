@@ -2,7 +2,7 @@ import { Donation, Prisma } from "@prisma/client";
 import prismaClient from "@/app/api/db/prisma/prismaClient";
 
 // This handler creates a donation with an input into the database.
-export async function createDonation(
+async function createDonation(
     data: Prisma.DonationCreateInput,
 ): Promise<Donation> {
     return prismaClient.donation.create({
@@ -11,7 +11,7 @@ export async function createDonation(
 }
 
 // This handler deletes a donation using a unique field in the database.
-export async function deleteDonation(
+async function deleteDonation(
     where: Prisma.DonationWhereUniqueInput,
 ): Promise<Donation> {
     return prismaClient.donation.delete({
@@ -20,7 +20,7 @@ export async function deleteDonation(
 }
 
 // This handlers finds a donation using a unique field in the database.
-export async function findDonation(
+async function findDonation(
     DonationWhereUniqueInput: Prisma.DonationWhereUniqueInput,
 ): Promise<Donation | null> {
     return prismaClient.donation.findUnique({
@@ -29,7 +29,7 @@ export async function findDonation(
 }
 
 // This handlers finds and filters for donations from the database.
-export async function findDonations(params: {
+async function findDonations(params: {
     skip?: number;
     take?: number;
     cursor?: Prisma.DonationWhereUniqueInput;
@@ -47,7 +47,7 @@ export async function findDonations(params: {
 }
 
 // This handlers updates a donation using a unique field and an input into the database.
-export async function updateDonation(params: {
+async function updateDonation(params: {
     where: Prisma.DonationWhereUniqueInput;
     data: Prisma.DonationUpdateInput;
 }): Promise<Donation> {
@@ -57,3 +57,13 @@ export async function updateDonation(params: {
         where,
     });
 }
+
+const donationService = {
+    createDonation,
+    deleteDonation,
+    findDonation,
+    findDonations,
+    updateDonation,
+};
+
+export default donationService;

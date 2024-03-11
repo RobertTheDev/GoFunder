@@ -2,7 +2,7 @@ import { Fundraiser, Prisma } from "@prisma/client";
 import prismaClient from "@/app/api/db/prisma/prismaClient";
 
 // This handler creates a fundraiser with an input into the database.
-export async function createFundraiser(
+async function createFundraiser(
     data: Prisma.FundraiserCreateInput,
 ): Promise<Fundraiser> {
     return prismaClient.fundraiser.create({
@@ -11,7 +11,7 @@ export async function createFundraiser(
 }
 
 // This handler deletes a fundraiser using a unique field in the database.
-export async function deleteFundraiser(
+async function deleteFundraiser(
     where: Prisma.FundraiserWhereUniqueInput,
 ): Promise<Fundraiser> {
     return prismaClient.fundraiser.delete({
@@ -20,7 +20,7 @@ export async function deleteFundraiser(
 }
 
 // This handlers finds a fundraiser using a unique field in the database.
-export async function findFundraiser(
+async function findFundraiser(
     include: Prisma.FundraiserInclude,
     where: Prisma.FundraiserWhereUniqueInput,
 ): Promise<Fundraiser | null> {
@@ -31,7 +31,7 @@ export async function findFundraiser(
 }
 
 // This handlers finds and filters for fundraisers from the database.
-export async function findFundraisers(params: {
+async function findFundraisers(params: {
     skip?: number;
     take?: number;
     cursor?: Prisma.FundraiserWhereUniqueInput;
@@ -49,7 +49,7 @@ export async function findFundraisers(params: {
 }
 
 // This handlers updates a fundraiser using a unique field and an input into the database.
-export async function updateFundraiser(params: {
+async function updateFundraiser(params: {
     where: Prisma.FundraiserWhereUniqueInput;
     data: Prisma.FundraiserUpdateInput;
 }): Promise<Fundraiser> {
@@ -59,3 +59,13 @@ export async function updateFundraiser(params: {
         where,
     });
 }
+
+const fundraiserService = {
+    createFundraiser,
+    deleteFundraiser,
+    findFundraiser,
+    findFundraisers,
+    updateFundraiser,
+};
+
+export default fundraiserService;

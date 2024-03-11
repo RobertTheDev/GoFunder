@@ -19,3 +19,11 @@ export async function setToCache(params: {
 
     return redisClient.set(key, JSON.stringify(data));
 }
+
+const cacheService = {
+    deleteFromCache,
+    getFromCache,
+    setToCache,
+};
+
+export default cacheService;

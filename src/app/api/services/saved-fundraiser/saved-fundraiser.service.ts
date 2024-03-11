@@ -2,7 +2,7 @@ import { SavedFundraiser, Prisma } from "@prisma/client";
 import prismaClient from "@/app/api/db/prisma/prismaClient";
 
 // This handler creates a saved fundraiser with an input into the database.
-export async function createSavedFundraiser(
+async function createSavedFundraiser(
     data: Prisma.SavedFundraiserCreateInput,
 ): Promise<SavedFundraiser> {
     return prismaClient.savedFundraiser.create({
@@ -11,7 +11,7 @@ export async function createSavedFundraiser(
 }
 
 // This handler deletes a saved fundraiser using a unique field in the database.
-export async function deleteSavedFundraiser(
+async function deleteSavedFundraiser(
     where: Prisma.SavedFundraiserWhereUniqueInput,
 ): Promise<SavedFundraiser> {
     return prismaClient.savedFundraiser.delete({
@@ -20,7 +20,7 @@ export async function deleteSavedFundraiser(
 }
 
 // This handlers finds a saved fundraiser using a unique field in the database.
-export async function findSavedFundraiser(
+async function findSavedFundraiser(
     SavedFundraiserWhereUniqueInput: Prisma.SavedFundraiserWhereUniqueInput,
 ): Promise<SavedFundraiser | null> {
     return prismaClient.savedFundraiser.findUnique({
@@ -29,7 +29,7 @@ export async function findSavedFundraiser(
 }
 
 // This handlers finds and filters for saved fundraisers from the database.
-export async function findSavedFundraisers(params: {
+async function findSavedFundraisers(params: {
     skip?: number;
     take?: number;
     cursor?: Prisma.SavedFundraiserWhereUniqueInput;
@@ -47,7 +47,7 @@ export async function findSavedFundraisers(params: {
 }
 
 // This handlers updates a saved fundraiser using a unique field and an input into the database.
-export async function updateSavedFundraiser(params: {
+async function updateSavedFundraiser(params: {
     where: Prisma.SavedFundraiserWhereUniqueInput;
     data: Prisma.SavedFundraiserUpdateInput;
 }): Promise<SavedFundraiser> {
@@ -57,3 +57,13 @@ export async function updateSavedFundraiser(params: {
         where,
     });
 }
+
+const savedFundraiserService = {
+    createSavedFundraiser,
+    deleteSavedFundraiser,
+    findSavedFundraiser,
+    findSavedFundraisers,
+    updateSavedFundraiser,
+};
+
+export default savedFundraiserService;
