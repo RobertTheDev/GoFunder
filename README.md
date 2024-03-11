@@ -5,7 +5,7 @@ The GoFunder app is a server-side-rendered application using Next 14 with React 
 ## Features
 
 -   ⚡ [Next.js](https://nextjs.org/) with App Router support
--   🔥 Type checking [TypeScript](https://www.typescriptlang.org/)
+-   🔍 Type checking [TypeScript](https://www.typescriptlang.org/)
 -   💎 Styling with CSS 3 and CSS modules
 -   ✅ Strict Mode for TypeScript and React 18
 -   🔒 Authentication with [Stytch](https://clerk.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=nextjs-boilerplate): Sign up, Sign in, Sign out, Forgot password, Reset password, and more.
@@ -16,7 +16,8 @@ The GoFunder app is a server-side-rendered application using Next 14 with React 
 -   ♻️ Type-safe environment variables with T3 Env
 -   ⌨️ Form handling with React Hook Form
 -   🔴 Validation library with Zod
--   📏 Linter with [ESLint](https://eslint.org/) (default Next.js, Next.js Core Web Vitals, Tailwind CSS and Airbnb configuration)
+-   🚀 Production-ready
+-   📏 Linter with [ESLint](https://eslint.org/) (default Next.js, Next.js Core Web Vitals, and Airbnb configuration)
 -   💖 Code Formatter with [Prettier](https://prettier.io/)
 -   🦊 Husky for Git Hooks
 -   🚫 Lint-staged for running linters on Git staged files
@@ -27,19 +28,14 @@ The GoFunder app is a server-side-rendered application using Next 14 with React 
 -   👷 Run tests on pull request with GitHub Actions
 -   🎉 Storybook for UI development
 -   🚨 Error Monitoring with [Sentry](https://sentry.io/for/nextjs/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo)
--   ☂️ Code coverage with [Codecov](https://about.codecov.io/codecov-free-trial/?utm_source=github&utm_medium=paid-community&utm_campaign=general-fy25q1-nextjs&utm_content=github-banner-nextjsboilerplate-logo)
 -   📝 Logging with Pino.js and Log Management with [Better Stack](https://betterstack.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=next-js-boilerplate)
 -   🖥️ Monitoring as Code with [Checkly](https://www.checklyhq.com/?utm_source=github&utm_medium=sponsorship&utm_campaign=next-js-boilerplate)
 -   🎁 Automatic changelog generation with Semantic Release
--   🔍 Visual testing with Percy (Optional)
 -   💡 Absolute Imports using `@` prefix
--   🗂 VSCode configuration: Debug, Settings, Tasks and Extensions
 -   🤖 SEO metadata, JSON-LD and Open Graph tags
 -   🗺️ Sitemap.xml and robots.txt with next-sitemap
 -   ⌘ Database exploration with Drizzle Studio and CLI migration tool with Drizzle Kit
 -   ⚙️ [Bundler Analyzer](https://www.npmjs.com/package/@next/bundle-analyzer)
--   🖱️ One click deployment with Netlify (or manual deployment to any hosting services)
--   🌈 Include a FREE minimalist theme
 -   💯 Maximize lighthouse score
 
 ## API
