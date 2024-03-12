@@ -1,18 +1,30 @@
-import { GraphQLError } from "graphql";
-import { User } from "@prisma/client";
 import prismaClient from "@/app/api/configs/db/prisma/prismaClient";
+import { cookies } from "next/headers";
+import { getIronSession } from "iron-session";
+import { SessionData, sessionCookie } from "@/app/api/configs/auth/session";
 import { closeAccountSchema } from "./closeAccount.schema";
 
-export default async function closeAccountController(
-    input: unknown,
-): Promise<User | null> {
-    const id = "1";
+export async function DELETE(request: Request) {
+    const session = await getIronSession<SessionData>(cookies(), sessionCookie);
 
-    const validation = await closeAccountSchema.safeParseAsync(input);
+    const { userId } = session;
 
-    if (!validation.success) {
-        throw new GraphQLError(validation.error.errors[0].message);
+    if (!userId) {
+        return Response.json({ message: "No user signed in." });
     }
 
-    return prismaClient.user.delete({ where: { id } });
+    const body = await request.json();
+
+    const validation = closeAccountSchema.safeParse(body);
+
+    if (!validation.success) {
+        const { message } = validation.error.errors[0];
+        return Response.json({ message });
+    }
+
+    const deletedUser = await prismaClient.user.delete({
+        where: { id: userId },
+    });
+
+    return Response.json({ data: deletedUser });
 }

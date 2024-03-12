@@ -1,20 +1,33 @@
-import { GraphQLError } from "graphql";
-import { User } from "@prisma/client";
-import prismaClient from "../../../../db/prisma/prismaClient";
+import prismaClient from "@/app/api/configs/db/prisma/prismaClient";
+import { cookies } from "next/headers";
+import { getIronSession } from "iron-session";
+import { SessionData, sessionCookie } from "@/app/api/configs/auth/session";
 import { changePasswordSchema } from "./changePassword.schema";
 
-export default async function changePasswordController(
-    input: unknown,
-): Promise<User | null> {
-    const id = "1";
+export async function PUT(request: Request) {
+    const session = await getIronSession<SessionData>(cookies(), sessionCookie);
 
-    const validation = await changePasswordSchema.safeParseAsync(input);
+    const { userId } = session;
+
+    if (!userId) {
+        return Response.json({ message: "No user signed in." });
+    }
+
+    const body = await request.json();
+
+    const validation = changePasswordSchema.safeParse(body);
 
     if (!validation.success) {
-        throw new GraphQLError(validation.error.errors[0].message);
+        const { message } = validation.error.errors[0];
+        return Response.json({ message });
     }
 
     const { data } = validation;
 
-    return prismaClient.user.update({ data, where: { id } });
+    const updatedUser = await prismaClient.user.update({
+        data,
+        where: { id: userId },
+    });
+
+    return Response.json({ data: updatedUser });
 }

@@ -7,6 +7,12 @@ import signUp from "./signUp.service";
 export async function POST(request: Request) {
     const session = await getIronSession<SessionData>(cookies(), sessionCookie);
 
+    const { userId } = session;
+
+    if (userId) {
+        return Response.json({ message: "You are already signed in." });
+    }
+
     const body = await request.json();
 
     const validation = signUpSchema.safeParse(body);
@@ -20,7 +26,7 @@ export async function POST(request: Request) {
 
     const user = await signUp({ data });
 
-    session.id = user.id;
+    session.userId = user.id;
 
     await session.save();
 

@@ -1,18 +1,29 @@
-import { GraphQLError } from "graphql";
-import { SavedFundraiser } from "@prisma/client";
 import prismaClient from "@/app/api/configs/db/prisma/prismaClient";
-import { saveFundraiserSchema } from "../save/saveFundraiser.schema";
+import { cookies } from "next/headers";
+import { getIronSession } from "iron-session";
+import { SessionData, sessionCookie } from "@/app/api/configs/auth/session";
+import { saveFundraiserSchema } from "./saveFundraiser.schema";
 
-export default async function saveFundraiserMutation(
-    input: unknown,
-): Promise<SavedFundraiser | null> {
-    const validation = await saveFundraiserSchema.safeParseAsync(input);
+export async function POST(request: Request) {
+    const session = await getIronSession<SessionData>(cookies(), sessionCookie);
+
+    const { userId } = session;
+
+    if (!userId) {
+        return Response.json({ message: "No user signed in." });
+    }
+
+    const body = await request.json();
+
+    const validation = await saveFundraiserSchema.safeParseAsync(body);
 
     if (!validation.success) {
-        throw new GraphQLError(validation.error.errors[0].message);
+        return Response.json({ message: validation.error.errors[0].message });
     }
 
     const { data } = validation;
 
-    return prismaClient.savedFundraiser.create({ data });
+    const savedFundraiser = await prismaClient.savedFundraiser.create({ data });
+
+    return Response.json({ data: savedFundraiser });
 }
