@@ -45,6 +45,7 @@
         "@graphql-tools/merge": "^9.0.3",
         "@graphql-tools/schema": "^10.0.3",
         "@hookform/resolvers": "^3.3.4",
+        "@paralleldrive/cuid2": "^2.2.2",
         "@playwright/test": "^1.41.2",
         "@prisma/client": "5.10.2",
         "@sendgrid/mail": "^8.1.1",
