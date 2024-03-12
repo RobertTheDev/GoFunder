@@ -1,14 +1,12 @@
 import { SessionOptions } from "iron-session";
 
 export interface SessionData {
-    id: string;
+    userId?: string;
     email?: string;
     name?: string;
 }
 
-export const defaultSession: SessionData = {
-    id: "",
-};
+export const defaultSession: SessionData = {};
 
 export const sessionCookie: SessionOptions = {
     password: process.env.SESSION_COOKIE_PASSWORD as string,
