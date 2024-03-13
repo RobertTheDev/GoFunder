@@ -3,8 +3,7 @@
 // The relevant imports required for the page.
 import { Metadata } from "next";
 import FundraiserCardsLayout from "@/app/modules/fundraiser/layouts/FundraiserCardsLayout";
-import gql from "graphql-tag";
-import getClient from "../lib/apollo/apolloClient";
+import { headers } from "next/headers";
 import FundraiserCard from "../modules/fundraiser/components/FundraiserCard";
 import { ISavedFundraiser } from "../interfaces/SavedFundraiser";
 
@@ -13,40 +12,19 @@ export const metadata: Metadata = {
     title: "Saved Fundraisers",
 };
 
-const GET_SAVED_FUNDRAISERS = gql`
-    query getSavedFundraisers {
-        savedFundraisers {
-            id
-            fundraiser {
-                id
-                image
-                name
-                target
-                totalDonations
-                totalRaised
-            }
-        }
-    }
-`;
-
 // The handler maps fundraiser cards with saved fundraiser data fetched from the API injected.
 export default async function SavedFundraisersPage() {
-    const client = getClient();
-
-    const {
-        loading,
-        error,
-        data: { savedFundraisers },
-    } = await client.query({
-        query: GET_SAVED_FUNDRAISERS,
+    const res = await fetch(`http://localhost:3000/api/saved-fundraisers`, {
+        cache: "no-cache",
+        headers: headers(),
     });
 
-    if (error) return <p>There was an error</p>;
-    if (loading) return <p>Loading...</p>;
+    const savedFundraisers = await res.json();
 
     return (
         <FundraiserCardsLayout>
-            {savedFundraisers.map((savedFundraiser: ISavedFundraiser) => (
+            <p>Saved Fundraisers</p>
+            {savedFundraisers.data.map((savedFundraiser: ISavedFundraiser) => (
                 <FundraiserCard
                     fundraiser={savedFundraiser.fundraiser}
                     key={savedFundraiser.id}
