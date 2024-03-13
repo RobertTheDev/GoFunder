@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
     if (!validation.success) {
         return Response.json({
-            statusCode: validation.error.errors[0].code,
+            statusCode: StatusCodes.BAD_REQUEST,
             message: validation.error.errors[0].message,
             data: null,
         });

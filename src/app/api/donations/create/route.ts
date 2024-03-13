@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
     if (!validation.success) {
         return Response.json({
-            statusCode: validation.error.errors[0].code,
+            statusCode: StatusCodes.BAD_REQUEST,
             message: validation.error.errors[0].message,
             data: null,
         });
@@ -38,10 +38,31 @@ export async function POST(request: Request) {
 
     const { data } = validation;
 
-    // Step 3: Create donation.
-    const createDonation = await prismaClient.donation.create({ data });
+    // Step 3: Check fundraiser exists.
+    const findFundraiser = await prismaClient.fundraiser.findUnique({
+        where: {
+            slug: data.slug,
+        },
+    });
 
-    // Step 4: Return success message.
+    if (!findFundraiser) {
+        return Response.json({
+            statusCode: StatusCodes.BAD_REQUEST,
+            message: `No fundraiser found with slug ${data.slug}`,
+            data: null,
+        });
+    }
+
+    // Step 4: Create donation.
+    const createDonation = await prismaClient.donation.create({
+        data: {
+            ...data,
+            fundraiserId: findFundraiser.id,
+            userId,
+        },
+    });
+
+    // Step 5: Return success message.
     return Response.json({
         statusCode: StatusCodes.CREATED,
         message: "Successfuly created donation",
