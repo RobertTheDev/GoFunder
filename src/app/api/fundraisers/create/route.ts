@@ -39,14 +39,17 @@ export async function POST(request: Request) {
     const { data } = validation;
 
     // Step 3: create fundraiser.
-    const createDonation = await prismaClient.fundraiser.create({
-        data,
+    const createFundraiser = await prismaClient.fundraiser.create({
+        data: {
+            ...data,
+            ownerId: userId,
+        },
     });
 
     // Step 4: create fundraiser.
     return Response.json({
         statusCode: StatusCodes.OK,
         message: "Successfuly created fundraiser",
-        data: createDonation,
+        data: createFundraiser,
     });
 }
