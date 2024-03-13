@@ -6,10 +6,6 @@ export const saveFundraiserSchema = object({
         invalid_type_error: "Fundraiser ID must be of type string",
         required_error: "Fundraiser ID is required",
     }).min(1, { message: "Fundraiser ID is required" }),
-    userId: string({
-        invalid_type_error: "User ID must be of type string",
-        required_error: "User ID is required",
-    }).min(1, { message: "User ID is required" }),
 });
 
 // Infers the schema as a TypeScipt type.
