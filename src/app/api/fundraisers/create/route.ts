@@ -1,26 +1,52 @@
-import { GraphQLError } from "graphql";
 import prismaClient from "@/app/api/configs/db/prisma/prismaClient";
 import { cookies } from "next/headers";
 import { getIronSession } from "iron-session";
-import { SessionData, sessionCookie } from "@/app/api/configs/auth/session";
+import { SessionData, sessionOptions } from "@/app/api/configs/auth/session";
+import { StatusCodes } from "http-status-codes";
 import { createFundraiserSchema } from "./createFundraiser.schema";
 
-export async function POST() {
-    const session = await getIronSession<SessionData>(cookies(), sessionCookie);
+// This route creates a fundraiser.
+export async function POST(request: Request) {
+    // Step 1: Check user is signed in.
+    const session = await getIronSession<SessionData>(
+        cookies(),
+        sessionOptions,
+    );
 
     const { userId } = session;
 
     if (!userId) {
-        return Response.json({ message: "No user signed in." });
+        return Response.json({
+            statusCode: StatusCodes.UNAUTHORIZED,
+            message: "You must be signed in to perform this action",
+            data: null,
+        });
     }
 
-    const validation = await createFundraiserSchema.safeParseAsync(input);
+    // Step 2: Validate request body.
+    const body = await request.json();
+
+    const validation = await createFundraiserSchema.safeParseAsync(body);
 
     if (!validation.success) {
-        throw new GraphQLError(validation.error.errors[0].message);
+        return Response.json({
+            statusCode: validation.error.errors[0].code,
+            message: validation.error.errors[0].message,
+            data: null,
+        });
     }
 
     const { data } = validation;
 
-    return prismaClient.fundraiser.create({ data: { ...data, ownerId: "2" } });
+    // Step 3: create fundraiser.
+    const createDonation = await prismaClient.fundraiser.create({
+        data,
+    });
+
+    // Step 4: create fundraiser.
+    return Response.json({
+        statusCode: StatusCodes.OK,
+        message: "Successfuly created fundraiser",
+        data: createDonation,
+    });
 }

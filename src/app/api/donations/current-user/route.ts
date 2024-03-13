@@ -4,9 +4,9 @@ import { getIronSession } from "iron-session";
 import { SessionData, sessionOptions } from "@/app/api/configs/auth/session";
 import { StatusCodes } from "http-status-codes";
 
-// This route gets the saved fundraisers using the user ID in session.
+// This route retrieves donations by current user.
 export async function GET() {
-    // Step 1: Check user is in session and signed in.
+    // Step 1: Check user is signed in.
     const session = await getIronSession<SessionData>(
         cookies(),
         sessionOptions,
@@ -17,25 +17,21 @@ export async function GET() {
     if (!userId) {
         return Response.json({
             statusCode: StatusCodes.UNAUTHORIZED,
-            message: "You must be signed in to perform this action.",
+            message: "You must be signed in to perform this action",
             data: null,
         });
     }
 
-    // Step 2: Find saved fundraisers using the user ID in session.
-    const savedFundraisers = await prismaClient.savedFundraiser.findMany({
-        include: {
-            fundraiser: true,
-        },
-        where: {
-            userId,
-        },
+    // Step 2: Find donations.
+    const donations = await prismaClient.donation.findMany({
+        include: { fundraiser: true },
+        where: { userId },
     });
 
-    // Step 3: Return the saved fundraisers data.
+    // Step 3: Return success message.
     return Response.json({
         statusCode: StatusCodes.OK,
-        message: "Successfully retrieved saved fundraisers",
-        data: savedFundraisers,
+        message: "Successfully found donations",
+        data: donations,
     });
 }

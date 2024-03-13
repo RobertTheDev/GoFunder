@@ -3,9 +3,10 @@ import { getIronSession } from "iron-session";
 import { SessionData, sessionOptions } from "@/app/api/configs/auth/session";
 import { hashPassword } from "@/app/api/configs/auth/passwordManagement";
 import prismaClient from "@/app/api/configs/db/prisma/prismaClient";
+import { StatusCodes } from "http-status-codes";
 import { signUpWithPasswordSchema } from "./signUpWithPassword.schema";
 
-// Handler signs up a user with email and password.
+// This route signs up a user with email and password.
 export async function POST(request: Request) {
     // Step 1: Check no user signed into session.
     const session = await getIronSession<SessionData>(
@@ -15,8 +16,12 @@ export async function POST(request: Request) {
 
     const { userId } = session;
 
-    if (userId) {
-        return Response.json({ message: "You are already signed in" });
+    if (!userId) {
+        return Response.json({
+            statusCode: StatusCodes.UNAUTHORIZED,
+            message: "You are not signed in",
+            data: null,
+        });
     }
 
     // Step 2: Validate request body.
@@ -25,8 +30,11 @@ export async function POST(request: Request) {
     const validation = signUpWithPasswordSchema.safeParse(body);
 
     if (!validation.success) {
-        const { message } = validation.error.errors[0];
-        return Response.json({ message });
+        return Response.json({
+            statusCode: validation.error.errors[0].code,
+            message: validation.error.errors[0].message,
+            data: null,
+        });
     }
 
     const { data } = validation;
@@ -49,5 +57,9 @@ export async function POST(request: Request) {
     await session.save();
 
     // Step 6: Return success message.
-    return Response.json({ message: "Sign up successful" });
+    return Response.json({
+        statusCode: StatusCodes.OK,
+        message: "Sign up successful",
+        data: user,
+    });
 }

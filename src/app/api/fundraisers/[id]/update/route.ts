@@ -1,26 +1,80 @@
-import { GraphQLError } from "graphql";
 import prismaClient from "@/app/api/configs/db/prisma/prismaClient";
 import { cookies } from "next/headers";
 import { getIronSession } from "iron-session";
-import { SessionData, sessionCookie } from "@/app/api/configs/auth/session";
+import { SessionData, sessionOptions } from "@/app/api/configs/auth/session";
+import { StatusCodes } from "http-status-codes";
 import { updateFundraiserSchema } from "./updateFundraiser.schema";
 
-export async function PUT() {
-    const session = await getIronSession<SessionData>(cookies(), sessionCookie);
+// This handler updates a fundraiser by its unique id.
+export async function PUT(
+    request: Request,
+    { params }: { params: { id: string } },
+) {
+    // Step 1: Check user is signed in.
+    const session = await getIronSession<SessionData>(
+        cookies(),
+        sessionOptions,
+    );
 
     const { userId } = session;
 
     if (!userId) {
-        return Response.json({ message: "No user signed in." });
+        return Response.json({
+            statusCode: StatusCodes.UNAUTHORIZED,
+            message: "You must be signed in to perform this action",
+            data: null,
+        });
     }
 
-    const validation = await updateFundraiserSchema.safeParseAsync(input);
+    // Step 2: Validate request body.
+    const body = await request.json();
+
+    const validation = await updateFundraiserSchema.safeParseAsync(body);
 
     if (!validation.success) {
-        throw new GraphQLError(validation.error.errors[0].message);
+        return Response.json({
+            statusCode: validation.error.errors[0].code,
+            message: validation.error.errors[0].message,
+            data: null,
+        });
     }
 
     const { data } = validation;
 
-    return prismaClient.fundraiser.update({ data, where: { id: "" } });
+    // Step 3: Check fundraiser exists.
+    const findFundraiser = await prismaClient.fundraiser.findUnique({
+        where: {
+            id: params.id,
+        },
+    });
+
+    if (!findFundraiser) {
+        return Response.json({
+            statusCode: StatusCodes.NOT_FOUND,
+            message: `No fundraiser found with ID ${params.id}`,
+            data: null,
+        });
+    }
+
+    // Step 4: Check user is authorised.
+    if (findFundraiser.ownerId !== userId) {
+        return Response.json({
+            statusCode: StatusCodes.UNAUTHORIZED,
+            message: `You are not authorised to perform this action`,
+            data: null,
+        });
+    }
+
+    // Step 5: Update donation.
+    const updateFundraiser = await prismaClient.fundraiser.update({
+        data,
+        where: { id: params.id },
+    });
+
+    // Step 6: Return success message.
+    return Response.json({
+        statusCode: StatusCodes.OK,
+        message: "Successfuly updated fundraiser",
+        data: updateFundraiser,
+    });
 }

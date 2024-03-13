@@ -7,7 +7,7 @@ import { StatusCodes } from "http-status-codes";
 import { hashPassword } from "@/app/api/configs/auth/passwordManagement";
 import { resetPasswordSchema } from "./resetPassword.schema";
 
-// Handler sends a password reset token to the user.
+// This route sends a password reset token to the user.
 export async function PUT(
     request: Request,
     { params }: { params: { passwordResetToken: string } },
@@ -21,7 +21,11 @@ export async function PUT(
     const { userId } = session;
 
     if (userId) {
-        return Response.json({ message: "You are already signed in" });
+        return Response.json({
+            statusCode: StatusCodes.UNAUTHORIZED,
+            message: "You are already signed in",
+            data: null,
+        });
     }
 
     // Step 2: Validate the request body.
@@ -31,8 +35,8 @@ export async function PUT(
 
     if (!validation.success) {
         return Response.json({
-            statusCode: StatusCodes.BAD_REQUEST,
-            statusMessage: validation.error.issues[0]?.message,
+            statusCode: validation.error.issues[0].code,
+            statusMessage: validation.error.issues[0].message,
             data: null,
         });
     }

@@ -1,5 +1,7 @@
 import prismaClient from "@/app/api/configs/db/prisma/prismaClient";
+import { StatusCodes } from "http-status-codes";
 
+// This handler finds and returns fundraisers with matching category.
 export async function GET(
     _request: Request,
     { params }: { params: { category: string } },
@@ -10,5 +12,9 @@ export async function GET(
         where: { category },
     });
 
-    return Response.json({ data: fundraisers });
+    return Response.json({
+        statusCode: StatusCodes.OK,
+        message: "Fundraisers found",
+        data: fundraisers,
+    });
 }

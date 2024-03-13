@@ -11,7 +11,7 @@ import { StatusCodes } from "http-status-codes";
 import sgMail from "@/app/api/configs/email/sendgrid";
 import { sendPasswordResetSchema } from "./sendPasswordReset.schema";
 
-// Handler sends a password reset token to the user.
+// This route sends a password reset token to the user.
 export async function POST(request: Request) {
     // Step 1: Check user is not signed in.
     const session = await getIronSession<SessionData>(
@@ -22,7 +22,11 @@ export async function POST(request: Request) {
     const { userId } = session;
 
     if (userId) {
-        return Response.json({ message: "You are already signed in" });
+        return Response.json({
+            statusCode: StatusCodes.UNAUTHORIZED,
+            message: "You are already signed in",
+            data: null,
+        });
     }
 
     // Step 2: Validate the request body.
@@ -32,7 +36,7 @@ export async function POST(request: Request) {
 
     if (!validation.success) {
         return Response.json({
-            statusCode: StatusCodes.BAD_REQUEST,
+            statusCode: validation.error.issues[0].code,
             statusMessage: validation.error.issues[0]?.message,
             data: null,
         });
@@ -89,7 +93,7 @@ export async function POST(request: Request) {
         },
     });
 
-    // Step 5: Send password reset email.
+    // Step 6: Send password reset email.
     await sgMail.send({
         to: "robertthedev@gmail.com",
         from: "robertthedev@gmail.com",
@@ -98,7 +102,7 @@ export async function POST(request: Request) {
         html: `Your password reset token is ${passwordResetToken}`,
     });
 
-    // Step 6: Return a success message.
+    // Step 7: Return a success message.
     return Response.json({
         statusCode: StatusCodes.OK,
         statusMessage: `Successfully sent password reset to ${data.email}.`,

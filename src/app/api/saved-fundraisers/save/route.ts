@@ -2,9 +2,10 @@ import prismaClient from "@/app/api/configs/db/prisma/prismaClient";
 import { cookies } from "next/headers";
 import { getIronSession } from "iron-session";
 import { SessionData, sessionOptions } from "@/app/api/configs/auth/session";
+import { StatusCodes } from "http-status-codes";
 import { saveFundraiserSchema } from "./saveFundraiser.schema";
 
-// This handler creates and deletes a saved fundraiser with the user ID and fundraiser ID.
+// This route creates and deletes a saved fundraiser with the user ID and fundraiser ID.
 export async function POST(request: Request) {
     // Step 1: Check user is in session and signed in.
     const session = await getIronSession<SessionData>(
@@ -15,7 +16,11 @@ export async function POST(request: Request) {
     const { userId } = session;
 
     if (!userId) {
-        return Response.json({ message: "No user signed in." });
+        return Response.json({
+            statusCode: StatusCodes.UNAUTHORIZED,
+            message: "You must be signed in to perform this action.",
+            data: null,
+        });
     }
 
     // Step 2: Validate the request body.
@@ -24,7 +29,11 @@ export async function POST(request: Request) {
     const validation = await saveFundraiserSchema.safeParseAsync(body);
 
     if (!validation.success) {
-        return Response.json({ message: validation.error.errors[0].message });
+        return Response.json({
+            statusCode: validation.error.errors[0].code,
+            message: validation.error.errors[0].message,
+            data: null,
+        });
     }
 
     const { data } = validation;
@@ -38,7 +47,9 @@ export async function POST(request: Request) {
 
     if (!findFundraiser) {
         return Response.json({
+            statusCode: StatusCodes.NOT_FOUND,
             message: `No fundraiser exists with id ${data.fundraiserId}`,
+            data: null,
         });
     }
 
@@ -52,13 +63,18 @@ export async function POST(request: Request) {
 
     // Step 5: If user has saved the fundraiser then delete a saved fundraiser.
     if (findSavedFundraiser) {
-        await prismaClient.savedFundraiser.delete({
-            where: {
-                id: findSavedFundraiser.id,
-            },
-        });
+        const deletedSavedFundraiser =
+            await prismaClient.savedFundraiser.delete({
+                where: {
+                    id: findSavedFundraiser.id,
+                },
+            });
 
-        return Response.json({ message: "unsaved" });
+        return Response.json({
+            statusCode: StatusCodes.OK,
+            message: "Unsaved fundraiser",
+            data: deletedSavedFundraiser,
+        });
     }
 
     // Step 6: If user has not saved the fundraiser then create a saved fundraiser.
@@ -70,5 +86,9 @@ export async function POST(request: Request) {
     });
 
     // Step 7: Return a success message .
-    return Response.json({ data: savedFundraiser });
+    return Response.json({
+        statusCode: StatusCodes.OK,
+        message: "Saved fundraiser",
+        data: savedFundraiser,
+    });
 }
