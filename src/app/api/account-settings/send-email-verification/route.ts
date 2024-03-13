@@ -3,7 +3,6 @@ import { cookies } from "next/headers";
 import { getIronSession } from "iron-session";
 import { SessionData, sessionOptions } from "@/app/api/configs/auth/session";
 import { StatusCodes } from "http-status-codes";
-import { sendEmailVerficationSchema } from "./sendEmailVerification.schema";
 import sgMail from "../../configs/email/sendgrid";
 import {
     generateTenMinuteTokenExpiry,
@@ -12,7 +11,7 @@ import {
 } from "../../configs/token/tokenManagement";
 
 // This route sends an email to verify a user's email.
-export async function PUT(request: Request) {
+export async function PUT() {
     // Step 1: Check user is signed in.
     const session = await getIronSession<SessionData>(
         cookies(),
@@ -29,28 +28,15 @@ export async function PUT(request: Request) {
         });
     }
 
-    // Step 2: Validate the request body
-    const body = await request.json();
-
-    const validation = sendEmailVerficationSchema.safeParse(body);
-
-    if (!validation.success) {
-        return Response.json({
-            statusCode: validation.error.errors[0].code,
-            message: validation.error.errors[0].message,
-            data: null,
-        });
-    }
-
-    const { data } = validation;
-
-    // Step 3: Get the user with the requested email address.
+    // Step 2: Get the user with the requested email address.
     // Call the find user service handler to find user wih requested email address.
     const user = await prismaClient.user.findUnique({
         where: {
-            email: data.email,
+            id: userId,
         },
         select: {
+            email: true,
+            emailVerified: true,
             emailVerificationToken: true,
             emailVerificationTokenExpiry: true,
         },
@@ -60,7 +46,16 @@ export async function PUT(request: Request) {
     if (user == null) {
         return Response.json({
             statusCode: StatusCodes.BAD_REQUEST,
-            statusMessage: `No user found with email ${data.email}.`,
+            statusMessage: `No user found`,
+            data: null,
+        });
+    }
+
+    // Step 3: Check user's email is unverified.
+    if (user.emailVerified) {
+        return Response.json({
+            statusCode: StatusCodes.BAD_REQUEST,
+            statusMessage: "Your email has already been verified",
             data: null,
         });
     }
@@ -89,7 +84,7 @@ export async function PUT(request: Request) {
             emailVerificationTokenExpiry,
         },
         where: {
-            email: data.email,
+            id: userId,
         },
     });
 
@@ -105,7 +100,7 @@ export async function PUT(request: Request) {
     // Step 6: Return a success message.
     return Response.json({
         statusCode: StatusCodes.OK,
-        statusMessage: `Successfully sent email verification to ${data.email}.`,
+        statusMessage: `Successfully sent email verification to ${user.email}.`,
         data: null,
     });
 }
