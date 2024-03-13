@@ -10,17 +10,17 @@ export default function AccountSettingsMenu() {
         <div className={styles.menuContainer}>
             <p className={styles.menuTitle}>Account Settings</p>
             <nav className={styles.menuLinksContainer}>
-                {accountSettingsLinks.map(({ name, path }) => (
+                {accountSettingsLinks.map((link) => (
                     <Link
                         className={
-                            pathName === path
+                            pathName === link.path
                                 ? styles.menuLinkActive
                                 : styles.menuLinkText
                         }
-                        href={path}
-                        key={path}
+                        href={link.path}
+                        key={link.path}
                     >
-                        {name}
+                        {link.name}
                     </Link>
                 ))}
             </nav>

@@ -17,9 +17,16 @@ export default function ChangePasswordForm() {
         resolver: zodResolver(changePasswordSchema),
     });
 
-    function handleChangePassword(values: ChangePasswordSchemaType) {
-        // eslint-disable-next-line no-alert
-        alert(JSON.stringify(values));
+    async function handleChangePassword(values: ChangePasswordSchemaType) {
+        await fetch("/api/account-settings/change-password", {
+            method: "PUT",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+            credentials: "include",
+        });
     }
 
     const newPasswordReg = register("newPassword");
@@ -29,13 +36,12 @@ export default function ChangePasswordForm() {
         <form
             className={styles.formContainer}
             onSubmit={handleSubmit((values) => {
-                // eslint-disable-next-line no-alert
                 handleChangePassword(values);
             })}
         >
             <span className={styles.formTitle}>Change Password</span>
             <label className={styles.formLabelContainer} htmlFor="newPassword">
-                <span className={styles.formLabelText}>Email</span>
+                <span className={styles.formLabelText}>New Password</span>
                 <input
                     className={styles.formInput}
                     type="password"
@@ -55,7 +61,7 @@ export default function ChangePasswordForm() {
                 className={styles.formLabelContainer}
                 htmlFor="currentPassword"
             >
-                <span className={styles.formLabelText}>Email</span>
+                <span className={styles.formLabelText}>Current Password</span>
                 <input
                     className={styles.formInput}
                     type="password"

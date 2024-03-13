@@ -1,4 +1,4 @@
-import ChangeEmailForm from "@/app/modules/account-settings/components/ChangeEmailForm";
+import ChangeEmailForm from "@/app/account-settings/components/ChangeEmailForm";
 import { Metadata } from "next";
 
 // Metadata defines the seo options for this page.

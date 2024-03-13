@@ -17,9 +17,16 @@ export default function UpdateProfileForm() {
         resolver: zodResolver(updateProfileSchema),
     });
 
-    function handleCloseAcount(values: UpdateProfileSchemaType) {
-        // eslint-disable-next-line no-alert
-        alert(JSON.stringify(values));
+    async function handleProfileUpdate(values: UpdateProfileSchemaType) {
+        await fetch("/api/account-settings/update-profile", {
+            method: "PUT",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+            credentials: "include",
+        });
     }
 
     const nameReg = register("name");
@@ -29,8 +36,7 @@ export default function UpdateProfileForm() {
         <form
             className={styles.formContainer}
             onSubmit={handleSubmit((values) => {
-                // eslint-disable-next-line no-alert
-                handleCloseAcount(values);
+                handleProfileUpdate(values);
             })}
         >
             <span className={styles.formTitle}>Update Profile</span>

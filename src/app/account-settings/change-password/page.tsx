@@ -1,7 +1,7 @@
 // PURPOSE: This page displays a form for a user to change their password.
 
 // The relevant imports required for the page.
-import ChangePasswordForm from "@/app/modules/account-settings/components/ChangePasswordForm/ChangePasswordForm";
+import ChangePasswordForm from "@/app/account-settings/components/ChangePasswordForm/ChangePasswordForm";
 import { Metadata } from "next";
 
 // Metadata defines the seo options for this page.

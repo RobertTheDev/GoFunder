@@ -11,10 +11,6 @@ export const closeAccountSchema = object({
         .refine((value) => value.toLowerCase() === "confirm", {
             message: "Please type 'confirm' to close your account",
         }),
-    password: string({
-        invalid_type_error: "Password must be of type string",
-        required_error: "Password is required",
-    }).min(1, { message: "Password is required" }),
 });
 
 // Infers the schema as a TypeScipt type.

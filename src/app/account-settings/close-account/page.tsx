@@ -1,7 +1,7 @@
 // PURPOSE: This page displays a form for a user to close their account.
 
 // The relevant imports required for the page.
-import CloseAccountForm from "@/app/modules/account-settings/components/CloseAccountForm";
+import CloseAccountForm from "@/app/account-settings/components/CloseAccountForm";
 import { Metadata } from "next";
 
 // Metadata defines the seo options for this page.

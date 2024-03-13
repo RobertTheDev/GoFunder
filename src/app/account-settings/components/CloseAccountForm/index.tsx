@@ -17,19 +17,24 @@ export default function CloseAccountForm() {
         resolver: zodResolver(closeAccountSchema),
     });
 
-    function handleCloseAcount(values: CloseAccountSchemaType) {
-        // eslint-disable-next-line no-alert
-        alert(JSON.stringify(values));
+    async function handleCloseAcount(values: CloseAccountSchemaType) {
+        await fetch("/api/account-settings/close-account", {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+            credentials: "include",
+        });
     }
 
     const confirmReg = register("confirm");
-    const passwordReg = register("password");
 
     return (
         <form
             className={styles.formContainer}
             onSubmit={handleSubmit((values) => {
-                // eslint-disable-next-line no-alert
                 handleCloseAcount(values);
             })}
         >
@@ -47,23 +52,6 @@ export default function CloseAccountForm() {
                 {errors?.confirm && (
                     <span className={styles.formErrorText}>
                         {errors.confirm.message}
-                    </span>
-                )}
-            </label>
-
-            <label className={styles.formLabelContainer} htmlFor="password">
-                <span className={styles.formLabelText}>Email</span>
-                <input
-                    className={styles.formInput}
-                    type="password"
-                    onChange={passwordReg.onChange}
-                    onBlur={passwordReg.onBlur}
-                    name={passwordReg.name}
-                    ref={passwordReg.ref}
-                />
-                {errors?.password && (
-                    <span className={styles.formErrorText}>
-                        {errors.password.message}
                     </span>
                 )}
             </label>

@@ -14,9 +14,16 @@ export default function ChangeEmailForm() {
         resolver: zodResolver(changeEmailSchema),
     });
 
-    function handleChangeEmail(values: ChangeEmailSchemaType) {
-        // eslint-disable-next-line no-alert
-        alert(JSON.stringify(values));
+    async function handleChangeEmail(values: ChangeEmailSchemaType) {
+        await fetch("/api/account-settings/change-email", {
+            method: "PUT",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+            credentials: "include",
+        });
     }
 
     const emailReg = register("email");
@@ -26,7 +33,6 @@ export default function ChangeEmailForm() {
         <form
             className={styles.formContainer}
             onSubmit={handleSubmit((values) => {
-                // eslint-disable-next-line no-alert
                 handleChangeEmail(values);
             })}
         >

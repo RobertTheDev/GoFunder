@@ -1,6 +1,6 @@
 "use client";
 
-import AccountSettingsMenu from "@/app/modules/account-settings/components/AccountSettingsMenu";
+import AccountSettingsMenu from "@/app/account-settings/components/AccountSettingsMenu";
 import { ReactNode } from "react";
 import styles from "./layout.module.css";
 

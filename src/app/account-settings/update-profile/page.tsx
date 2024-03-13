@@ -1,7 +1,7 @@
 // PURPOSE: This page displays a form for a user to update their profile.
 
 // The relevant imports required for the page.
-import UpdateProfileForm from "@/app/modules/account-settings/components/UpdateProfileForm";
+import UpdateProfileForm from "@/app/account-settings/components/UpdateProfileForm";
 import { Metadata } from "next";
 
 // Metadata defines the seo options for this page.
