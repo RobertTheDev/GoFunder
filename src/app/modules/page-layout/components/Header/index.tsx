@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import useProfileMenu from "@/app/hooks/profileMenu/useProfileMenu";
-import { usePathname } from "next/navigation";
-import ProfileMenu from "../../../profile/components/ProfileMenu";
+import { usePathname, useRouter } from "next/navigation";
+import ProfileMenu from "@/app/modules/profile/components/ProfileMenu";
 import headerLinks from "./headerLinks";
 import styles from "./styles.module.css";
 
@@ -11,7 +11,7 @@ export default function Header() {
     const { toggleProfileMenu, profileMenuActive, profileMenuRef } =
         useProfileMenu();
 
-    // const router = useRouter();
+    const router = useRouter();
 
     const pathName = usePathname();
 
@@ -38,12 +38,13 @@ export default function Header() {
                 </nav>
             </div>
             <div className={styles.headerControlsContainer}>
-                {/* <button
+                <button
                     className={styles.headerSignUpButton}
                     type="button"
-                    onClick={() => router.push('/auth/sign-in')}>
+                    onClick={() => router.push("/auth/sign-in")}
+                >
                     Sign In
-                </button> */}
+                </button>
 
                 <input
                     type="image"

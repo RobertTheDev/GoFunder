@@ -3,9 +3,10 @@
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { format } from "date-fns";
-import DonationCard from "@/app/modules/donation/components/DonationCard";
+// import DonationCard from "@/app/modules/donation/components/DonationCard";
 import { IFundraiser } from "@/app/interfaces/Fundraiser";
 import { FaHandHoldingHeart, FaHeart } from "react-icons/fa";
+import DonationCard from "@/app/modules/donation/components/DonationCard";
 import styles from "./styles.module.css";
 
 export default function FundraiserTemplate(params: {
@@ -17,6 +18,7 @@ export default function FundraiserTemplate(params: {
 
     const {
         name,
+        id,
         description,
         deadlineDate,
         createdAt,
@@ -27,6 +29,17 @@ export default function FundraiserTemplate(params: {
         totalRaised,
         donations,
     } = fundraiser;
+
+    async function handleSaveButton() {
+        await fetch("http://localhost:3000/api/saved-fundraisers/save", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ fundraiserId: id }),
+        });
+    }
 
     return (
         <div className={styles.pageContainer}>
@@ -42,7 +55,7 @@ export default function FundraiserTemplate(params: {
                 <button
                     className={styles.saveButton}
                     type="button"
-                    onClick={() => {}}
+                    onClick={handleSaveButton}
                 >
                     <FaHeart /> Save
                 </button>
