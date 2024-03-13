@@ -1,8 +1,6 @@
-// PURPOSE: This page displays a 404 message when no page is found.
-
-// The relevant imports required for the page.
 import { Metadata } from "next";
-import NotFoundTemplate from "@/app/modules/not-found/template/NotFoundTemplate";
+import Image from "next/image";
+import styles from "./styles.module.css";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -11,5 +9,12 @@ export const metadata: Metadata = {
 
 // The handler returns the not found page template.
 export default function NotFoundPage() {
-    return <NotFoundTemplate />;
+    return (
+        <div className={styles.pageContainer}>
+            <h1 className={styles.pageTitle}>404 - Not Found</h1>
+            <div className={styles.pageImageContainer}>
+                <Image src="/404.svg" alt="404" fill />
+            </div>
+        </div>
+    );
 }
