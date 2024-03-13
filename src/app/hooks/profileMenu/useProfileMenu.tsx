@@ -1,11 +1,7 @@
 import { MutableRefObject, useRef, useState } from "react";
 import { useOnClickOutside } from "usehooks-ts";
 
-export default function useProfileMenu(): {
-    profileMenuActive: boolean;
-    profileMenuRef: MutableRefObject<HTMLDivElement | null>;
-    toggleProfileMenu: () => void;
-} {
+export default function useProfileMenu() {
     const [profileMenuActive, setProfileMenuActive] = useState<boolean>(false);
 
     const profileMenuRef: MutableRefObject<HTMLDivElement | null> =
