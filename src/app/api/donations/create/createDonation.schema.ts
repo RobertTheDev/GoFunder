@@ -14,6 +14,12 @@ export const createDonationSchema = object({
     message: string({
         invalid_type_error: "Message must be of type boolean",
     }).optional(),
+    slug: z
+        .string({
+            invalid_type_error: "Fundraiser slug must be of type string",
+            required_error: "Fundraiser slug is required",
+        })
+        .min(1, "Fundraiser slug is required"),
 });
 
 // Infers the schema as a TypeScipt type.
