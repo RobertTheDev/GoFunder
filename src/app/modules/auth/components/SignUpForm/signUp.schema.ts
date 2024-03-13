@@ -14,6 +14,12 @@ export const signUpSchema = object({
     }).min(1, {
         message: "Name is required",
     }),
+    password: string({
+        invalid_type_error: "Password must be of type string",
+        required_error: "Password is required",
+    }).min(8, {
+        message: "Password is required",
+    }),
 });
 
 // Infers the schema as a TypeScipt type.
