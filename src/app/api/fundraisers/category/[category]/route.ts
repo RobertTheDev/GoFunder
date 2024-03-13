@@ -14,7 +14,7 @@ export async function GET(
 
     return Response.json({
         statusCode: StatusCodes.OK,
-        message: "Fundraisers found",
+        message: `Fundraisers found with category ${category}`,
         data: fundraisers,
     });
 }
