@@ -1,8 +1,4 @@
-// PURPOSE: This page displays the app's privacy policy.
-
-// The relevant imports required for the page.
 import { Metadata } from "next";
-import InfoLayout from "@/app/modules/info/layouts/InfoLayout";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -12,7 +8,7 @@ export const metadata: Metadata = {
 // This handler returns the HTML content for the app's privacy policy.
 export default function PrivacyPolicyPage() {
     return (
-        <InfoLayout>
+        <div>
             <h1 id="privacy-policy">Privacy Policy</h1>
             <p>
                 This Privacy Policy outlines how GoFunder (&quot;we&quot;,
@@ -138,6 +134,6 @@ export default function PrivacyPolicyPage() {
             <p>
                 <strong>Last Updated: 24 February 2024</strong>
             </p>
-        </InfoLayout>
+        </div>
     );
 }

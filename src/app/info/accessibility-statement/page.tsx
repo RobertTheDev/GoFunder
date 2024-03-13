@@ -1,8 +1,4 @@
-// PURPOSE: This page displays the app's accessibility statement.
-
-// The relevant imports required for the page.
 import { Metadata } from "next";
-import InfoLayout from "@/app/modules/info/layouts/InfoLayout";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -12,7 +8,7 @@ export const metadata: Metadata = {
 // This handler returns the HTML content for the app's accessiility statement.
 export default function AccessibilityStatementPage() {
     return (
-        <InfoLayout>
+        <div>
             <h1 id="accessibility-statement">Accessibility Statement</h1>
             <p>
                 At GoFunder, we are committed to ensuring digital accessibility
@@ -114,6 +110,6 @@ export default function AccessibilityStatementPage() {
             <p>
                 <strong>Last Updated: 24 February 2024</strong>
             </p>
-        </InfoLayout>
+        </div>
     );
 }

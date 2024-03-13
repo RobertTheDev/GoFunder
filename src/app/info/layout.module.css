@@ -1,0 +1,10 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 1.6rem;
+    width: 100%;
+
+    @media (width >=640px) {
+        width: 50%;
+    }
+}
