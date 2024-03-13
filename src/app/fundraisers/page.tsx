@@ -1,46 +1,25 @@
-import getClient from "@/app/lib/apollo/apolloClient";
-import { gql } from "@apollo/client";
-import { IFundraiser } from "@/app/interfaces/Fundraiser";
-import FundraiserCard from "@/app/modules/fundraiser/components/FundraiserCard";
 import { Metadata } from "next";
 import FundraiserCardsLayout from "@/app/modules/fundraiser/layouts/FundraiserCardsLayout";
+import { IFundraiser } from "../interfaces/Fundraiser";
+import FundraiserCard from "../modules/fundraiser/components/FundraiserCard";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
     title: "Fundraisers",
 };
 
-const GET_FUNDRAISERS = gql`
-    query getFundraisers {
-        fundraisers {
-            id
-            image
-            name
-            slug
-            target
-            totalDonations
-            totalRaised
-        }
-    }
-`;
-
 export default async function FundraisersPage() {
-    const client = getClient();
-
-    const {
-        loading,
-        error,
-        data: { fundraisers },
-    } = await client.query({
-        query: GET_FUNDRAISERS,
+    const res = await fetch(`http://localhost:3000/api/fundraisers`, {
+        cache: "no-cache",
     });
 
-    if (error) return <p>There was an error</p>;
-    if (loading) return <p>Loading...</p>;
+    const fundraisers = await res.json();
 
     return (
         <FundraiserCardsLayout>
-            {fundraisers.map((fundraiser: IFundraiser) => (
+            <p>Fundraisers</p>
+
+            {fundraisers.data.map((fundraiser: IFundraiser) => (
                 <FundraiserCard fundraiser={fundraiser} key={fundraiser.id} />
             ))}
         </FundraiserCardsLayout>

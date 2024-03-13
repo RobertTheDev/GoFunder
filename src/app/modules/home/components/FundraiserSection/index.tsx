@@ -1,53 +1,28 @@
-import getClient from "@/app/lib/apollo/apolloClient";
-import { gql } from "@apollo/client";
+"use client";
+
 import { IFundraiser } from "@/app/interfaces/Fundraiser";
 import FundraiserCard from "@/app/modules/fundraiser/components/FundraiserCard";
-import { Metadata } from "next";
+import useSWR from "swr";
 import styles from "./styles.module.css";
 
-// Metadata defines the seo options for this page.
-export const metadata: Metadata = {
-    title: "Fundraisers",
-};
+const fetcher = (url: string) => fetch(url).then((r) => r.json());
 
-const GET_FUNDRAISERS = gql`
-    query getFundraisers {
-        fundraisers {
-            id
-            image
-            name
-            slug
-            target
-            totalDonations
-            totalRaised
-        }
-    }
-`;
-
-export default async function FundraiserSection({
-    category,
-}: {
-    category: string;
-}) {
-    const client = getClient();
-
+export default function FundraiserSection({ category }: { category: string }) {
     const {
-        loading,
+        data: fundraisers,
         error,
-        data: { fundraisers },
-    } = await client.query({
-        query: GET_FUNDRAISERS,
-    });
+        isLoading,
+    } = useSWR("/api/fundraisers", fetcher);
 
-    if (error) return <p>There was an error</p>;
-    if (loading) return <p>Loading...</p>;
+    if (error) return <div>failed to load</div>;
+    if (isLoading) return <div>loading...</div>;
 
     return (
         <div className={styles.sectionContainer}>
             <p className={styles.sectionTitle}>{category}</p>
 
             <div className={styles.sectionCardsGrid}>
-                {fundraisers.slice(0, 4).map((fundraiser: IFundraiser) => (
+                {fundraisers.data.slice(0, 4).map((fundraiser: IFundraiser) => (
                     <FundraiserCard
                         fundraiser={fundraiser}
                         key={fundraiser.id}
