@@ -20,5 +20,5 @@ export function verifyPassword(params: {
 }) {
     const { hashedPassword, password } = params;
 
-    return verify(password + pepper, hashedPassword);
+    return verify(hashedPassword, password + pepper);
 }
