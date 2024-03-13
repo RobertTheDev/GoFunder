@@ -16,19 +16,26 @@ export default function SignUpForm() {
         resolver: zodResolver(signUpSchema),
     });
 
-    function handleSignUp(values: SignUpSchemaType): void {
-        // eslint-disable-next-line no-alert
-        alert(JSON.stringify(values));
+    async function handleSignUp(values: SignUpSchemaType) {
+        await fetch("/api/auth/password/sign-up", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+            credentials: "include",
+        });
     }
 
     const emailReg = register("email");
     const nameReg = register("name");
+    const passwordReg = register("password");
 
     return (
         <form
             className={styles.formContainer}
             onSubmit={handleSubmit((values) => {
-                // eslint-disable-next-line no-alert
                 handleSignUp(values);
             })}
         >
@@ -73,6 +80,23 @@ export default function SignUpForm() {
                 {errors?.name && (
                     <span className={styles.formErrorText}>
                         {errors.name.message}
+                    </span>
+                )}
+            </label>
+
+            <label className={styles.formLabelContainer} htmlFor="password">
+                <span className={styles.formLabelText}>Password</span>
+                <input
+                    className={styles.formInput}
+                    type="password"
+                    onChange={emailReg.onChange}
+                    onBlur={passwordReg.onBlur}
+                    name={passwordReg.name}
+                    ref={passwordReg.ref}
+                />
+                {errors?.password && (
+                    <span className={styles.formErrorText}>
+                        {errors.password.message}
                     </span>
                 )}
             </label>
