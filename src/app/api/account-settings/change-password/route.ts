@@ -4,7 +4,10 @@ import { getIronSession } from "iron-session";
 import { SessionData, sessionOptions } from "@/app/api/configs/auth/session";
 import { StatusCodes } from "http-status-codes";
 import { changePasswordSchema } from "./changePassword.schema";
-import { verifyPassword } from "../../configs/auth/passwordManagement";
+import {
+    hashPassword,
+    verifyPassword,
+} from "../../configs/auth/passwordManagement";
 
 // This route changes a user's password.
 export async function PUT(request: Request) {
@@ -31,7 +34,7 @@ export async function PUT(request: Request) {
 
     if (!validation.success) {
         return Response.json({
-            statusCode: validation.error.errors[0].code,
+            statusCode: StatusCodes.BAD_REQUEST,
             message: validation.error.errors[0].message,
             data: null,
         });
@@ -47,11 +50,19 @@ export async function PUT(request: Request) {
     });
 
     if (!findUser) {
-        return Response.json({ message: "nooo" });
+        return Response.json({
+            statusCode: StatusCodes.NOT_FOUND,
+            message: `No user found with ID ${userId}`,
+            data: null,
+        });
     }
 
     if (!findUser.password) {
-        return Response.json({ message: "nooo" });
+        return Response.json({
+            statusCode: StatusCodes.BAD_REQUEST,
+            message: "Account has not been set up with a password",
+            data: null,
+        });
     }
 
     // Step 4: Check password is correct.
@@ -61,13 +72,22 @@ export async function PUT(request: Request) {
     });
 
     if (!checkPassword) {
-        return Response.json({ message: "nooo" });
+        return Response.json({
+            statusCode: StatusCodes.OK,
+            message: "Password entered is incorrect",
+            data: null,
+        });
     }
 
-    // Step 5: Update user with new password and return success message.
+    // Step 5: Hash the new password.
+    const hashedPassword = await hashPassword({
+        password: data.newPassword,
+    });
+
+    // Step 6: Update user with new password and return success message.
     const updatedUser = await prismaClient.user.update({
         data: {
-            password: data.newPassword,
+            password: hashedPassword,
         },
         where: { id: userId },
     });
