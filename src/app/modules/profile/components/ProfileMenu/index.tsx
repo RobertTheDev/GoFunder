@@ -8,6 +8,19 @@ import styles from "./styles.module.css";
 const ProfileMenu = forwardRef((_props, ref: ForwardedRef<HTMLDivElement>) => {
     const pathName = usePathname();
 
+    async function handleSignOut() {
+        await fetch("/api/auth/session/sign-out", {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            credentials: "include",
+        });
+
+        window.location.reload();
+    }
+
     return (
         <div className={styles.menuContainer} ref={ref}>
             <p className={styles.menuTitle}>Profile Menu</p>
@@ -33,7 +46,11 @@ const ProfileMenu = forwardRef((_props, ref: ForwardedRef<HTMLDivElement>) => {
                     </Link>
                 ))}
             </nav>
-            <button className={styles.signOutButton} type="button">
+            <button
+                className={styles.signOutButton}
+                type="button"
+                onClick={handleSignOut}
+            >
                 <FaSignOutAlt /> Sign Out
             </button>
         </div>
