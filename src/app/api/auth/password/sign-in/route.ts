@@ -16,10 +16,10 @@ export async function POST(request: Request) {
 
     const { userId } = session;
 
-    if (!userId) {
+    if (userId) {
         return Response.json({
-            statusCode: StatusCodes.UNAUTHORIZED,
-            message: "You are not signed in",
+            statusCode: StatusCodes.BAD_REQUEST,
+            message: "You are already signed in",
             data: null,
         });
     }
