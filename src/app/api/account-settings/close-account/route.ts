@@ -36,11 +36,15 @@ export async function DELETE(request: Request) {
         });
     }
 
-    // Step 3: Delete the user and return success message.
+    // Step 3: Delete the user.
     await prismaClient.user.delete({
         where: { id: userId },
     });
 
+    // Step 4: Sign out the user.
+    session.destroy();
+
+    // Step 5: Return success message.
     return Response.json({
         statusCode: StatusCodes.OK,
         message: "Account closure successful",
