@@ -78,7 +78,10 @@ export async function PUT(request: Request): Promise<Response> {
 
     // Step 5: Update user email and return success message.
     const updatedUser = await prismaClient.user.update({
-        data,
+        data: {
+            email: data.email,
+            emailVerified: null,
+        },
         where: { id: userId },
     });
 
