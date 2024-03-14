@@ -1,43 +1,29 @@
 "use client";
 
 import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { SignUpSchemaType, signUpSchema } from "./signUp.schema";
+import { useFormState, useFormStatus } from "react-dom";
 import styles from "./styles.module.css";
+import signUp from "./actions";
 
-export default function SignUpForm() {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<SignUpSchemaType>({
-        resolver: zodResolver(signUpSchema),
-    });
-
-    async function handleSignUp(values: SignUpSchemaType) {
-        await fetch("/api/auth/password/sign-up", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(values),
-            credentials: "include",
-        });
-    }
-
-    const emailReg = register("email");
-    const nameReg = register("name");
-    const passwordReg = register("password");
+function SubmitButton() {
+    const { pending } = useFormStatus();
 
     return (
-        <form
-            className={styles.formContainer}
-            onSubmit={handleSubmit((values) => {
-                handleSignUp(values);
-            })}
-        >
+        <button className={styles.formButton} type="submit" disabled={pending}>
+            {pending ? "Pending" : "Sign Up"}
+        </button>
+    );
+}
+
+const initialState = {
+    message: "",
+};
+
+export default function SignUpForm() {
+    const [state, formAction] = useFormState(signUp, initialState);
+
+    return (
+        <form className={styles.formContainer} action={formAction}>
             <span className={styles.formTitle}>Sign up to GoFunder</span>
 
             <div className={styles.formLinkButtonGroup}>
@@ -51,34 +37,20 @@ export default function SignUpForm() {
 
             <label className={styles.formLabelContainer} htmlFor="email">
                 <span className={styles.formLabelText}>Email</span>
-                <input
-                    className={styles.formInput}
-                    type="email"
-                    onChange={emailReg.onChange}
-                    onBlur={emailReg.onBlur}
-                    name={emailReg.name}
-                    ref={emailReg.ref}
-                />
-                {errors?.email && (
+                <input className={styles.formInput} type="email" name="email" />
+                {state.errors?.email && (
                     <span className={styles.formErrorText}>
-                        {errors.email.message}
+                        {state.errors.email[0]}
                     </span>
                 )}
             </label>
 
             <label className={styles.formLabelContainer} htmlFor="name">
                 <span className={styles.formLabelText}>Name</span>
-                <input
-                    className={styles.formInput}
-                    type="text"
-                    onChange={nameReg.onChange}
-                    onBlur={nameReg.onBlur}
-                    name={nameReg.name}
-                    ref={nameReg.ref}
-                />
-                {errors?.name && (
+                <input className={styles.formInput} type="text" name="name" />
+                {state.errors?.name && (
                     <span className={styles.formErrorText}>
-                        {errors.name.message}
+                        {state.errors.name[0]}
                     </span>
                 )}
             </label>
@@ -88,21 +60,16 @@ export default function SignUpForm() {
                 <input
                     className={styles.formInput}
                     type="password"
-                    onChange={emailReg.onChange}
-                    onBlur={passwordReg.onBlur}
-                    name={passwordReg.name}
-                    ref={passwordReg.ref}
+                    name="password"
                 />
-                {errors?.password && (
+                {state.errors?.password && (
                     <span className={styles.formErrorText}>
-                        {errors.password.message}
+                        {state.errors.password[0]}
                     </span>
                 )}
             </label>
 
-            <button className={styles.formButton} type="submit">
-                Sign Up
-            </button>
+            <SubmitButton />
         </form>
     );
 }
