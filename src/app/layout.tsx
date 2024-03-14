@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./styles.css";
 import { ReactNode } from "react";
-import ProgressBar from "./modules/page-layout/components/ProgressBar";
-import Header from "./modules/page-layout/components/Header";
-import Footer from "./modules/page-layout/components/Footer";
+import ProgressBar from "./page-layout/components/ProgressBar";
+import Header from "./page-layout/components/Header";
+import Footer from "./page-layout/components/Footer";
 import styles from "./layout.module.css";
 
 const outfit = Outfit({ subsets: ["latin"] });
