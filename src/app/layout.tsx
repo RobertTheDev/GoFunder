@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./styles.css";
 import { ReactNode } from "react";
-import PageLayout from "@/app/modules/page-layout/components/PageLayout";
+import ProgressBar from "./modules/page-layout/components/ProgressBar";
+import Header from "./modules/page-layout/components/Header";
+import Footer from "./modules/page-layout/components/Footer";
+import styles from "./layout.module.css";
 
 const outfit = Outfit({ subsets: ["latin"] });
 
@@ -23,7 +26,12 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={outfit.className}>
-                <PageLayout>{children}</PageLayout>
+                <div className={styles.pageContainer}>
+                    <ProgressBar />
+                    <Header />
+                    <main>{children}</main>
+                    <Footer />
+                </div>
             </body>
         </html>
     );
