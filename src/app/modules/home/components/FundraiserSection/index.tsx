@@ -1,5 +1,5 @@
 import { IFundraiser } from "@/app/interfaces/Fundraiser";
-import FundraiserCard from "@/app/modules/fundraiser/components/FundraiserCard";
+import FundraiserCard from "@/app/fundraisers/components/FundraiserCard";
 import styles from "./styles.module.css";
 
 async function getFundraisers() {

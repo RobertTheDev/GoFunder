@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { headers } from "next/headers";
-import FundraiserCard from "../modules/fundraiser/components/FundraiserCard";
+import FundraiserCard from "../fundraisers/components/FundraiserCard";
 import { ISavedFundraiser } from "../interfaces/SavedFundraiser";
 
 // Metadata defines the seo options for this page.

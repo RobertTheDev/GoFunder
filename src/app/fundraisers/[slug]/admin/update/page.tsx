@@ -1,4 +1,4 @@
-import UpdateFundraiserForm from "@/app/modules/fundraiser/components/UpdateFundraiserForm";
+import UpdateFundraiserForm from "@/app/fundraisers/components/UpdateFundraiserForm";
 import { Metadata } from "next";
 
 // Metadata defines the seo options for this page.

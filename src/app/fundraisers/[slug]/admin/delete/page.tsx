@@ -1,4 +1,4 @@
-import DeleteFundraiserForm from "@/app/modules/fundraiser/components/DeleteFundraiserForm";
+import DeleteFundraiserForm from "@/app/fundraisers/components/DeleteFundraiserForm";
 import { Metadata } from "next";
 
 // Metadata defines the seo options for this page.
