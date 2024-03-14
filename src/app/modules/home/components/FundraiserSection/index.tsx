@@ -1,21 +1,23 @@
-"use client";
-
 import { IFundraiser } from "@/app/interfaces/Fundraiser";
 import FundraiserCard from "@/app/modules/fundraiser/components/FundraiserCard";
-import useSWR from "swr";
 import styles from "./styles.module.css";
 
-const fetcher = (url: string) => fetch(url).then((r) => r.json());
+async function getFundraisers() {
+    const res = await fetch("http://localhost:3000/api/fundraisers");
 
-export default function FundraiserSection({ category }: { category: string }) {
-    const {
-        data: fundraisers,
-        error,
-        isLoading,
-    } = useSWR("/api/fundraisers", fetcher);
+    if (!res.ok) {
+        throw new Error("Failed to fetch data");
+    }
 
-    if (error) return <div>failed to load</div>;
-    if (isLoading) return <div>loading...</div>;
+    return res.json();
+}
+
+export default async function FundraiserSection({
+    category,
+}: {
+    category: string;
+}) {
+    const fundraisers = await getFundraisers();
 
     return (
         <div className={styles.sectionContainer}>
