@@ -3,9 +3,9 @@
 import Link from "next/link";
 import useProfileMenu from "@/app/hooks/profileMenu/useProfileMenu";
 import { usePathname, useRouter } from "next/navigation";
-import ProfileMenu from "@/app/modules/profile/components/ProfileMenu";
 import headerLinks from "./headerLinks";
 import styles from "./styles.module.css";
+import ProfileMenu from "../ProfileMenu";
 
 export default function Header() {
     const { toggleProfileMenu, profileMenuActive, profileMenuRef } =
