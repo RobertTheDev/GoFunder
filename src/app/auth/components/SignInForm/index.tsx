@@ -59,6 +59,8 @@ export default function SignInForm() {
                 )}
             </label>
 
+            <Link href="/auth/password-reset/send">Forgot password?</Link>
+
             <SubmitButton />
         </form>
     );
