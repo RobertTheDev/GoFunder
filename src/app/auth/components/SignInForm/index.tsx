@@ -1,42 +1,29 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
-import { SignInSchemaType, signInSchema } from "./signIn.schema";
+import { useFormState, useFormStatus } from "react-dom";
 import styles from "./styles.module.css";
+import signUp from "./actions";
 
-export default function SignInForm() {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm<SignInSchemaType>({
-        resolver: zodResolver(signInSchema),
-    });
-
-    async function handleSignIn(values: SignInSchemaType) {
-        await fetch("/api/auth/password/sign-in", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(values),
-            credentials: "include",
-        });
-    }
-
-    const emailReg = register("email");
-    const passwordReg = register("password");
+function SubmitButton() {
+    const { pending } = useFormStatus();
 
     return (
-        <form
-            className={styles.formContainer}
-            onSubmit={handleSubmit((values) => {
-                handleSignIn(values);
-            })}
-        >
+        <button className={styles.formButton} type="submit" disabled={pending}>
+            {pending ? "Pending" : "Sign In"}
+        </button>
+    );
+}
+
+const initialState = {
+    message: "",
+};
+
+export default function SignInForm() {
+    const [state, formAction] = useFormState(signUp, initialState);
+
+    return (
+        <form className={styles.formContainer} action={formAction}>
             <span className={styles.formTitle}>Sign in to GoFunder</span>
 
             <div className={styles.formLinkButtonGroup}>
@@ -50,18 +37,11 @@ export default function SignInForm() {
 
             <label className={styles.formLabelContainer} htmlFor="email">
                 <span className={styles.formLabelText}>Email</span>
-                <input
-                    className={styles.formInput}
-                    type="email"
-                    onChange={emailReg.onChange}
-                    onBlur={emailReg.onBlur}
-                    name={emailReg.name}
-                    ref={emailReg.ref}
-                />
-                {errors?.email && (
-                    <p className={styles.formErrorText}>
-                        {errors.email.message}
-                    </p>
+                <input className={styles.formInput} type="email" name="email" />
+                {state.errors?.email && (
+                    <span className={styles.formErrorText}>
+                        {state.errors.email[0]}
+                    </span>
                 )}
             </label>
 
@@ -70,21 +50,16 @@ export default function SignInForm() {
                 <input
                     className={styles.formInput}
                     type="password"
-                    onChange={passwordReg.onChange}
-                    onBlur={passwordReg.onBlur}
-                    name={passwordReg.name}
-                    ref={passwordReg.ref}
+                    name="password"
                 />
-                {errors?.password && (
+                {state.errors?.password && (
                     <span className={styles.formErrorText}>
-                        {errors.password.message}
+                        {state.errors.password[0]}
                     </span>
                 )}
             </label>
 
-            <button className={styles.formButton} type="submit">
-                Sign In
-            </button>
+            <SubmitButton />
         </form>
     );
 }
