@@ -30,7 +30,7 @@
     flex-direction: column;
     overflow: hidden;
     text-decoration: none;
-    min-width: 400px;
+    width: 100%;
     transition: box-shadow 0.5s;
 
     @media (prefers-color-scheme: dark) {

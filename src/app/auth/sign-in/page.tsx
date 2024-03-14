@@ -1,4 +1,4 @@
-import SignInForm from "@/app/modules/auth/components/SignInForm";
+import SignInForm from "@/app/auth/components/SignInForm";
 import { Metadata } from "next";
 
 // Metadata defines the seo options for this page.

@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useParams } from "next/navigation";
 import {
     updateFundraiserSchema,
     UpdateFundraiserSchemaType,
@@ -17,9 +18,18 @@ export default function UpdateFundraiserForm() {
         resolver: zodResolver(updateFundraiserSchema),
     });
 
-    function handleUpdateFundraiser(values: UpdateFundraiserSchemaType) {
-        // eslint-disable-next-line no-alert
-        alert(JSON.stringify(values));
+    const { slug } = useParams();
+
+    async function handleUpdateFundraiser(values: UpdateFundraiserSchemaType) {
+        await fetch(`/api/fundraisers/${slug}/update`, {
+            method: "PUT",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+            credentials: "include",
+        });
     }
 
     const nameReg = register("name");

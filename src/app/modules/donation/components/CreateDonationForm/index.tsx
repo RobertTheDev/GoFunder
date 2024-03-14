@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useParams } from "next/navigation";
 import {
     CreateDonationSchemaType,
     createDonationSchema,
@@ -17,20 +18,27 @@ export default function CreateDonationForm() {
         resolver: zodResolver(createDonationSchema),
     });
 
-    function handleCreateDonation(values: CreateDonationSchemaType) {
-        // eslint-disable-next-line no-alert
-        alert(JSON.stringify(values));
+    const { slug } = useParams();
+
+    async function handleCreateDonation(values: CreateDonationSchemaType) {
+        await fetch(`/api/donations/create/${slug}`, {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+            credentials: "include",
+        });
     }
 
     const amountReg = register("amount", { valueAsNumber: true });
-    const annonymousReg = register("annonymous");
     const messageReg = register("message");
 
     return (
         <form
             className={styles.formContainer}
             onSubmit={handleSubmit((values) => {
-                // eslint-disable-next-line no-alert
                 handleCreateDonation(values);
             })}
         >
@@ -48,23 +56,6 @@ export default function CreateDonationForm() {
                 {errors?.amount && (
                     <span className={styles.formErrorText}>
                         {errors.amount.message}
-                    </span>
-                )}
-            </label>
-
-            <label htmlFor="annonymous" className={styles.formLabelContainer}>
-                <span className={styles.formlLabelText}>Annonymous</span>
-                <input
-                    className={styles.formCheckbox}
-                    type="checkbox"
-                    onChange={annonymousReg.onChange}
-                    onBlur={annonymousReg.onBlur}
-                    name={annonymousReg.name}
-                    ref={annonymousReg.ref}
-                />
-                {errors?.annonymous && (
-                    <span className={styles.formErrorText}>
-                        {errors.annonymous.message}
                     </span>
                 )}
             </label>

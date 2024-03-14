@@ -2,6 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useParams } from "next/navigation";
 import {
     deleteFundraiserSchema,
     DeleteFundraiserSchemaType,
@@ -17,9 +18,18 @@ export default function DeleteFundraiserForm() {
         resolver: zodResolver(deleteFundraiserSchema),
     });
 
-    function handleDeleteFundraiser(values: DeleteFundraiserSchemaType) {
-        // eslint-disable-next-line no-alert
-        alert(JSON.stringify(values));
+    const { slug } = useParams();
+
+    async function handleDeleteFundraiser(values: DeleteFundraiserSchemaType) {
+        await fetch(`/api/fundraisers/${slug}/delete`, {
+            method: "DELETE",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(values),
+            credentials: "include",
+        });
     }
 
     const confirmReg = register("confirm");
@@ -28,7 +38,6 @@ export default function DeleteFundraiserForm() {
         <form
             className={styles.formContainer}
             onSubmit={handleSubmit((values) => {
-                // eslint-disable-next-line no-alert
                 handleDeleteFundraiser(values);
             })}
         >

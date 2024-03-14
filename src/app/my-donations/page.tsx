@@ -4,6 +4,9 @@
 
 import { Metadata } from "next";
 import DonationCardsLayout from "@/app/modules/donation/layouts/DonationCardsLayout";
+import { headers } from "next/headers";
+import { IDonation } from "../interfaces/Donation";
+import DonationCard from "../modules/donation/components/DonationCard";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -12,15 +15,23 @@ export const metadata: Metadata = {
 
 // The handler injects and maps donation cards with fetched user donations data.
 export default async function MyDonationsPage() {
-    // if (error) return <p>There was an error</p>;
-    // if (loading) return <p>Loading...</p>;
+    const res = await fetch(
+        `http://localhost:3000/api/donations/current-user`,
+        {
+            cache: "no-cache",
+            headers: headers(),
+        },
+    );
+
+    const donations = await res.json();
 
     return (
         <DonationCardsLayout>
-            {/* {donations.map((donation: IDonation) => (
+            {donations.data.map((donation: IDonation) => (
                 <DonationCard donation={donation} key={donation.id} />
-            ))} */}
+            ))}
             <p>Donations</p>
+            {/* <p>{JSON.stringify(donations.data)}</p> */}
         </DonationCardsLayout>
     );
 }

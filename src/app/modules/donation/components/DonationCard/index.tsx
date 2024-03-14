@@ -5,33 +5,44 @@ import Image from "next/image";
 import styles from "./styles.module.css";
 
 export default function DonationCard(params: { donation: IDonation }) {
-    const {
-        donation: { amount, message, user },
-    } = params;
+    const { donation } = params;
 
     return (
         <div className={styles.cardContainer}>
-            {/* <div>
-                <div className={styles.cardImageContainer}>
-                    <Image src={fundraiser.image} alt="dd" fill />
+            {donation.fundraiser && (
+                <div>
+                    <div className={styles.cardImageContainer}>
+                        <Image src={donation.fundraiser.image} alt="dd" fill />
+                    </div>
+                    <p>{donation.fundraiser.name}</p>
                 </div>
-                <p>{fundraiser.name}</p>
-            </div> */}
-            <div>
-                <p>£{amount.toLocaleString()}</p>
-                <p>{message}</p>
-            </div>
-            {user.image ? (
-                <Image src={user.image} alt="dd" height={120} width={120} />
-            ) : (
-                <Image
-                    src="/defaultAvatar.png"
-                    alt="dd"
-                    height={120}
-                    width={120}
-                />
             )}
-            <p>{user.username}</p>
+            {donation.user && (
+                <div>
+                    <div className={styles.cardImageContainer}>
+                        {donation.user.image ? (
+                            <Image
+                                src={donation.user.image}
+                                alt="dd"
+                                height={120}
+                                width={120}
+                            />
+                        ) : (
+                            <Image
+                                src="/defaultAvatar.png"
+                                alt="dd"
+                                height={120}
+                                width={120}
+                            />
+                        )}
+                    </div>
+                    <p>{donation.fundraiser.name}</p>
+                </div>
+            )}
+            <div>
+                <p>£{donation.amount.toLocaleString()}</p>
+                <p>{donation.message}</p>
+            </div>
         </div>
     );
 }

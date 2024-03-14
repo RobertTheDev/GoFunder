@@ -1,11 +1,5 @@
-// PURPOSE: This page fetches and displays the user'profile data.
-
-// The relevant imports required for the page.
 import { Metadata } from "next";
 import { headers } from "next/headers";
-
-// import ProfileTemplate from "@/app/modules/profile/templates/ProfileTemplate";
-// import useSession from "../hooks/session/useSession";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -20,5 +14,9 @@ export default async function ProfilePage() {
     });
     const profile = await res.json();
 
-    return <p>{JSON.stringify(profile)}</p>;
+    return (
+        <div>
+            <p>{profile.data.name}</p>
+        </div>
+    );
 }

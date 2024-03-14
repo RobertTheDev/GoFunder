@@ -3,6 +3,9 @@
 // The relevant imports required for the page.
 import { Metadata } from "next";
 import FundraiserCardsLayout from "@/app/modules/fundraiser/layouts/FundraiserCardsLayout";
+import { headers } from "next/headers";
+import { IFundraiser } from "../interfaces/Fundraiser";
+import FundraiserCard from "../modules/fundraiser/components/FundraiserCard";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -11,18 +14,25 @@ export const metadata: Metadata = {
 
 // The handler maps fundraiser cards with saved fundraiser data fetched from the API injected.
 export default async function MyFundraisersPage() {
-    // if (error) return <p>There was an error</p>;
-    // if (loading) return <p>Loading...</p>;
+    const res = await fetch(
+        `http://localhost:3000/api/fundraisers/owned-fundraisers`,
+        {
+            cache: "no-cache",
+            headers: headers(),
+        },
+    );
+
+    const ownedFundraisers = await res.json();
 
     return (
         <FundraiserCardsLayout>
             <p>My Fundraisers</p>
-            {/* {ownedFundraisers.map((ownedFundraiser: IFundraiser) => (
+            {ownedFundraisers.data.map((ownedFundraiser: IFundraiser) => (
                 <FundraiserCard
                     fundraiser={ownedFundraiser}
                     key={ownedFundraiser.id}
                 />
-            ))} */}
+            ))}
         </FundraiserCardsLayout>
     );
 }

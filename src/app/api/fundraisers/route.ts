@@ -5,9 +5,14 @@ import { StatusCodes } from "http-status-codes";
 export async function GET() {
     const fundraisers = await prismaClient.fundraiser.findMany();
 
-    return Response.json({
-        statusCode: StatusCodes.OK,
-        message: "Fundraisers found",
-        data: fundraisers,
-    });
+    return Response.json(
+        {
+            statusCode: StatusCodes.OK,
+            message: "Fundraisers found",
+            data: fundraisers,
+        },
+        {
+            status: StatusCodes.OK,
+        },
+    );
 }

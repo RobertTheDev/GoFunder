@@ -1,4 +1,4 @@
-import SignUpForm from "@/app/modules/auth/components/SignUpForm";
+import SignUpForm from "@/app/auth/components/SignUpForm";
 import { Metadata } from "next";
 
 // Metadata defines the seo options for this page.

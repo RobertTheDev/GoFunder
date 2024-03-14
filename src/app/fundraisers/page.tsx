@@ -8,17 +8,19 @@ export const metadata: Metadata = {
     title: "Fundraisers",
 };
 
-export default async function FundraisersPage() {
-    const res = await fetch(`http://localhost:3000/api/fundraisers`, {
+async function getFundraisers() {
+    const response = await fetch(`http://localhost:3000/api/fundraisers`, {
         cache: "no-cache",
     });
 
-    const fundraisers = await res.json();
+    return response.json();
+}
+
+export default async function FundraisersPage() {
+    const fundraisers = await getFundraisers();
 
     return (
         <FundraiserCardsLayout>
-            <p>Fundraisers</p>
-
             {fundraisers.data.map((fundraiser: IFundraiser) => (
                 <FundraiserCard fundraiser={fundraiser} key={fundraiser.id} />
             ))}

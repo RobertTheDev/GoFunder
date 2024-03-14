@@ -26,7 +26,7 @@ export const createFundraiserSchema = object({
     target: number({
         invalid_type_error: "Target must be of type number",
         required_error: "Target is required",
-    }).min(1, "Target cannot be 0"),
+    }).min(1333, "Target cannot be 0"),
 });
 
 // Infers the schema as a TypeScipt type.

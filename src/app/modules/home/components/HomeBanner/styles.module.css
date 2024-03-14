@@ -2,22 +2,16 @@
     width: 100%;
     display: flex;
     position: relative;
-
-    /* height: 64rem; */
-    height: 32rem;
+    height: 64rem;
 }
 
 .bannerContentContainer {
     position: absolute;
     display: flex;
     flex-direction: column;
-
-    /* margin: 6.4rem 8rem; */
-    margin: 3.2rem;
     gap: 3.2rem;
-
-    /* width: 40%; */
-    width: 90%;
+    margin: 6.4rem 8rem;
+    width: 40%;
 }
 
 .bannerButtonGroup {
@@ -30,12 +24,10 @@
 .bannerButtonPrimary {
     background-color: var(--neutral50);
     color: var(--neutral800);
-
-    /* padding: 2rem 3.2rem; */
-    padding: 1.2rem 1.6rem;
     border-radius: 3.2rem;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-weight: 500;
+    padding: 2rem 3.2rem;
     transition: 0.4s ease-in-out;
 }
 
@@ -46,14 +38,10 @@
 .bannerButtonSecondary {
     background-color: var(--primary600);
     color: white;
-
-    /* padding: 2rem 3.2rem;
     border-radius: 3.2rem;
-    font-size: 1.6rem; */
-    padding: 1.2rem 1.6rem;
-    border-radius: 3.2rem;
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-weight: 500;
+    padding: 2rem 3.2rem;
     transition: 0.4s ease-in-out;
 }
 
@@ -62,8 +50,8 @@
 }
 
 .bannerTitle {
-    /* font-size: 6.4rem; */
-    font-size: 2.4rem;
+    color: white;
+    font-size: 6.4rem;
     font-weight: 500;
     text-shadow: black 0 0 11px;
     margin: 0;

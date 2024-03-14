@@ -1,0 +1,7 @@
+.pageContainer {
+    align-items: flex-start;
+    display: flex;
+    gap: 16rem;
+    padding: 3.2rem 8rem;
+    width: 100%;
+}
