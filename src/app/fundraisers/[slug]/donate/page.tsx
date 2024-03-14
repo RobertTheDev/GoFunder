@@ -1,8 +1,8 @@
 // PURPOSE: This page displays a form for a user to donate to a fundraiser.
 
 // The relevant imports required for the page.
-import CreateDonationForm from "@/app/modules/donation/components/CreateDonationForm";
 import { Metadata } from "next";
+import CreateDonationForm from "./components/CreateDonationForm";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
