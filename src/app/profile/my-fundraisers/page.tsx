@@ -4,8 +4,8 @@
 import { Metadata } from "next";
 import FundraiserCardsLayout from "@/app/modules/fundraiser/layouts/FundraiserCardsLayout";
 import { headers } from "next/headers";
-import { IFundraiser } from "../interfaces/Fundraiser";
-import FundraiserCard from "../fundraisers/components/FundraiserCard";
+import { IFundraiser } from "../../interfaces/Fundraiser";
+import FundraiserCard from "../../fundraisers/components/FundraiserCard";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
