@@ -6,7 +6,7 @@ import { Metadata } from "next";
 import DonationCardsLayout from "@/app/modules/donation/layouts/DonationCardsLayout";
 import { headers } from "next/headers";
 import { IDonation } from "../../interfaces/Donation";
-import DonationCard from "../../modules/donation/components/DonationCard";
+import DonationCard from "../../components/donation/DonationCard";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
