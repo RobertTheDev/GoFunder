@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import FundraiserCardsLayout from "@/app/modules/fundraiser/layouts/FundraiserCardsLayout";
+import styles from "./page.module.css";
 import { IFundraiser } from "../interfaces/Fundraiser";
 import FundraiserCard from "./components/FundraiserCard";
 
@@ -20,10 +20,10 @@ export default async function FundraisersPage() {
     const fundraisers = await getFundraisers();
 
     return (
-        <FundraiserCardsLayout>
+        <div className={styles.pageContainer}>
             {fundraisers.data.map((fundraiser: IFundraiser) => (
                 <FundraiserCard fundraiser={fundraiser} key={fundraiser.id} />
             ))}
-        </FundraiserCardsLayout>
+        </div>
     );
 }
