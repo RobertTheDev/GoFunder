@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { headers } from "next/headers";
-import FundraiserCard from "../fundraisers/components/FundraiserCard";
-import { ISavedFundraiser } from "../interfaces/SavedFundraiser";
+import FundraiserCard from "../../fundraisers/components/FundraiserCard";
+import { ISavedFundraiser } from "../../interfaces/SavedFundraiser";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
