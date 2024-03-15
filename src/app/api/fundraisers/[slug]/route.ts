@@ -1,29 +1,56 @@
 import prismaClient from "@/app/api/configs/db/prisma/prismaClient";
-import { StatusCodes } from "http-status-codes";
+import CustomError from "@/app/interfaces/CustomError";
+import { ReasonPhrases, StatusCodes } from "http-status-codes";
 
 // This route gets a fundraiser by its unique ID.
 export async function GET(
     _request: Request,
     { params }: { params: { slug: string } },
 ) {
-    const { slug } = params;
+    try {
+        const { slug } = params;
 
-    const fundraiser = await prismaClient.fundraiser.findUnique({
-        include: { donations: { include: { user: true } } },
-        where: { slug },
-    });
-
-    if (!fundraiser) {
-        return Response.json({
-            statusCode: StatusCodes.NOT_FOUND,
-            message: `No fundraiser found with slug ${params.slug}`,
-            data: null,
+        const fundraiser = await prismaClient.fundraiser.findUnique({
+            include: { donations: { include: { user: true } } },
+            where: { slug },
         });
-    }
 
-    return Response.json({
-        statusCode: StatusCodes.OK,
-        message: "Fundraiser found",
-        data: fundraiser,
-    });
+        if (!fundraiser) {
+            throw new CustomError(
+                `No fundraiser found with slug ${params.slug}`,
+                StatusCodes.NOT_FOUND,
+            );
+        }
+
+        return Response.json(
+            {
+                success: true,
+                message: "Fundraiser found",
+                data: fundraiser,
+            },
+            {
+                status: StatusCodes.OK,
+            },
+        );
+    } catch (error: unknown) {
+        if (error instanceof CustomError) {
+            return Response.json(
+                {
+                    success: false,
+                    message: error.message,
+                },
+                { status: error.statusCode },
+            );
+        }
+
+        return Response.json(
+            {
+                success: false,
+                message: ReasonPhrases.INTERNAL_SERVER_ERROR,
+            },
+            {
+                status: StatusCodes.INTERNAL_SERVER_ERROR,
+            },
+        );
+    }
 }

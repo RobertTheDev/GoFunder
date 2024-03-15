@@ -3,7 +3,7 @@ import { getIronSession } from "iron-session";
 import { SessionData, sessionOptions } from "@/app/api/configs/auth/session";
 import { verifyPassword } from "@/app/api/configs/auth/passwordManagement";
 import prismaClient from "@/app/api/configs/db/prisma/prismaClient";
-import { StatusCodes } from "http-status-codes";
+import { ReasonPhrases, StatusCodes } from "http-status-codes";
 import CustomError from "@/app/interfaces/CustomError";
 import { signInWithPasswordSchema } from "./signInWithPassword.schema";
 
@@ -30,11 +30,10 @@ export async function POST(request: Request) {
         const validation = signInWithPasswordSchema.safeParse(body);
 
         if (!validation.success) {
-            return Response.json({
-                statusCode: validation.error.errors[0].code,
-                message: validation.error.errors[0].message,
-                data: null,
-            });
+            throw new CustomError(
+                validation.error.errors[0].message,
+                StatusCodes.BAD_REQUEST,
+            );
         }
 
         const { data } = validation;
@@ -47,19 +46,17 @@ export async function POST(request: Request) {
         });
 
         if (!user) {
-            return Response.json({
-                statusCode: StatusCodes.NOT_FOUND,
-                message: `User with email ${data.email} does not exist`,
-                data: null,
-            });
+            throw new CustomError(
+                "You are already signed in",
+                StatusCodes.BAD_REQUEST,
+            );
         }
 
         if (!user.password) {
-            return Response.json({
-                statusCode: StatusCodes.BAD_REQUEST,
-                message: "You are not using email and password sign up",
-                data: null,
-            });
+            throw new CustomError(
+                "You are not using email and password sign up",
+                StatusCodes.BAD_REQUEST,
+            );
         }
 
         // Step 4: Check password is correct.
@@ -69,11 +66,10 @@ export async function POST(request: Request) {
         });
 
         if (!checkPassword) {
-            return Response.json({
-                statusCode: StatusCodes.BAD_REQUEST,
-                message: "Password enetered is incorrect",
-                data: null,
-            });
+            throw new CustomError(
+                "Password entered is incorrect",
+                StatusCodes.BAD_REQUEST,
+            );
         }
 
         // Step 5: Save user ID into session.
@@ -82,23 +78,35 @@ export async function POST(request: Request) {
         await session.save();
 
         // Step 6: Return success message.
-        return Response.json({
-            statusCode: StatusCodes.OK,
-            message: "Sign in successful",
-            data: user,
-        });
+        return Response.json(
+            {
+                success: true,
+                message: "Sign in successful",
+                data: user,
+            },
+            {
+                status: StatusCodes.OK,
+            },
+        );
     } catch (error: unknown) {
         if (error instanceof CustomError) {
             return Response.json(
                 {
+                    success: false,
                     message: error.message,
                 },
                 { status: error.statusCode },
             );
         }
 
-        return Response.json({
-            statusCode: StatusCodes.INTERNAL_SERVER_ERROR,
-        });
+        return Response.json(
+            {
+                success: false,
+                message: ReasonPhrases.INTERNAL_SERVER_ERROR,
+            },
+            {
+                status: StatusCodes.INTERNAL_SERVER_ERROR,
+            },
+        );
     }
 }
