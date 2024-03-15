@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import CreateFundraiserForm from "../modules/fundraiser/components/CreateFundraiserForm";
+import CreateFundraiserForm from "../components/CreateFundraiserForm";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {

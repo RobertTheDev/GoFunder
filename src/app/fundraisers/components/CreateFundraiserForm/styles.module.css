@@ -17,8 +17,8 @@
 }
 
 .formTitle {
-    font-size: 1.8rem;
-    font-weight: 600;
+    font-size: 2rem;
+    font-weight: 500;
 }
 
 .formLabelContainer {
@@ -28,7 +28,7 @@
 }
 
 .formLabelText {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 500;
 }
 
@@ -58,7 +58,7 @@
 }
 
 .formInput {
-    border: none;
+    border: 2px solid lightgray;
     padding: 0.8rem;
     border-radius: 0.8rem;
     font-size: 1.4rem;

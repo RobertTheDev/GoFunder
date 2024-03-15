@@ -11,8 +11,8 @@
 
     @media (width >=1024px) {
         flex-direction: row;
-        gap: 6.4rem;
-        padding: 2.4rem 3.2rem;
+        gap: 3.2rem;
+        padding: 1.6rem 3.2rem;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -46,12 +46,12 @@
 
     @media (width >=1024px) {
         flex-direction: row;
-        gap: 6.4rem;
+
     }
 }
 
 .footerLinkText {
-    color: var(--neutral900);
+    color: var(--neutral800);
     font-size: 1.4rem;
     font-weight: 400;
     text-decoration: none;

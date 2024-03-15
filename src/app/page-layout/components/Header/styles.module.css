@@ -1,17 +1,19 @@
 .headerContainer {
     align-items: center;
     background-color: white;
-    box-shadow: var(--shadow-md);
     display: flex;
     justify-content: space-between;
-    padding: 1.6rem 2.4rem;
+    padding: 1.8rem 2.4rem;
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 22;
+    box-sizing: border-box;
+    overflow: hidden;
+    max-height: 8rem;
 
     @media (width >=1024px) {
-        padding: 1.6rem 8rem;
+        padding: 2.4rem 8rem;
     }
 
     @media (prefers-color-scheme: dark) {
@@ -45,7 +47,7 @@
 .headerLinkMenu {
     align-items: center;
     display: none;
-    gap: 4rem;
+    gap: 3.2rem;
 
     @media (width >=1024px) {
         display: flex;
@@ -54,7 +56,7 @@
 
 .headerLogo {
     color: var(--primary600);
-    font-size: 2.4rem;
+    font-size: 2.2rem;
     font-weight: 600;
     text-decoration: none;
 }
@@ -64,36 +66,24 @@
     height: 4.8rem;
     object-fit: cover;
     width: 4.8rem;
+
 }
 
 .headerContentContainer {
     align-items: center;
     display: flex;
-    gap: 4rem;
+    gap: 3.2rem;
 }
 
-.headerSignInButton {
-    background-color: var(--neutral50);
-    color: white;
-    color: var(--neutral800);
-    border-radius: 3.2rem;
-    font-size: 1.6rem;
-    font-weight: 400;
-    padding: 1.6rem 4.8rem;
-    transition: 0.4s ease-in-out;
-}
 
-.headerSignInButton:hover {
-    background-color: var(--neutral100);
-}
 
 .headerSignUpButton {
     background-color: var(--primary600);
     color: white;
-    border-radius: 3.2rem;
+    border-radius: 10rem;
     font-size: 1.6rem;
     font-weight: 400;
-    padding: 1.6rem 4.8rem;
+    padding: 1.8rem 3.2rem;
     transition: 0.4s ease-in-out;
 }
 

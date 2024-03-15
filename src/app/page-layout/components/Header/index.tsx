@@ -38,13 +38,9 @@ export default function Header() {
                 </nav>
             </div>
             <div className={styles.headerControlsContainer}>
-                <button
-                    className={styles.headerSignUpButton}
-                    type="button"
-                    onClick={() => router.push("/auth/sign-in")}
-                >
+                {/* <Link href="/auth/sign-in" className={styles.headerLinkText}>
                     Sign In
-                </button>
+                </Link> */}
 
                 <input
                     type="image"
