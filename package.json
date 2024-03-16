@@ -2,6 +2,7 @@
     "name": "gofunder",
     "version": "0.1.0",
     "private": true,
+    "type": "module",
     "scripts": {
         "n": "ts-node --transpile-only --compiler-options '{\"module\":\"CommonJS\"}' ./src/app/api/graphql/schema",
         "build": "npm run build:nexus-typegen && next build",
@@ -16,6 +17,7 @@
         "lint-staged": "lint-staged",
         "prepare": "husky install",
         "start": "next start",
+        "test": "vitest",
         "test:e2e": "npx playwright test"
     },
     "config": {
@@ -67,6 +69,7 @@
     "devDependencies": {
         "@commitlint/cli": "^18.6.1",
         "@commitlint/config-conventional": "^18.6.2",
+        "@testing-library/react": "^14.2.1",
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",
@@ -86,12 +89,14 @@
         "eslint-plugin-simple-import-sort": "^12.0.0",
         "eslint-plugin-sonarjs": "^0.24.0",
         "husky": "^8.0.0",
+        "jsdom": "^24.0.0",
         "lint-staged": "^15.2.2",
         "prettier": "^3.2.5",
         "prisma": "^5.10.2",
         "stylelint": "^16.2.1",
         "stylelint-config-standard": "^36.0.0",
         "ts-node": "^10.9.2",
-        "typescript": "^5"
+        "typescript": "^5",
+        "vitest": "^1.4.0"
     }
 }
