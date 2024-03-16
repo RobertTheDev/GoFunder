@@ -13,6 +13,11 @@
     right: 8rem;
     top: 9.6rem;
     width: 32rem;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: var(--slate-900);
+        color: var(--slate-300);
+    }
 }
 
 .menuTitle {
@@ -32,6 +37,11 @@
     justify-content: center;
     padding: 1.6rem;
     width: 100%;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: var(--slate-800);
+        color: var(--slate-300);
+    }
 }
 
 .menuLinkContainer {

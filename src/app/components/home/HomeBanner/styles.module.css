@@ -22,8 +22,8 @@
 }
 
 .bannerButtonPrimary {
-    background-color: var(--neutral50);
-    color: var(--neutral800);
+    background-color: var(--slate-700);
+    color: #f1f5f9;
     border-radius: 3.2rem;
     font-size: 1.6rem;
     font-weight: 400;
@@ -32,11 +32,11 @@
 }
 
 .bannerButtonPrimary:hover {
-    background-color: var(--neutral100);
+    background-color: var(--slate-800);
 }
 
 .bannerButtonSecondary {
-    background-color: var(--primary600);
+    background-color: var(--green-700);
     color: white;
     border-radius: 3.2rem;
     font-size: 1.6rem;
@@ -46,7 +46,7 @@
 }
 
 .bannerButtonSecondary:hover {
-    background-color: var(--primary700);
+    background-color: var(--green-800);
 }
 
 .bannerTitle {
@@ -55,6 +55,11 @@
     font-weight: 500;
     text-shadow: black 0 0 11px;
     margin: 0;
+
+    color: #0f172a;
+    text-shadow: white 0 0 11px;
+
+
 
     @media (prefers-color-scheme: dark) {
         color: black;

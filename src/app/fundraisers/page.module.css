@@ -1,9 +1,14 @@
 .pageContainer {
+    background-color: var(--slate-100);
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 2.4rem;
     padding: 2.4rem;
     width: 100%;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: var(--slate-950);
+    }
 
     @media (width >=640px) {
         gap: 2.4rem;

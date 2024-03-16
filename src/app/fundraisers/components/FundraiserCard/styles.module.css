@@ -34,7 +34,8 @@
     transition: box-shadow 0.5s;
 
     @media (prefers-color-scheme: dark) {
-        background-color: var(--neutral900);
+        background-color: var(--slate-900);
+        color: var(--slate-200);
     }
 }
 
@@ -43,9 +44,9 @@
 }
 
 .cardButton {
-    background-color: var(--primary600);
+    background-color: var(--green-600);
     border-radius: 3.2rem;
-    color: white;
+    color: var(--green-50);
     font-size: 1.4rem;
     font-weight: 500;
     padding: 1.6rem;
@@ -66,21 +67,16 @@
     width: 100%;
 }
 
-.cardProgressContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    width: 100%;
-}
+
 
 .cardProgressLine {
-    background-color: var(--primary600);
+    background-color: var(--green-600);
     height: 100%;
     position: absolute;
 }
 
 .cardProgressLineContainer {
-    background-color: var(--primary50);
+    background-color: var(--green-50);
     border-radius: 4px;
     height: 4px;
     overflow: hidden;
@@ -89,34 +85,35 @@
 }
 
 .cardProgressText {
-    color: var(--neutral900);
     font-size: 1.4rem;
     font-weight: 400;
     margin: 0;
-
-    @media (prefers-color-scheme: dark) {
-        color: var(--neutral300);
-    }
 }
 
 .cardTitle {
-    color: var(--neutral900);
     font-size: 1.8rem;
     font-weight: 500;
     margin: 0;
-
-    @media (prefers-color-scheme: dark) {
-        color: var(--neutral300);
-    }
 }
 
-/* .cardTitleContainer {} */
+.cardTitleContainer {
+    flex: 1;
+}
+
+.cardProgressContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+
+}
 
 .cardContentContainer {
     display: flex;
+    flex: 1;
     flex-direction: column;
-    gap: 3.2rem;
+    gap: 2.4rem;
     padding: 1.6rem;
     width: 100%;
-    background-color: white;
+
 }

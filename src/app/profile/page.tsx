@@ -16,6 +16,7 @@ export default async function ProfilePage() {
 
     return (
         <div>
+            <h1>Profile</h1>
             <p>{profile.data.name}</p>
         </div>
     );

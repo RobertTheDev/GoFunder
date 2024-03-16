@@ -1,26 +1,38 @@
 :root {
-    --neutral50: #eceff4;
-    --neutral100: #dadde0;
-    --neutral200: #e2e8f0;
-    --neutral300: #c8cdd0;
-    --neutral400: #919aa1;
-    --neutral500: #6c7981;
-    --neutral600: #475762;
-    --neutral700: #323d45;
-    --neutral800: #1c2327;
-    --neutral900: #0e1114;
-    --neutral950: #07090a;
-    --primary50: #e6f7f2;
-    --primary100: #ccefe5;
-    --primary200: #b3e6d8;
-    --primary300: #80d6be;
-    --primary400: #4dc6a3;
-    --primary500: #22c55e;
-    --primary600: #00ad7c;
-    --primary700: #009c70;
-    --primary800: #007957;
-    --primary900: #004532;
-    --primary950: #002319;
+    --green-50: #e6f7f2;
+    --green-100: #ccefe5;
+    --green-200: #b3e6d8;
+    --green-300: #80d6be;
+    --green-400: #4dc6a3;
+    --green-500: #22c55e;
+    --green-600: #00ad7c;
+    --green-700: #009c70;
+    --green-800: #007957;
+    --green-900: #004532;
+    --green-950: #002319;
+    --neutral-50: #fafafa;
+    --neutral-100: #f5f5f5;
+    --neutral-200: #e5e5e5;
+    --neutral-300: #d4d4d4;
+    --neutral-400: #a3a3a3;
+    --neutral-500: #737373;
+    --neutral-600: #525252;
+    --neutral-700: #404040;
+    --neutral-800: #262626;
+    --neutral-900: #171717;
+    --neutral-950: #0a0a0a;
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-300: #cbd5e1;
+    --slate-400: #94a3b8;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-800: #1e293b;
+    --slate-900: #0f172a;
+    --slate-950: #020617;
+
 
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
@@ -201,12 +213,11 @@ q::after {
 
 /* Set core body defaults */
 body {
-    background-color: var(--neutral50);
     line-height: 1.5;
     min-height: 100vh;
 
     @media (prefers-color-scheme: dark) {
-        background-color: var(--neutral950);
+        background-color: var(--slate-950);
     }
 }
 
@@ -347,21 +358,38 @@ h1 {
     color: var(--neutral950);
     font-size: 1.6rem;
 
+
     @media (prefers-color-scheme: dark) {
-        color: var(--neutral200);
+        color: var(--slate-300);
+    }
+}
+
+h1 {
+    @media (prefers-color-scheme: dark) {
+        color: var(--slate-300);
     }
 }
 
 h2 {
+    color: var(--slate200);
     display: block;
     font-size: 1.5em;
     font-weight: bold;
     margin: 0.83em 0;
+
+    @media (prefers-color-scheme: dark) {
+        color: var(--slate-300);
+    }
 }
 
 p {
     display: block;
     margin: 1em 0;
+
+
+    @media (prefers-color-scheme: dark) {
+        color: var(--slate-300);
+    }
 }
 
 ul {
@@ -369,6 +397,10 @@ ul {
     list-style-type: disc;
     margin: 1em 0;
     padding-left: 40px;
+
+    @media (prefers-color-scheme: dark) {
+        color: var(--slate-300);
+    }
 }
 
 ol {

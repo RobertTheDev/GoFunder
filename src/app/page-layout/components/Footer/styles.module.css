@@ -1,7 +1,6 @@
 .footerContainer {
     align-items: center;
     background-color: white;
-    border-top: 1px solid var(--neutral100);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,16 +11,17 @@
     @media (width >=1024px) {
         flex-direction: row;
         gap: 3.2rem;
-        padding: 1.6rem 3.2rem;
+        padding: 2.4rem 3.2rem;
     }
 
     @media (prefers-color-scheme: dark) {
-        background-color: var(--neutral900);
+        background-color: var(--slate-900);
+        color: var(--slate-300);
     }
 }
 
 .footerCopyrightText {
-    color: var(--neutral900);
+    color: var(--neutral-700);
     font-size: 1.4rem;
     font-weight: 400;
 
@@ -51,13 +51,12 @@
 }
 
 .footerLinkText {
-    color: var(--neutral800);
     font-size: 1.4rem;
     font-weight: 400;
     text-decoration: none;
 
     @media (prefers-color-scheme: dark) {
-        color: var(--neutral50);
+        color: var(--slate-300);
     }
 }
 

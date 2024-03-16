@@ -10,13 +10,13 @@
     width: 28rem;
 
     @media (prefers-color-scheme: dark) {
-        background-color: var(--neutral900);
+        background-color: var(--slate-900);
     }
 }
 
 .menuLinkActive {
-    color: var(--primary600);
-    font-size: 1.4rem;
+    color: var(--green-600);
+    font-size: 1.6rem;
     font-weight: 400;
     text-decoration: none;
 }
@@ -29,7 +29,7 @@
 
 .menuLinkText {
     color: inherit;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     text-decoration: none;
     font-weight: 400;
     margin: 0;
@@ -41,7 +41,7 @@
 }
 
 .menuTitle {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 500;
     line-height: 2.8rem;
     margin: 0;

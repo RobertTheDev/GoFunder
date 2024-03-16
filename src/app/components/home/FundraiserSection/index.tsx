@@ -3,7 +3,9 @@ import FundraiserCard from "@/app/fundraisers/components/FundraiserCard";
 import styles from "./styles.module.css";
 
 async function getFundraisers() {
-    const res = await fetch("http://localhost:3000/api/fundraisers");
+    const res = await fetch("http://localhost:3000/api/fundraisers", {
+        cache: "no-cache",
+    });
 
     if (!res.ok) {
         throw new Error("Failed to fetch data");

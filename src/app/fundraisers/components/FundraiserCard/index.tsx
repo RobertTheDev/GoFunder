@@ -72,7 +72,7 @@ export default function FundraiserCard({
                         )}
                     </p>
                 </div>
-                {pathName === "/my-fundraisers" && (
+                {/* {pathName === "/my-fundraisers" && (
                     <div>
                         {id ? (
                             <button
@@ -91,7 +91,7 @@ export default function FundraiserCard({
                             <Skeleton className={styles.cardButton} />
                         )}
                     </div>
-                )}
+                )} */}
             </div>
         </Link>
     );
