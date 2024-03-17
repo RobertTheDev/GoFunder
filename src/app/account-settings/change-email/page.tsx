@@ -1,5 +1,5 @@
-import ChangeEmailForm from "@/app/account-settings/components/ChangeEmailForm";
 import { Metadata } from "next";
+import ChangeEmailForm from "../components/ChangeEmailForm";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 
 // This handler returns a form to change a user's email address.
 export default function ChangeEmailPage() {
-    return <ChangeEmailForm />;
+    return <ChangeEmailForm data-testid="change-email-form" />;
 }
