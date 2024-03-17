@@ -1,0 +1,84 @@
+.successContainer {
+    align-items: center;
+    background-color: #10b981;
+    border-radius: 0.8rem;
+    display: flex;
+    gap: 1.6rem;
+    margin-bottom: 1.6rem;
+    padding: 0 1.6rem;
+}
+
+.successIcon {
+    color: #ecfdf5;
+    font-size: 2.8rem;
+}
+
+.successText {
+    color: #ecfdf5;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.warningContainer {
+    align-items: center;
+    background-color: #f59e0b;
+    border-radius: 0.8rem;
+    display: flex;
+    gap: 1.6rem;
+    margin-bottom: 1.6rem;
+    padding: 0 1.6rem;
+}
+
+.warningIcon {
+    color: #fffbeb;
+    font-size: 2.8rem;
+}
+
+.warningText {
+    color: #fffbeb;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.dangerContainer {
+    align-items: center;
+    background-color: #f43f5e;
+    border-radius: 0.8rem;
+    display: flex;
+    gap: 1.6rem;
+    margin-bottom: 1.6rem;
+    padding: 0 1.6rem;
+}
+
+.dangerIcon {
+    color: #fef2f2;
+    font-size: 2.8rem;
+}
+
+.dangerText {
+    color: #fef2f2;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.infoContainer {
+    align-items: center;
+    background-color: #3b82f6;
+    border-radius: 0.8rem;
+    display: flex;
+    gap: 1.6rem;
+    justify-content: center;
+    margin-bottom: 1.6rem;
+    padding: 0 1.6rem;
+}
+
+.infoIcon {
+    color: #eff6ff;
+    font-size: 2.8rem;
+}
+
+.infoText {
+    color: #eff6ff;
+    font-size: 1.6rem;
+    font-weight: 400;
+}
