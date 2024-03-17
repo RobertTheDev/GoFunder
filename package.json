@@ -18,6 +18,9 @@
         "prepare": "husky install",
         "start": "next start",
         "test": "vitest",
+        "test:watch": "vitest --watch",
+        "test:ui": "vitest --ui",
+        "test:coverage": "vitest --coverage",
         "test:e2e": "npx playwright test"
     },
     "config": {
@@ -69,10 +72,12 @@
     "devDependencies": {
         "@commitlint/cli": "^18.6.1",
         "@commitlint/config-conventional": "^18.6.2",
+        "@testing-library/jest-dom": "^6.4.2",
         "@testing-library/react": "^14.2.1",
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",
+        "@types/testing-library__jest-dom": "^6.0.0",
         "@typescript-eslint/eslint-plugin": "^7.0.2",
         "commitizen": "^4.3.0",
         "cz-conventional-changelog": "^3.3.0",
@@ -89,6 +94,7 @@
         "eslint-plugin-simple-import-sort": "^12.0.0",
         "eslint-plugin-sonarjs": "^0.24.0",
         "husky": "^8.0.0",
+        "jest-extended": "^4.0.2",
         "jsdom": "^24.0.0",
         "lint-staged": "^15.2.2",
         "prettier": "^3.2.5",
