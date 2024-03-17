@@ -32,6 +32,11 @@
     --slate-800: #1e293b;
     --slate-900: #0f172a;
     --slate-950: #020617;
+    --screen-sm: 640px;
+    --screen-md: 768px;
+    --screen-lg: 1024px;
+    --screen-xl: 1280px;
+    --screen-2xl: 1536px;
 
 
     /* Shadows */
@@ -316,6 +321,10 @@ h1 {
     line-height: 1.2;
     margin: 0.67em 0;
     font-weight: bold;
+
+    @media (prefers-color-scheme: dark) {
+        color: var(--slate-300);
+    }
 }
 
 .loader {
@@ -364,11 +373,7 @@ h1 {
     }
 }
 
-h1 {
-    @media (prefers-color-scheme: dark) {
-        color: var(--slate-300);
-    }
-}
+
 
 h2 {
     color: var(--slate200);
