@@ -1,5 +1,5 @@
-import { Metadata } from "next";
 import FundraiserOverview from "@/app/fundraisers/components/FundraiserOverview";
+import { Metadata } from "next";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {

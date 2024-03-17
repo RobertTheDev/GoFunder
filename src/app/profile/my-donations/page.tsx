@@ -3,7 +3,6 @@
 // The relevant imports required for the page.
 
 import { Metadata } from "next";
-import DonationCardsLayout from "@/app/modules/donation/layouts/DonationCardsLayout";
 import { headers } from "next/headers";
 import { IDonation } from "../../interfaces/Donation";
 import DonationCard from "../../components/donation/DonationCard";
@@ -26,12 +25,10 @@ export default async function MyDonationsPage() {
     const donations = await res.json();
 
     return (
-        <DonationCardsLayout>
+        <>
             {donations.data.map((donation: IDonation) => (
                 <DonationCard donation={donation} key={donation.id} />
             ))}
-            <p>Donations</p>
-            {/* <p>{JSON.stringify(donations.data)}</p> */}
-        </DonationCardsLayout>
+        </>
     );
 }

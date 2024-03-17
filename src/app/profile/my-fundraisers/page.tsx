@@ -2,10 +2,10 @@
 
 // The relevant imports required for the page.
 import { Metadata } from "next";
-import FundraiserCardsLayout from "@/app/modules/fundraiser/layouts/FundraiserCardsLayout";
 import { headers } from "next/headers";
 import { IFundraiser } from "../../interfaces/Fundraiser";
 import FundraiserCard from "../../fundraisers/components/FundraiserCard";
+import FundraiserCardsLayout from "../saved-fundraisers/layout";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {

@@ -1,5 +1,5 @@
-import SignUpForm from "@/app/auth/components/SignUpForm";
 import { Metadata } from "next";
+import SignUpForm from "../components/SignUpForm";
 
 // Metadata defines the seo options for this page.
 export const metadata: Metadata = {
