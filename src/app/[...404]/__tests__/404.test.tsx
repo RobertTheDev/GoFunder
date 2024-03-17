@@ -9,7 +9,7 @@ describe("Not found page", () => {
         });
     });
 
-    it("displays correct title", () => {
+    it("should display an h1 with the correct page title", () => {
         render(<NotFoundPage />);
         expect(
             screen.getByText("404 - Not Found", { selector: "h1" }),
