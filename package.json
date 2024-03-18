@@ -4,8 +4,7 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "n": "ts-node --transpile-only --compiler-options '{\"module\":\"CommonJS\"}' ./src/app/api/graphql/schema",
-        "build": "npm run build:nexus-typegen && next build",
+        "build": "next build",
         "commit": "git-cz",
         "dev": "next dev",
         "dev:email": "email dev",
