@@ -38,7 +38,6 @@
     --screen-xl: 1280px;
     --screen-2xl: 1536px;
 
-
     /* Shadows */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 5%);
     --shadow: 0 1px 3px 0 rgb(0 0 0 / 10%), 0 1px 2px -1px rgb(0 0 0 / 10%);
@@ -367,13 +366,10 @@ h1 {
     color: var(--neutral950);
     font-size: 1.6rem;
 
-
     @media (prefers-color-scheme: dark) {
         color: var(--slate-300);
     }
 }
-
-
 
 h2 {
     color: var(--slate200);
@@ -390,7 +386,6 @@ h2 {
 p {
     display: block;
     margin: 1em 0;
-
 
     @media (prefers-color-scheme: dark) {
         color: var(--slate-300);

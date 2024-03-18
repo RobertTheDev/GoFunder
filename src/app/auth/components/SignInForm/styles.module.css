@@ -76,7 +76,9 @@
 
 .formButton {
     background-color: black;
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.19);
+    box-shadow:
+        0 2px 4px 0 rgba(0, 0, 0, 0.2),
+        0 3px 5px 0 rgba(0, 0, 0, 0.19);
     color: white;
     padding: 0.8rem;
     border-radius: 0.8rem;

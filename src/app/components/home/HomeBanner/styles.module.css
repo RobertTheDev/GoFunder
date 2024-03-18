@@ -59,8 +59,6 @@
     color: #0f172a;
     text-shadow: white 0 0 11px;
 
-
-
     @media (prefers-color-scheme: dark) {
         color: black;
         text-shadow: white 0 0 11px;

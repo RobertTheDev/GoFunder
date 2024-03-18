@@ -54,7 +54,6 @@
     padding: 0.8rem;
     width: 100%;
 
-
     @media (prefers-color-scheme: dark) {
         background-color: var(--slate-700);
         border: 2px solid var(--slate-900);

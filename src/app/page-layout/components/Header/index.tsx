@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import useProfileMenu from "@/app/hooks/profileMenu/useProfileMenu";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import headerLinks from "./headerLinks";
 import styles from "./styles.module.css";
 import ProfileMenu from "../ProfileMenu";
@@ -10,8 +10,6 @@ import ProfileMenu from "../ProfileMenu";
 export default function Header() {
     const { toggleProfileMenu, profileMenuActive, profileMenuRef } =
         useProfileMenu();
-
-    const router = useRouter();
 
     const pathName = usePathname();
 
