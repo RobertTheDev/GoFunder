@@ -1,6 +1,7 @@
 .headerContainer {
     align-items: center;
     background-color: white;
+    box-shadow: var(--shadow-md);
     display: flex;
     justify-content: space-between;
     padding: 1.8rem 2.4rem;

@@ -10,7 +10,21 @@ function SubmitButton() {
 
     return (
         <button className={styles.formButton} type="submit" disabled={pending}>
-            {pending ? "Pending" : "Sign Up"}
+            {/* {!pending ? "Pending" : "Sign Up"} */}
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 8,
+                }}
+            >
+                <div className={styles.loading}>
+                    <span className={styles.loadingDot} />
+                    <span className={styles.loadingDot} />
+                    <span className={styles.loadingDot} />
+                </div>
+                <p style={{ margin: 0, padding: 0 }}>Pending</p>
+            </div>
         </button>
     );
 }
