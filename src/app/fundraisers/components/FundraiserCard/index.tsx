@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { MdManageAccounts } from "react-icons/md";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import { IFundraiser } from "@/app/interfaces/Fundraiser";
@@ -14,11 +13,9 @@ export default function FundraiserCard({
 }: {
     fundraiser: IFundraiser;
 }) {
-    const { id, image, name, slug, totalRaised, target } = fundraiser;
+    const { image, name, slug, totalRaised, target } = fundraiser;
 
     const pathName = usePathname();
-
-    const router = useRouter();
 
     return (
         <Link

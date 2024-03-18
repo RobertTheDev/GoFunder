@@ -1,10 +1,10 @@
-import styles from "./styles.module.css";
 import {
     PiSealCheckBold,
     PiShieldWarningBold,
     PiWarningBold,
     PiInfoBold,
 } from "react-icons/pi";
+import styles from "./styles.module.css";
 
 export function DangerSnackbar() {
     return (
